@@ -1,0 +1,70 @@
+.preject{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+    /* width: 50%; */
+    max-width: 1200px;
+    height: 300px;
+    /* padding: 70px 20px; */
+    border-radius: 8px;
+    background: url(../../../../../public/assets/img/postpreject.jpg);
+    object-fit: fill;
+    color: #fff;
+    text-align: center;
+}
+
+.preject-title p{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: yellow;
+    max-width: 500px;
+}
+
+.project-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.get-started{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    width: 75%;
+    margin: 40px auto 40px auto;
+    border-radius: 10px;
+    background-color: #4a90e2;
+    padding: 30px 20px;
+    /* text-align: center; */
+}
+
+.get-started p{
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.ui-button button{
+    background-color: white;
+    color: #4a90e2;
+    padding: 15px 25px;
+    border-radius: 5px ;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+}
+
+.ui-button button:hover{
+    background-color: #ffd700;
+    color: black;
+}

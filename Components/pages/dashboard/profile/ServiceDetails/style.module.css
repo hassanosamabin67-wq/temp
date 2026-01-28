@@ -1,0 +1,281 @@
+.servicePageContainer {
+    background-color: white;
+    min-height: 100vh;
+    padding: 20px 40px;
+}
+
+.serviceHeader {
+    background-color: white;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    border-bottom: 1px solid #dddddd;
+}
+
+.serviceInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.serviceName {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.serviceTagLine {
+    font-size: 20px;
+    font-weight: 500;
+    color: #323232;
+}
+
+.serviceProviderDetail {
+    display: flex;
+    gap: 10px;
+}
+
+.userInfoDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 17px;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.userName {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.userCountry {
+    font-size: 12px;
+    color: #404040;
+}
+
+.userTagLine {
+    font-size: 12px;
+    color: #545454;
+    font-weight: 500;
+}
+
+.userSkillsTags {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.viewProfileBtn {
+    width: 50%;
+}
+
+.profileSkillsTagDiv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.profileSkillTags {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+    color: #888888;
+    background: #f5f5f5;
+    border-color: #dbdbdb;
+}
+
+/* Main Content */
+
+.mainContent {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    justify-content: center;
+    padding: 15px 0px;
+    gap: 15px;
+}
+
+.leftContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 940px;
+}
+
+.subHeading {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    color: #333333;
+}
+
+.thumbnailCarousel {
+    display: flex;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 900px !important;
+    height: 500px !important;
+}
+
+.thumbnail :global(.slick-list) {
+    width: 900px !important;
+    height: 500px !important;
+    border-radius: 10px;
+}
+
+.thumbnailImg {
+    width: 900px !important;
+    height: 500px !important;
+}
+
+.serviceContentDiv {
+    margin: 5px 0px;
+    padding: 20px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.serviceDescription {
+    font-size: 15px;
+    font-weight: 500;
+    word-break: break-all;
+    color: #464646;
+}
+
+.faqQuestion {
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.faqAnswer {
+    font-weight: 600;
+    font-size: 16px;
+    color: #3c3c3c;
+    padding: 0px 30px !important;
+}
+
+.testimonialDiv {
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.rightContent {
+    position: sticky;
+    top: 12%;
+    height: 630px;
+}
+
+.rightContentSecond {
+    margin-top: 10px;
+}
+
+.requestQuoteBtn {
+    font-weight: bold;
+    width: 100%;
+    padding: 20px;
+}
+
+.portfolioSampleGrid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.thumbnailVideo {
+    height: auto !important;
+    width: 100% !important;
+}
+
+.rightContentMobile {
+    display: none;
+}
+
+@media screen and (max-width:1024px) {
+    .mainContent {
+        display: block;
+    }
+
+    .thumbnailCarousel {
+        display: block;
+    }
+
+    .thumbnail {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .thumbnail :global(.slick-list) {
+        height: auto !important;
+        width: 100% !important;
+    }
+
+    .thumbnailImg {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .serviceHeader {
+        grid-template-columns: 60% 40%;
+    }
+
+    .servicePageContainer {
+        padding: 20px;
+    }
+
+    .rightContentMobile {
+        display: block;
+        position: static;
+        height: auto;
+    }
+
+    .rightContentBig {
+        display: none;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .serviceContentDiv {
+        padding: 30px 0 0 0px;
+    }
+
+    .testimonialDiv {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .servicePageContainer {
+        padding: 20px 15px;
+    }
+
+    .serviceHeader {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .serviceName {
+        font-size: 30px;
+    }
+
+    .serviceTagLine {
+        font-size: 15px;
+    }
+
+    .viewProfileBtn {
+        width: 100% !important;
+    }
+}

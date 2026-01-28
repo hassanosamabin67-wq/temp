@@ -1,0 +1,79 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paymentSuccessCard {
+    min-width: 600px !important;
+    min-height: 650px !important;
+}
+
+.paymentSuccessCard :global(.ant-card-body) {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    justify-content: space-between !important;
+}
+
+.paymentDetailCard :global(.ant-card-body) {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0px !important;
+}
+
+.successIconSpan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.successIcon {
+    font-size: 35px;
+    color: #02ba02;
+}
+
+.successHeader {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.successHeading {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.successDesc {
+    font-size: 13px;
+    font-weight: 500;
+    color: #c0c0c0;
+}
+
+.detailInfo {
+    border-bottom: 1px solid #cccccc;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detailKey {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.detailValue {
+    font-size: 13px;
+    font-weight: 500;
+    color: #565656;
+}
+
+.redirectBtn {
+    font-weight: 600;
+    font-size: 15px;
+    padding: 20px;
+}

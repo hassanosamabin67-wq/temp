@@ -1,0 +1,137 @@
+.rightComp {
+    position: relative;
+    background-color: #1a1a1a;
+    padding: 15px 10px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    max-height: 100%;
+    overflow: auto;
+    z-index: 10;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* Webkit scrollbar styles for right-content */
+.rightComp::-webkit-scrollbar {
+    width: 6px;
+}
+
+.rightComp::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.rightComp::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+/* Show scrollbar on hover */
+.rightComp:hover {
+    scrollbar-color: rgba(100, 100, 100, 0.6) transparent;
+}
+
+.rightComp:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.6);
+}
+
+.chatSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatHeader {
+    padding: 16px 20px;
+    border-bottom: 1px solid #333;
+    background: #2a2a2a;
+}
+
+.chatTitle {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.chatContainer {
+    flex: 1;
+    min-height: 0;
+}
+
+.chatBoxContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background: #1a1a1a;
+    margin-top: 5px;
+}
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+    .rightComp {
+        padding: 12px 8px;
+    }
+
+    .chatHeader {
+        padding: 12px 15px;
+    }
+
+    .chatTitle {
+        font-size: 13px;
+    }
+}
+
+/* Small Tablet */
+@media (max-width: 900px) {
+    .rightComp {
+        padding: 10px 6px;
+    }
+
+    .chatHeader {
+        padding: 10px 12px;
+    }
+
+    .chatTitle {
+        font-size: 12px;
+    }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+    .rightComp {
+        padding: 15px 10px;
+        border-radius: 0;
+        height: 100%;
+    }
+
+    .chatHeader {
+        padding: 14px 18px;
+    }
+
+    .chatTitle {
+        font-size: 14px;
+    }
+
+    .chatBoxContent {
+        height: 80%;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .rightComp {
+        padding: 10px 8px;
+    }
+
+    .chatHeader {
+        padding: 12px 15px;
+    }
+
+    .chatTitle {
+        font-size: 13px;
+    }
+}

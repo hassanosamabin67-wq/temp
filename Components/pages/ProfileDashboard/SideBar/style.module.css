@@ -1,0 +1,193 @@
+.sidebar {
+    max-width: 290px;
+    overflow: hidden;
+    border-right: 1px solid #e5e7eb;
+    background-color: white;
+    transition: width 0.2s ease-in-out;
+}
+
+.sidebarContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2.5rem 7px 2.5rem 25px;
+}
+
+.toggleSidebarBtn {
+    position: absolute;
+    top: 0.2%;
+    left: 1%;
+    z-index: 10;
+}
+
+.desktop {
+    position: sticky;
+    top: 8%;
+    height: 100vh;
+}
+
+.mobile {
+    position: fixed;
+    top: 5%;
+    bottom: 0;
+    z-index: 50;
+}
+
+.open {
+    width: 100%;
+}
+
+.closed {
+    width: 0;
+}
+
+.mobileOverlay {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+}
+
+.closeButton {
+    position: absolute;
+    left: 75%;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.navWrapper {
+    margin-top: 18px;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 12px;
+}
+
+.section {
+    margin-bottom: 24px;
+}
+
+.sectionLabel {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4B5563;
+}
+
+.menuList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menuItem {
+    display: flex;
+    border-radius: 8px;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+    padding: 12px 15px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.menuItem:hover {
+    background-color: #f4f4f4;
+}
+
+.menuActiveLink {
+    background-color: rgba(87, 80, 241, 0.07) !important;
+    color: #5750f1;
+}
+
+.menuLinkUrl {
+    color: #000;
+    font-size: 14px;
+    width: 100%;
+    font-weight: 600;
+}
+
+.menuLinkUrl:hover {
+    color: #000;
+}
+
+.menuActiveLinkUrl {
+    color: #5750f1;
+    background-color: rgba(87, 80, 241, 0.07);
+}
+
+.menuButton {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+}
+
+.chevronIcon {
+    margin-left: auto;
+    transition: transform 0.2s ease;
+}
+
+.chevronCollapsed {
+    transform: rotate(180deg);
+}
+
+.chevronExpanded {
+    transform: rotate(0deg);
+}
+
+/* Sub-menu list */
+.subMenuList {
+    margin-left: 36px;
+    margin-top: 4px;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Sub-menu items */
+.subMenuItem {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 8px;
+    color: #000;
+    margin-bottom: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.subMenuActiveLink {
+    background-color: rgba(87, 80, 241, 0.07);
+    color: #5750f1;
+    font-weight: 500;
+}
+
+.subMenuActiveLink:hover {
+    color: #5750f1;
+}
+
+.subMenuItem:hover {
+    background-color: #f5f5f5;
+    color: #000;
+}

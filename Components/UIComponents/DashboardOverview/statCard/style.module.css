@@ -1,0 +1,61 @@
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cardIcon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.cardTitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cardValue {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.cardLabel {
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 15px;
+}
+
+.cardSubtitle {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Variants */
+.totalEarnings {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+.monthlyEarnings {
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    color: white;
+}
+
+.pendingPayout {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    color: white;
+}

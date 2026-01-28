@@ -1,0 +1,16 @@
+.container {
+    transition-property: all;
+    transition-duration: 1000ms;
+    transition-timing-function: ease;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    /* translate-y-10 (10 * 0.25rem) */
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <!-- Base radial gradient for deep concert vibe -->
+    <radialGradient id="radialBase" cx="50%" cy="35%" r="80%">
+      <stop offset="0%" stop-color="#0E1328"/>
+      <stop offset="60%" stop-color="#0A0F22"/>
+      <stop offset="100%" stop-color="#070B18"/>
+    </radialGradient>
+
+    <!-- Multicolor neon gradient used for strokes -->
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22E7A6"/>
+      <stop offset="35%" stop-color="#37C4FF"/>
+      <stop offset="70%" stop-color="#7C4DFF"/>
+      <stop offset="100%" stop-color="#FF4DD2"/>
+    </linearGradient>
+
+    <!-- Softer blue/purple wave gradient -->
+    <linearGradient id="waveBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1DB6FF"/>
+      <stop offset="100%" stop-color="#705CFF"/>
+    </linearGradient>
+
+    <!-- Glow filter for waves and bars -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Spotlight gradient (used as overlay circles) -->
+    <radialGradient id="spotLight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3BB9FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#3BB9FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Subtle vignette -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.40"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Base background -->
+  <rect width="1920" height="1080" fill="url(#radialBase)"/>
+
+  <!-- Decorative spotlights (top beams) -->
+  <g opacity="0.55">
+    <ellipse cx="640" cy="120" rx="520" ry="180" fill="url(#spotLight)"/>
+    <ellipse cx="1280" cy="120" rx="520" ry="180" fill="url(#spotLight)"/>
+  </g>
+
+  <!-- Flowing neon soundwaves (upper) -->
+  <g fill="none" stroke="url(#waveBlue)" stroke-width="3" opacity="0.85" filter="url(#glow)">
+    <path d="M0,170 C240,110 420,240 660,180 C900,120 1120,240 1340,170 C1560,100 1760,210 1920,160"/>
+    <path d="M0,230 C260,170 430,260 680,210 C920,160 1160,250 1380,200 C1580,160 1780,220 1920,200" stroke="url(#neon)" stroke-width="2.5" opacity="0.9"/>
+  </g>
+
+  <!-- Subtle mid waves framing the central content area -->
+  <g fill="none" stroke="url(#waveBlue)" stroke-width="2.25" opacity="0.7" filter="url(#glow)">
+    <path d="M0,520 C240,500 420,610 680,560 C960,510 1160,600 1400,560 C1650,520 1800,580 1920,560"/>
+    <path d="M0,580 C240,560 440,640 700,600 C980,560 1180,640 1440,600 C1660,570 1800,610 1920,600" stroke="url(#neon)" opacity="0.75"/>
+  </g>
+
+  <!-- Lower equalizer-style bars (centered base, subtle) -->
+  <g opacity="0.55" filter="url(#glow)">
+    <!-- Generate a baseline bar group -->
+    <!-- Left group -->
+    <g transform="translate(560,920)">
+      <rect x="0"   y="-60" width="8" height="60" fill="#2EE6B7"/>
+      <rect x="18"  y="-90" width="8" height="90" fill="#36C8FF"/>
+      <rect x="36"  y="-45" width="8" height="45" fill="#7C4DFF"/>
+      <rect x="54"  y="-75" width="8" height="75" fill="#FF4DD2"/>
+      <rect x="72"  y="-55" width="8" height="55" fill="#36C8FF"/>
+      <rect x="90"  y="-100" width="8" height="100" fill="#2EE6B7"/>
+      <rect x="108" y="-65" width="8" height="65" fill="#7C4DFF"/>
+      <rect x="126" y="-85" width="8" height="85" fill="#36C8FF"/>
+      <rect x="144" y="-50" width="8" height="50" fill="#FF4DD2"/>
+      <rect x="162" y="-70" width="8" height="70" fill="#36C8FF"/>
+    </g>
+    <!-- Right group (mirrored spacing) -->
+    <g transform="translate(1200,920)">
+      <rect x="0"   y="-70" width="8" height="70" fill="#36C8FF"/>
+      <rect x="18"  y="-50" width="8" height="50" fill="#7C4DFF"/>
+      <rect x="36"  y="-95" width="8" height="95" fill="#2EE6B7"/>
+      <rect x="54"  y="-65" width="8" height="65" fill="#FF4DD2"/>
+      <rect x="72"  y="-80" width="8" height="80" fill="#36C8FF"/>
+      <rect x="90"  y="-60" width="8" height="60" fill="#7C4DFF"/>
+      <rect x="108" y="-90" width="8" height="90" fill="#2EE6B7"/>
+      <rect x="126" y="-55" width="8" height="55" fill="#36C8FF"/>
+      <rect x="144" y="-75" width="8" height="75" fill="#FF4DD2"/>
+      <rect x="162" y="-45" width="8" height="45" fill="#36C8FF"/>
+    </g>
+  </g>
+
+  <!-- Side equalizer rails (very subtle, to frame left/right columns) -->
+  <g opacity="0.18" filter="url(#glow)">
+    <!-- Left rail -->
+    <g transform="translate(120,220)">
+      <rect x="0" y="0" width="10" height="80"  fill="#36C8FF"/>
+      <rect x="0" y="95" width="10" height="60" fill="#7C4DFF"/>
+      <rect x="0" y="170" width="10" height="100" fill="#2EE6B7"/>
+      <rect x="0" y="285" width="10" height="70" fill="#FF4DD2"/>
+      <rect x="0" y="370" width="10" height="120" fill="#36C8FF"/>
+    </g>
+    <!-- Right rail -->
+    <g transform="translate(1800,220)">
+      <rect x="0" y="0" width="10" height="70"  fill="#7C4DFF"/>
+      <rect x="0" y="85" width="10" height="90"  fill="#36C8FF"/>
+      <rect x="0" y="190" width="10" height="60" fill="#2EE6B7"/>
+      <rect x="0" y="265" width="10" height="110" fill="#FF4DD2"/>
+      <rect x="0" y="390" width="10" height="90" fill="#36C8FF"/>
+    </g>
+  </g>
+
+  <!-- Soft vignette to keep content readable -->
+  <rect width="1920" height="1080" fill="url(#vignette)"/>
+</svg>

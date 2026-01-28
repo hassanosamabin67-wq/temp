@@ -1,0 +1,197 @@
+.home-section-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Enable wrapping for smaller screens */
+    width: 100%;
+    gap: 40px;
+    /* Tighter spacing */
+    padding: 30px 0px;
+    /* Padding for inner spacing */
+    background: rgba(255, 255, 255, 0);
+    /* Light gradient */
+    border-radius: 8px;
+    /* Rounded edges */
+}
+
+/* Text Content Section */
+.child_A {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    color: #4a4a4a;
+    text-align: left;
+}
+
+.child_A1 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #6c63ff;
+    /* Accent color */
+    margin-bottom: 10px;
+}
+
+.child_A2 {
+    font-size: 28px;
+    /* Default font size */
+    font-weight: 800;
+    line-height: 1.2;
+    color: #2a2a2a;
+}
+
+.child_A3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #5a5a5a;
+    /* Darker for text readability */
+    line-height: 1.6;
+}
+
+.child_A4 ul {
+    list-style: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a4a4a;
+    padding-left: 0;
+}
+
+.child_A4 ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.child_A4 ul li::before {
+    content: '✔';
+    /* Checkmark or icon */
+    color: #6c63ff;
+    font-size: 18px;
+}
+
+/* Image Section */
+.child_B {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.child_B img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.child_B img:hover {
+    transform: scale(1.05);
+}
+
+/* Media Queries */
+
+/* Medium Devices (Tablets and Small Desktops) */
+@media screen and (min-width: 1171px) {
+    .child_B {
+        max-width: 500px;
+    }
+
+    .child_A {
+        max-width: 600px;
+    }
+}
+
+@media screen and (max-width: 1171px) {
+    .home-section-cont {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .child_A {
+        max-width: 100%;
+        /* Allow full width for smaller devices */
+    }
+
+    .child_A2 {
+        font-size: 26px;
+        /* Adjust heading size */
+    }
+
+    .child_A3 {
+        font-size: 14px;
+        /* Reduce paragraph size */
+    }
+
+    .child_A4 ul {
+        font-size: 14px;
+        /* Adjust list font size */
+    }
+
+    .parent {
+        gap: 30px;
+        /* Reduce spacing */
+    }
+}
+
+/* Small Devices (Tablets and Large Phones) */
+@media screen and (max-width: 768px) {
+    .child_A2 {
+        font-size: 22px;
+        /* Smaller heading size */
+    }
+
+    .child_A3 {
+        font-size: 14px;
+        /* Reduce paragraph font size */
+    }
+
+    .child_A4 ul {
+        font-size: 14px;
+        /* Smaller list font */
+    }
+
+    .parent {
+        gap: 20px;
+        /* Compact spacing */
+        padding: 30px 15px;
+        /* Adjust padding */
+    }
+}
+
+/* Extra Small Devices (Phones) */
+@media screen and (max-width: 600px) {
+    .home-section-cont {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .child_A2 {
+        font-size: 20px;
+        /* Compact heading size */
+    }
+
+    .child_A3 {
+        font-size: 12px;
+        /* Compact paragraph size */
+    }
+
+    .child_A4 ul {
+        font-size: 12px;
+        /* Compact list font size */
+    }
+
+    .parent {
+        padding: 20px 10px;
+        /* Adjust padding for phones */
+        gap: 15px;
+        /* Reduce spacing further */
+    }
+}

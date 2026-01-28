@@ -1,0 +1,51 @@
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.adManagementContainer {
+    padding: 20px;
+}
+
+.statisticsRow {
+    margin-bottom: 24px;
+}
+
+.filterContainer {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.videoPreview {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    max-height: 400px;
+}
+
+.adDetailsRow {
+    margin-bottom: 12px;
+}
+
+.adDetailLabel {
+    font-weight: 600;
+    color: #666;
+}
+
+.adDetailValue {
+    color: #333;
+    margin-top: 4px;
+}
+
+.actionButton {
+    margin-right: 8px;
+}
+
+.statusTag {
+    text-transform: uppercase;
+    font-weight: 500;
+}

@@ -1,0 +1,55 @@
+.header {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,30 Q50,10 90,30 T90,70 Q50,90 10,70 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>') repeat;
+    opacity: 0.3;
+}
+
+.headerContent {
+    position: relative;
+    z-index: 2;
+}
+
+.headerTitle {
+    font-size: 3.5rem;
+    display: block;
+    font-weight: 800;
+    margin-bottom: 16px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.headerSubTiTle {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+@media screen and (max-width:764px) {
+    .header {
+        padding: 70px 0px;
+    }
+
+    .headerTitle {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+
+    .headerSubTiTle {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,41 @@
+.adUploadContainer {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.adListGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px;
+    margin: 15px 0;
+}
+
+.uploadCard,
+.paymentCard {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.adListContainer {
+    padding: 0;
+}
+
+.videoPreview {
+    width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.statCard {
+    text-align: center;
+}
+
+.actionButton {
+    margin-right: 8px;
+}
+
+@media screen and (max-width:768px) {
+    .adLayoutMain {
+        padding-top: 30px;
+    }
+}

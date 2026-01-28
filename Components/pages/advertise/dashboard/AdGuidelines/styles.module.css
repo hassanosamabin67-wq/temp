@@ -1,0 +1,94 @@
+.guidelinesContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 24px;
+}
+
+.header h2 {
+    margin-bottom: 8px;
+}
+
+.guidelinesRow {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.guidelineCol {
+    flex: 1;
+    min-width: 0;
+}
+
+.dosCard {
+    height: 100%;
+    border: 2px solid #52c41a;
+}
+
+.dontsCard {
+    height: 100%;
+    border: 2px solid #ff4d4f;
+}
+
+.dosTitle {
+    color: #52c41a;
+    font-weight: 600;
+}
+
+.dontsTitle {
+    color: #ff4d4f;
+    font-weight: 600;
+}
+
+.listItem {
+    padding: 12px 0 !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.listItem:last-child {
+    border-bottom: none !important;
+}
+
+.technicalCard,
+.policyCard,
+.placementCard {
+    margin-bottom: 24px;
+}
+
+.techRequirements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.techItem h5 {
+    margin-bottom: 8px;
+    color: #1890ff;
+}
+
+.techItem p {
+    margin: 0;
+    font-size: 16px;
+}
+
+@media (max-width: 992px) {
+    .guidelinesRow {
+        flex-direction: column;
+    }
+
+    .techRequirements {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .header h2 {
+        font-size: 24px;
+    }
+
+    .techRequirements {
+        grid-template-columns: 1fr;
+    }
+}

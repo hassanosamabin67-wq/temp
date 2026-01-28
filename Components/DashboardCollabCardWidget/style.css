@@ -1,0 +1,75 @@
+.collab-card-widget {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.collab-card-widget:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.collab-card-widget.active-card {
+    border: 2px solid #52c41a;
+    background: linear-gradient(135deg, #f6ffed 0%, #ffffff 100%);
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.widget-icon {
+    font-size: 18px;
+    color: #1890ff;
+    margin-right: 8px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.card-number {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.earnings-progress {
+    margin-bottom: 16px;
+}
+
+.earnings-progress .ant-progress {
+    margin: 8px 0;
+}
+
+.earnings-progress .ant-typography {
+    margin-bottom: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-info {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+    
+    .widget-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .widget-icon {
+        margin-right: 0;
+    }
+} 

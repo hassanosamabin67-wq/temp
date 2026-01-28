@@ -1,0 +1,36 @@
+.overviewContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 32px;
+}
+
+.header h2 {
+    margin-bottom: 8px;
+}
+
+.quickActionsCard {
+    margin-bottom: 24px;
+}
+
+.tipsList {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tipsList li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.tipsList li:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .header h2 {
+        font-size: 24px;
+    }
+}

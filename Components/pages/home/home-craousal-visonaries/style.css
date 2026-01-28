@@ -1,0 +1,193 @@
+.visionaries {
+    padding: 5rem 0;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.visionaries-background {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 50%, rgba(60, 120, 251, 0.04), transparent 50%);
+}
+
+.visionaries-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.visionaries-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.visionaries-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.visionaries-title-gradient {
+    background: linear-gradient(to right, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
+.visionaries-description {
+    color: #4b5563;
+    max-width: 48rem;
+    margin: 0 auto;
+    font-size: 1.125rem;
+}
+
+.visionaries-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .visionaries-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.visionary-card {
+    background: linear-gradient(to bottom right, #f9fafb, #edf4ff);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.visionary-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(60, 124, 251, 0.2);
+    transform: translateY(-8px) scale(1.05);
+}
+
+.visionary-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, rgba(60, 120, 251, 0), rgba(116, 159, 253, 0));
+    transition: all 0.5s ease;
+}
+
+.visionary-card:hover .visionary-card-overlay {
+    background: linear-gradient(to bottom right, rgba(60, 136, 251, 0.08), rgba(116, 150, 253, 0.08));
+}
+
+.visionary-card-glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.visionary-card:hover .visionary-card-glow {
+    opacity: 1;
+}
+
+.visionary-card-glow-blob {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8rem;
+    height: 8rem;
+    background-color: #3b82f6;
+    border-radius: 9999px;
+    mix-blend-mode: multiply;
+    filter: blur(32px);
+    opacity: 0.4;
+    animation: blob 7s infinite;
+}
+
+.visionary-card-content {
+    position: relative;
+}
+
+.visionary-avatar {
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto 1.5rem;
+    border-radius: 9999px;
+    background: linear-gradient(to bottom right, #d5e2ff, #aac0fe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+.visionary-card:hover .visionary-avatar {
+    box-shadow: 0 20px 25px -5px rgba(60, 127, 251, 0.3);
+    transform: scale(1.1);
+}
+
+.visionary-avatar svg {
+    height: 4rem;
+    width: 4rem;
+    color: #3b82f6;
+    transition: transform 0.5s ease;
+}
+
+.visionary-card:hover .visionary-avatar svg {
+    transform: scale(1.1);
+}
+
+.visionary-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.visionary-role {
+    color: #4b5563;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+.visionaries-cta {
+    text-align: center;
+}
+
+.visionaries-button {
+    background: linear-gradient(to right, white, #edf2ff);
+    color: #3b82f6;
+    padding: 0.75rem 2rem;
+    border-radius: 0.75rem;
+    border: 2px solid #3b82f6;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.visionaries-button:hover {
+    background: linear-gradient(to right, #60a5fa, #3b82f6);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 25px 50px -12px rgba(60, 143, 251, 0.3);
+    transform: translateY(-4px);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}

@@ -1,0 +1,114 @@
+.pricingDetailMain {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px 0px;
+}
+
+.detailDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.pricingInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pricingTitle {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333333;
+}
+
+.pricingDesc {
+    font-weight: 500;
+    color: #353535;
+}
+
+.revisionDiv {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.revisionContent {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.revisionDivIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(186, 186, 186);
+}
+
+.revisionDivValue {
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(81, 81, 81);
+}
+
+.listStyle {
+    padding: 0 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #454545;
+}
+
+.subHeading {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.buyBtn {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.availabilityLists {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+}
+
+.submitPurchaseBtn {
+    width: 100%;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.servicePurchaseAddOnsDiv {
+    margin: 10px 0px;
+}
+
+.servicePurchaseAddOns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    background-color: #f6ffed;
+}
+
+.customLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d2d2d;
+    margin-bottom: 5px;
+    display: block;
+}

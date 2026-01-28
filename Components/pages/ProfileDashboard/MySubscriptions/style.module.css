@@ -1,0 +1,19 @@
+.mySubscriptionStats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width:600px) {
+    .mySubscriptionStats {
+        flex-direction: column;
+        gap: 15px;
+        align-items: normal;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .mySubscriptionMain {
+        padding: 30px 0 0 0;
+    }
+}

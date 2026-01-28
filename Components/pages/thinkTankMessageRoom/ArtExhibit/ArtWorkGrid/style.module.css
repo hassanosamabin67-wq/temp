@@ -1,0 +1,52 @@
+.artworkGridContainer {
+    width: 60%;
+}
+
+.artworkGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    height: 800px;
+    max-height: 800px;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.artworkGridTitle {
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.artworkGridEmpty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 100%;
+}
+
+@media screen and (max-width:1024px) {
+    .artworkGrid {
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        height: auto;
+        max-height: auto;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .artworkGridContainer {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .artworkGrid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}

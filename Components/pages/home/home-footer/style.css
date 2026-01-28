@@ -1,0 +1,144 @@
+.logoFootText {
+  font-size: 1.8rem;
+  /* Compact size */
+  font-weight: 700;
+  color: transparent;
+  /* Text itself is transparent */
+  text-transform: capitalize;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff6f61, #ff9e61, #ffdd61, #6bff61, #61baff, #9161ff, #ff61a7);
+  /* Animated gradient */
+  background-size: 300%;
+  -webkit-background-clip: text;
+  /* Clips background to text */
+  background-clip: text;
+  /* Ensures the effect is applied */
+  animation: moveColors 5s linear infinite;
+  /* Animation for moving colors */
+}
+
+@keyframes moveColors {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.logoFootText:hover {
+  /* Highlight color */
+  transform: scale(1.05);
+  /* Subtle hover effect */
+}
+
+.ca_12 {
+  background-color: #111827;
+  padding-top: 80px;
+  color: white;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.max-width-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ca_1aa {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.ca_1c {
+  display: flex;
+  gap: 15px;
+}
+
+.outline {
+  font-size: 26px;
+}
+
+.outline a {
+  font-size: 20px;
+
+}
+
+.ca_2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.head {
+  font-size: 20px;
+}
+
+.list1 {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition-duration: 0.2s;
+}
+
+.list1:hover {
+  color: #54595f;
+
+}
+
+.lists {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.lists:hover {
+  color: #54595f;
+}
+
+.footer {
+  background-color: #334155;
+  color: white;
+  height: 35px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  padding-top: 8px;
+}
+
+.footerlist {
+  color: white !important;
+
+}
+
+.footerlist:hover {
+  color: rgb(116, 116, 116) !important;
+}
+
+@media (min-width: 770px) {
+  .ca_1aa {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .ca_2 {
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .max-width-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+}

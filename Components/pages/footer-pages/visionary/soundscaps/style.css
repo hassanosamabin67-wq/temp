@@ -1,0 +1,242 @@
+/* Global Styles */
+.soundscapes-page {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  padding: 20px;
+}
+
+/* Hero Section */
+.soundscapes-hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 40px;
+}
+
+.soundscapes-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.soundscapes-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.soundscapes-description {
+  font-size: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Why Use Soundscapes Section */
+.why-soundscapes {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  
+}
+
+/* Card Styles */
+.card-container-soundscapes{
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  /* max-width: 300px; */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 33.3%;
+}
+
+.card-container-soundscapes:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Get Started Section */
+.get-started {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Banner Section */
+.banner {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+.banner-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.soundscapesjoinbtn {
+  all: unset;
+  width: 200px;
+  height: 60px;
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #8c14fa;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.soundscapesjoinbtn::after,
+.soundscapesjoinbtn::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all 0.4s;
+}
+.soundscapesjoinbtn::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #2fe9db82;
+  border-radius: 10px;
+}
+.soundscapesjoinbtn::after {
+  transform: translate(10px, 10px);
+  width: 15px;
+  height: 15px;
+  background: #1677ff24;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+.soundscapesjoinbtn:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+.soundscapesjoinbtn:hover::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+.soundscapesjoinbtn::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+.ui-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.columns{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.coloumn-card{
+  width: 80%;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .soundscapes-title {
+    font-size: 2rem;
+  }
+
+  .soundscapes-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .soundscapes-description {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .card-container-soundscapes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-container-soundscapes {
+    max-width: 100%;
+  }
+
+  .banner-text {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .soundscapes-title {
+    font-size: 1.75rem;
+  }
+
+  .soundscapes-subtitle {
+    font-size: 1rem;
+  }
+
+  .soundscapes-description {
+    font-size: 0.8rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .banner-text {
+    font-size: 1rem;
+  }
+}

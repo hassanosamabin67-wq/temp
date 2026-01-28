@@ -1,0 +1,27 @@
+.benefit {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: rgb(104, 208, 253);
+  box-shadow: 10px 12px 14px rgba(255, 255, 255 0.9);
+  padding: 40px 0;
+}
+
+.using-whatweoffer {
+  width: 100%;
+}
+
+.using-whatweoffer ol {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  width: 100%;
+  background: aliceblue;
+  gap: 50px;
+  padding: 30px;
+  border-radius: 5px;
+  margin-top: 10px;
+}

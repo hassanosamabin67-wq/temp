@@ -1,0 +1,162 @@
+.card {
+  width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 2px 4px 0px #dfdfdf;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.card_body {
+  padding: 0px 20px !important;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 260px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cardImage {
+  height: 200px;
+  object-fit: cover;
+}
+
+.title {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.btncontainer {
+  margin-top: 16px;
+  text-align: center
+}
+
+.btncontainer .btn {
+  margin-right: 8px;
+}
+
+.collabBtn {
+  /* border: 1px solid #ddd; */
+  border-radius: 8px;
+  padding: 4px 10px;
+  background: #dedede;
+}
+
+.serviceName {
+  color: #646464;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.serviceDescription {
+  font-size: 12px;
+}
+
+.userDetails {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.visionaryName {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.cardMain {
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  width: 290px;
+  height: 450px;
+}
+
+.videoFallback {
+  background: linear-gradient(135deg, #ff007c, #5900ff) !important;
+  height: 150px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  color: #f0f0f0;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.cardVideo {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.tagDiv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tag {
+  padding: 3px 7px;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 3px;
+}
+
+.category {
+  background: #ff7b0047;
+  color: #886600;
+}
+
+.subcategory {
+  background: #3fa6a366;
+  color: #008984;
+}
+
+.price {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+  color: #00ff99;
+}
+
+.serviceVideoCard {
+  padding: 15px 15px 5px 15px !important;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media screen and (max-width:1020px) {
+  .cardMain {
+    width: 330px !important;
+  }
+
+  .card {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .cardMain {
+    width: 100% !important;
+  }
+
+  .card {
+    width: 100% !important;
+  }
+}

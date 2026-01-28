@@ -1,0 +1,33 @@
+.reviewCard {
+    padding: 0px 15px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.clientInfo {
+    border-bottom: 1px solid #dddddd;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.clientName {
+    font-size: 17px;
+    font-weight: bold;
+    color: #575757;
+}
+
+.reviewDetail {
+    padding: 10px;
+}
+
+.reviewMessage {
+    font-size: 14px;
+    color: #686868;
+    margin-top: 5px;
+    font-weight: 500;
+}

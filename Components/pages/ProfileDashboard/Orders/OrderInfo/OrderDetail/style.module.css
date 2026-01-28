@@ -1,0 +1,140 @@
+.orderDetailBox {
+    padding: 10px 15px;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+.orderDetailHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0px;
+}
+
+.orderDetailRight {
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderDetailInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.orderName {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.orderDesc {
+    font-size: 14px;
+    font-weight: 500;
+    color: #373737;
+}
+
+.orderDetailDateDiv,
+.orderDateDiv {
+    display: flex;
+    align-items: center;
+}
+
+.orderDetailDateDiv {
+    gap: 10px;
+}
+
+.orderDateDiv {
+    color: #5f5f5f;
+    font-weight: 500;
+    gap: 5px;
+}
+
+.orderDate {
+    font-size: 14px;
+}
+
+.orderDetailPriceDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.orderPriceDiv {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 25px;
+}
+
+.orderClientDiv {
+    display: flex;
+    gap: 6px;
+}
+
+.orderClientDetail {
+    display: flex;
+    flex-direction: column;
+}
+
+.orderClientName {
+    font-size: 15px;
+    color: #272727;
+    display: block;
+    line-height: 20px;
+}
+
+.orderClientH2 {
+    font-size: 13px;
+    font-weight: 400;
+    color: #3f3f3f;
+}
+
+.orderDetailFooter {
+    padding: 12px;
+    border-top: 1px solid #d6d6d6;
+}
+
+.orderID {
+    color: #6c6c6c;
+    font-size: 13px;
+}
+
+.completedOrderDiv {
+    color: #389e0d;
+    background-color: #f6ffed;
+    border-color: #b7eb8f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 400;
+    padding: 11px 15px;
+    border-radius: 10px;
+}
+
+.completedOrderRatingDiv {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.completedOrderDate {
+    font-size: 14px;
+}
+
+.completedOrderRatings {
+    font-size: 13px;
+}
+
+.completedOrderRate:global(.ant-rate) {
+    font-size: 15px !important;
+}
+
+@media screen and (max-width: 768px) {
+    .orderDate {
+        font-size: 10px;
+    }
+
+    .orderDetailBox {
+        padding: 10px 0px;
+    }
+}

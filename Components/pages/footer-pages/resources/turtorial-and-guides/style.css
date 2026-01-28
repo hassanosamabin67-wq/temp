@@ -1,0 +1,175 @@
+/* General Styles */
+.tutorial-guide-container {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px 15px;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .hero-button {
+    background: #e74c3c;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .hero-button:hover {
+    background: #c0392b;
+  }
+  
+  /* Getting Started Section */
+  .getting-started-section {
+    margin-bottom: 40px;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .getting-started-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .getting-started-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+  
+  .card-content p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .highlight {
+    font-weight: bold;
+    color: #e74c3c;
+  }
+  
+  /* Collaboration Tools Section */
+  .collaboration-tools-section {
+    margin-bottom: 40px;
+  }
+  
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .tool-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  /* Explore Section */
+  .explore-section {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .explore-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .explore-button {
+    background: #3498db;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .explore-button:hover {
+    background: #2980b9;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .section-title {
+      font-size: 1.5rem;
+    }
+  
+    .card-title {
+      font-size: 1.2rem;
+    }
+  
+    .card-content p {
+      font-size: 0.9rem;
+    }
+  
+    .explore-button {
+      font-size: 0.9rem;
+    }
+  }

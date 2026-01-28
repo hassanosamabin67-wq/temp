@@ -1,0 +1,90 @@
+.modalContent {
+  padding: 40px;
+  background: #7517a9fa;
+  border-radius: 5px;
+}
+
+/* Image container */
+.imageContainer {
+  flex: 1;
+  text-align: center;
+}
+
+/* Image styling */
+.loginImage {
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* Form container */
+.formContainer {
+  flex: 2;
+}
+
+/* Title */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Description */
+.description {
+  font-size: 16px;
+  color: #ffffff !important;
+  margin-bottom: 20px;
+}
+
+/* Terms and conditions */
+.terms {
+  margin-top: 30px;
+}
+
+.terms p {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff7eb3, #dece24, #9d62f0, #34bffa);
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 3s infinite;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Link styling */
+.link {
+  color: #1890ff;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.ant-modal-content {
+  background-color: #7517a9fa !important;
+  /* fallback for old browsers */
+  border-radius: 5px;
+}

@@ -1,0 +1,297 @@
+/* Global Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  /* line-height: 1.6; */
+}
+
+/* Hero Section */
+.think-tank-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../../../../../public/assets/img/thinkthank.jpg") no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 180px 20px;
+  margin-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.think-tank-overlay {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.think-tank-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffd700;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.think-tank-subtitle {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease-in-out 0.5s;
+  animation-fill-mode: both;
+}
+
+.think-tank-cta {
+  margin-top: 40px;
+  animation: fadeInUp 1s ease-in-out 1s;
+  animation-fill-mode: both;
+}
+
+/* Why Use Think Tank Section */
+.why-use-think-tankClient {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 80px;
+}
+
+.why-use-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.why-use-image {
+  flex: 1;
+  text-align: center;
+  animation: fadeInRight 1s ease-in-out;
+}
+
+.section-title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #222;
+  animation: fadeInLeft 1s ease-in-out;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  animation: fadeInLeft 1s ease-in-out 0.5s;
+  animation-fill-mode: both;
+}
+
+/* How to Get Started Section */
+.getting-started {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 80px;
+}
+
+.card-container-thinktank2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card-thinktank2 {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  flex: 1;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.card-thinktank2:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-thinktank2 img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card-thinktank2:hover img {
+  transform: scale(1.1);
+}
+
+.card-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Call-to-Action Banner */
+.cta-banner {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  margin: 80px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.cta-text {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease-in-out 0.5s;
+  animation-fill-mode: both;
+}
+
+.cta-button {
+  background: #ffd700;
+  color: #222;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #e6b800;
+  transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .think-tank-hero {
+    padding: 120px 20px;
+  }
+
+  .think-tank-title {
+    font-size: 2.5rem;
+  }
+
+  .think-tank-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .why-use-think-tankClient {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .why-use-image {
+    margin-top: 30px;
+  }
+
+  .card-container-thinktank2{
+    flex-direction: column;
+  }
+
+  .cta-text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .think-tank-title {
+    font-size: 2rem;
+  }
+
+  .think-tank-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .cta-text {
+    font-size: 1.25rem;
+  }
+
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}

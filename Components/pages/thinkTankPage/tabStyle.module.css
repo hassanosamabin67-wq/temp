@@ -1,0 +1,121 @@
+.collabRoomTab:global(.ant-tabs >.ant-tabs-nav .ant-tabs-nav-list) {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+    padding: 10px 0;
+}
+
+.collabRoomTab:global(.ant-tabs-card .ant-tabs-tab) {
+    background: #e6ebef;
+    border: none;
+    padding: 12px 40px !important;
+    border-radius: 50px !important;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: black;
+}
+
+.collabRoomTab:global(.ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn) {
+    color: white !important;
+}
+
+.collabRoomTab:global(.ant-tabs-card .ant-tabs-tab-active) {
+    background: #1e293b;
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.collabRoomTab:global(.ant-tabs-card .ant-tabs-tab):not(.ant-tabs-tab-active):hover {
+    background: #c7ccd3;
+    transform: translateY(-1px);
+}
+
+.collabRoomTab:global(.ant-tabs-card .ant-tabs-tab.ant-tabs-tab-active):hover {
+    background: #1e293b;
+    transform: translateY(-2px);
+}
+
+.tabBtn {
+    display: flex;
+    align-items: center;
+}
+
+.tabBadge {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.badgeLive {
+    background: #ef4444;
+}
+
+.badgeUpcoming {
+    background: #8b5cf6;
+}
+
+.badgeReplay {
+    background: #6b7280;
+}
+
+.selectCol {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 15px 0;
+}
+
+.filterInput {
+    min-width: 180px !important;
+}
+
+.cardContainer {
+    padding: 50px 10px;
+}
+
+.filterGrid {
+    grid-template-columns: 35% 50% 10%;
+    align-items: center;
+    gap: 8px;
+}
+
+@media screen and (max-width:1024px) {
+    .cardContainer {
+        padding: 20px 10px;
+    }
+
+    .selectCol {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        width: 100%;
+        margin: 15px 0;
+        gap: 10px;
+    }
+
+    .filterGrid {
+        display: block;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .selectCol {
+        display: grid !important;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+        gap: 10px;
+    }
+
+    .filterInput {
+        width: 100% !important;
+    }
+
+    .cardContainer {
+        padding: 20px 2px;
+    }
+}

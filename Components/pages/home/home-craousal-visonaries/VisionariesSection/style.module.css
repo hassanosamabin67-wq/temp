@@ -1,0 +1,211 @@
+/* styles/VisionariesSection.module.css */
+
+/* --- Overall Section Container --- */
+.visionariesContainer {
+    display: flex;
+    align-items: center;
+    /* Center items horizontally */
+    /* This background is crucial for the blur effect to show */
+    /* background: radial-gradient(circle at center, rgba(230, 240, 255, 0.8), rgba(200, 220, 255, 0.9)); */
+    /* Take full viewport height for demo */
+    justify-content: center;
+    /* Vertically center content */
+    color: #333;
+    /* Default text color */
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 50px;
+    /* Space between tagline and cards */
+    font-weight: 400;
+}
+
+/* --- Cards Grid Layout (Responsive) --- */
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    /* Default: 1 column on small screens */
+    gap: 40px;
+    /* Space between the cards */
+    margin-bottom: 60px;
+    /* Space between cards and button */
+    justify-items: center;
+    /* Center cards within their grid cells */
+    max-width: 1350px;
+    width: 100%;
+    padding: 0 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .card {
+        max-width: 390px;
+    }
+}
+
+/* Desktop/Large screens: 3 columns */
+@media (max-width: 600px) {
+    .cardsGrid {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* --- Individual Card Styling --- */
+.card {
+    position: relative;
+    width: 100%;
+    /* Fixed width for the card */
+    height: 350px;
+    /* Fixed height for the card */
+    background-color: rgba(255, 255, 255, 0.15);
+    /* Semi-transparent background */
+    border-radius: 20px;
+    /* Rounded corners for the card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Important for border-image and image content */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+
+    /* Frosted glass effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* For Safari compatibility */
+
+    /* Gradient border using border-image */
+    border: 3px solid transparent;
+    /* Required for border-image to work */
+    border-image: linear-gradient(45deg,
+            #a855f7,
+            /* Purple */
+            #6366f1,
+            /* Indigo */
+            #3b82f6,
+            /* Blue */
+            #0ea5e9
+            /* Light Blue */
+        ) 1;
+    /* '1' means stretch the image to cover the border */
+
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.1);
+    /* Slightly adjust border-image or add glow for hover effect if desired */
+}
+
+
+/* --- Image Wrapper (for silhouette) --- */
+.imageWrapper {
+    position: absolute;
+    /* Position relative to the card */
+    width: 80%;
+    /* Width of the silhouette inside the card */
+    height: 90%;
+    /* Height of the silhouette inside the card */
+    bottom: 0;
+    /* Align image to the bottom of the card */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Align image content to the bottom */
+    overflow: hidden;
+    /* To handle the gradient mask correctly */
+
+    /* Apply a fading gradient to the bottom of the image for the ethereal look */
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+}
+
+.imageWrapper>span {
+    /* Target the Next.js Image wrapper span */
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+
+    /* Apply a subtle color tint to the silhouette */
+    filter: brightness(1.2) saturate(1.1) hue-rotate(-20deg);
+    /* Adjust these values */
+    opacity: 0.8;
+    /* Make the silhouette semi-transparent */
+}
+
+/* Additional gradient overlay on the image for deeper color blending */
+.imageWrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top,
+            rgba(150, 100, 200, 0.2),
+            /* Subtle purple */
+            rgba(100, 150, 220, 0.05),
+            /* Subtle blue */
+            transparent 50%);
+    pointer-events: none;
+    /* Allows clicks to pass through */
+    mix-blend-mode: overlay;
+    /* Creates interesting color effects */
+}
+
+
+/* --- Explore Button Styling --- */
+.exploreButton {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    /* Darker text for contrast */
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Semi-transparent white */
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg,
+            #a855f7,
+            #6366f1,
+            #3b82f6,
+            #0ea5e9) 1;
+    border-radius: 50px;
+    /* Very rounded corners */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.exploreButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255);
+    /* Slightly more opaque on hover */
+    /* You could also slightly adjust the border-image for a subtle shimmer */
+}
+
+/* Optional: Add a subtle glow behind the button (complex, might not be necessary) */
+/* .exploreButton::before {
+    content: '';
+    position: absolute;
+    inset: -2px; 
+    background: linear-gradient(45deg, #a855f7, #6366f1, #3b82f6);
+    filter: blur(15px);
+    z-index: -1;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    border-radius: 50px;
+}
+.exploreButton:hover::before {
+    opacity: 0.7;
+} */

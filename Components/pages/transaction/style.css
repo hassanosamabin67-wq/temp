@@ -1,0 +1,32 @@
+.transaction-main {
+    min-height: 88vh;
+    padding: 30px;
+}
+
+.transaction-div {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.transaction-container {
+    background-color: white;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.transaction-header {
+    background-color: #cbcbcb;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.transactions {
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-bottom: 1px solid #cdcdcd;
+}

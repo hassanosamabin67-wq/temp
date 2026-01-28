@@ -1,0 +1,100 @@
+.notificationDiv {
+    position: relative;
+}
+
+.notificationIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.notificationBadge {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notificationContainer {
+    position: absolute;
+    background-color: white;
+    width: 500px;
+    right: 0;
+    border: 1px solid #e6e6e6;
+    min-height: 500px;
+    max-height: 500px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 0px #dfdfdf;
+    z-index: 20;
+    overflow: auto;
+}
+
+.notificationParent {
+    border-bottom: 1px solid #d0d0d0;
+    display: flex;
+    align-items: flex-start;
+    padding: 20px;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+.notifications {
+    display: flex;
+    gap: 10px;
+    width: 85%;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.notification {
+    display: flex;
+    height: -moz-fit-content;
+    height: fit-content;
+    align-items: flex-start;
+    width: 85%;
+    gap: 10px;
+    justify-content: center;
+}
+
+.notificationDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 70%;
+}
+
+.notificationTitle {
+    display: block;
+    text-align: start;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.notificationDate {
+    font-size: 12px;
+    color: gray;
+}
+
+.closeIcon {
+    display: none;
+}
+
+.notificationParent:hover .closeIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.notificationContent {
+    text-align: left;
+    color: #282828;
+    font-size: 13px;
+}
+
+@media screen and (max-width:500px) {
+    .notificationContainer {
+        width: 340px;
+    }
+}

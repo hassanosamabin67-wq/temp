@@ -1,0 +1,262 @@
+/* styles/Grid.module.css */
+.container {
+  height: fit-content;
+  padding: 20px;
+  min-height: 90vh;
+}
+
+.paddingContainer {
+  padding: 40px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 16px;
+  margin-top: 10vh;
+  /* overflow: scroll; */
+}
+
+/* CenterContainer */
+.centerContainer {
+  display: flex;
+  /* justify-content: center; */
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+/* FilterContainer */
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Ensures vertical alignment of children */
+  justify-content: space-around;
+  /* Ensures equal spacing between filters */
+  width: 30%;
+  margin: 20px auto;
+  padding: 16px;
+}
+
+/* GridContainer */
+.gridContainer {
+  /* overflow: scroll; */
+  width: 100%;
+  /* overflow-x: hidden; */
+}
+
+/* NoServicesText */
+.noServicesText {
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+  /* Optional: A soft color for the text */
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.pageNumber {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.noServicesText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  height: 30vh;
+  color: #555;
+}
+
+.filterContainer {
+  width: 60%;
+}
+
+.filterSection {
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 12px;
+  /* background: rgb(81 81 106 / 21%); */
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  /* color: #fff; */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.filterTitle {
+  display: block;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+  /* color: #ffffff; */
+}
+
+.searchBar {
+  flex: 1;
+  max-width: 400px;
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #ffffff33;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+  /* background: rgb(69 69 69 / 23%) !important; */
+  /* color: #fff !important; */
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+}
+
+.filterInputs::-webkit-input-placeholder {
+  color: #8f8f8f !important;
+}
+
+.priceRange {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.priceInput {
+  padding: 0.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  width: 100px;
+  font-size: 0.9rem;
+}
+
+/* Category Filters */
+.categoryFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.categoryBtn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  background: white;
+  color: #64748b;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.categoryBtn:hover,
+.categoryBtn.active {
+  border-color: #ff6b35;
+  background: #ff6b35;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+/* Subcategory Filters */
+.subcategorySection {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.5rem;
+}
+
+.subcategoryTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 1rem;
+}
+
+.subcategoryFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.subcategoryBtn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  background: #f8fafc;
+  color: #64748b;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.subcategoryBtn:hover,
+.subcategoryBtn.active {
+  border-color: #ff6b35;
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+}
+
+.resetBtn {
+  padding: 6px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.filterMain {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.filterDiv {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media screen and (max-width:768px) {
+  .container {
+    padding: 20px 15px;
+  }
+
+  .paddingContainer {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .filterMain {
+    justify-content: center;
+  }
+
+  .filterDiv {
+    flex-direction: column;
+  }
+}

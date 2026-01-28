@@ -1,0 +1,64 @@
+.card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 350px;
+    box-shadow: 1px 1px 5px 0px #cbcbcb;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 4px 10px 0px #a0a0a0;
+}
+
+.cardImg {
+    position: relative;
+    height: 200px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.price {
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    padding: 3px 10px;
+}
+
+.sold {
+    background-color: #fb2c36;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    font-weight: 500;
+}
+
+.cardBody {
+    padding: 20px;
+}
+
+.cardBody span {
+    display: block;
+}
+
+.cardTitle {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.cardDescription {
+    font-size: 12px;
+    word-wrap: break-word;
+}

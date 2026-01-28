@@ -1,0 +1,156 @@
+.pageHeader {
+    padding: 24px 24px 0 24px;
+    margin-bottom: 15px;
+}
+
+.pageHeading {
+    font-weight: 700;
+    font-size: 26px;
+    display: block;
+    color: #111928;
+}
+
+.sectionWraper {
+    margin-bottom: 3rem;
+}
+
+.statsOverview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.viewIcon {
+    color: #002dff;
+    font-size: 50px;
+}
+
+.impressionIcon {
+    color: #8a00ff;
+    font-size: 50px;
+}
+
+.clicksIcon {
+    color: #32b7bb;
+    font-size: 50px;
+}
+
+.rateIcon {
+    color: #ca0000;
+    font-size: 50px;
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.serviceCard {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.cardSubtitle {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.belowTwoCards {
+    max-width: 400px;
+}
+
+.serviceCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.serviceHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.serviceTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.serviceStats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.statItem {
+    text-align: center;
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #007bff;
+}
+
+.statLabel {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+.analyticsGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 1024px) {
+    .analyticsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .servicesGrid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+/* client demographics */
+
+.demographicsList {
+    list-style: none;
+}
+
+.demographicItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    gap: 20px;
+}
+
+.demographicItem:last-child {
+    border-bottom: none;
+}
+
+.demographicLabel {
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap;
+}
+
+.demographicBar:global(.ant-progress .ant-progress-text) {
+    font-weight: 600;
+    color: #666;
+    min-width: 40px;
+    text-align: right;
+}

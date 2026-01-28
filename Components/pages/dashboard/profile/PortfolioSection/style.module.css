@@ -1,0 +1,27 @@
+.portfolioContainer {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 1px 1px 5px 0px #d6d6d6;
+    border-radius: 10px;
+}
+
+.addForm {
+    padding: 10px 20px;
+}
+
+.tagDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.formFooter {
+    margin-top: 8px;
+}
+
+.guidText {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #888;
+}

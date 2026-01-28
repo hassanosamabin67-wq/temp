@@ -1,0 +1,80 @@
+/* FAQ Container */
+.faq-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+}
+
+/* FAQ Header */
+.faq-header {
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                      url("../../../../../public/assets/img/faq.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 60px 20px;
+    border-radius: 10px;
+}
+
+.faq-header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.faq-header p {
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+/* FAQ Content */
+.faq-content {
+    margin-top: 30px;
+}
+
+.faq-content section {
+    margin-bottom: 25px;
+}
+
+.faq-content h2 {
+    font-size: 20px;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* FAQ Accordions */
+details {
+    background: #f9f9f9;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+details:hover {
+    background: #f0f0f0;
+}
+
+summary {
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+details p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .faq-container {
+        padding: 10px;
+    }
+}

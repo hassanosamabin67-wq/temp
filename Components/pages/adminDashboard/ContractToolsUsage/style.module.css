@@ -1,0 +1,58 @@
+.container {
+    padding: 24px;
+    background-color: #f5f5f5;
+}
+
+.header {
+    margin-bottom: 24px;
+}
+
+.headerHeading {
+    display: block;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.headerDesc {
+    color: #666;
+    margin: 0;
+}
+
+.userName,
+.userEmail,
+.userId {
+    display: block;
+}
+
+.userName {
+    font-weight: bold;
+}
+
+.userEmail {
+    font-size: 12px;
+    color: #666;
+}
+
+.userId {
+    font-size: 11px;
+    color: #999;
+}
+
+.flaggedDiv {
+    margin-top: 8px;
+}
+
+.projectName {
+    font-weight: 500;
+}
+
+.projectId {
+    font-size: 11px;
+    color: #999;
+}
+
+.timestamp {
+    font-size: 11px;
+    color: #666;
+}

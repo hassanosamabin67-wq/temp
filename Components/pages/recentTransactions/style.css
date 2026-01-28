@@ -1,0 +1,25 @@
+.transactions {
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    background-color: #f3f3f300;
+    padding: 15px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.heading {
+    display: block;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.view-more-transactions {
+    border: 1px solid #cbcbcb;
+    padding: 8px 25px;
+    border-radius: 5px;
+}
+
+.view-more-transactions:hover {
+    background-color: #5656f7;
+    color: #fff;
+}

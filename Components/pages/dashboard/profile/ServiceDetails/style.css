@@ -1,0 +1,146 @@
+/* .ant-collapse-content-box {
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 10px 30px !important;
+} */
+
+.service-detail-container {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 70% 28%;
+    gap: 30px;
+}
+
+.right-container {
+    background-color: #00000057;
+    padding: 30px 55px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 29%);
+}
+
+.left-container {
+    background: #00000057;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 29%);
+    position: sticky;
+    top: 15%;
+    left: 0;
+    height: 50%;
+}
+
+.left-detail-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.left-btn-container {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.left-detail-key {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.left-detail-value {
+    color: gray;
+    font-size: 15px;
+}
+
+.revision-time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 15px;
+}
+
+.heading {
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.service-detail-name {
+    font-size: 25px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.description {
+    color: #3a3a3a;
+}
+
+.tag-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tag-btn {
+    border: 1px solid #c7c7c7;
+    border-radius: 7px;
+    padding: 5px 10px;
+    background-color: #f7f7f7;
+    color: gray;
+}
+
+.right-detail-container {
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.service-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.service-user-detail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.service-user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.user-name {
+    font-size: 16px;
+}
+
+.ant-rate-star {
+    margin-inline-end: 3px !important;
+}
+
+.ant-rate {
+    font-size: 16px !important;
+}
+
+.service-reviews ul {
+    padding-left: 0px !important;
+}
+
+.service-detail-price {
+    color: #7be795;
+    font-size: 15px;
+    font-weight: 600;
+}

@@ -1,0 +1,28 @@
+.add-service-modal {
+    width: 100% !important;
+    height: 100vh !important;
+    top: 0 !important;
+    margin: unset !important;
+    max-width: unset !important;
+    max-height: unset !important;
+    padding: 0 !important;
+}
+
+.add-service-modal .ant-modal-content {
+    height: 100vh;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+.add-service-modal .ant-modal-body {
+    height: 88% !important;
+    max-height: 90vh !important;
+    overflow: auto;
+    padding: 20px 45px;
+}
+
+.add-service-modal .ant-modal-header {
+    padding: 15px 45px;
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}

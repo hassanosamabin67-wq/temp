@@ -1,0 +1,187 @@
+.collab-card-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.card-icon {
+    font-size: 24px;
+    color: #1890ff;
+    margin-right: 12px;
+}
+
+.card-description {
+    margin-bottom: 32px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.card-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.card-option {
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.card-option:hover {
+    border-color: #1890ff;
+    box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15);
+}
+
+.option-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.option-icon {
+    font-size: 20px;
+    color: #52c41a;
+    margin-right: 8px;
+}
+
+.option-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.earnings-progress {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+.earnings-progress .ant-progress {
+    margin: 8px 0;
+}
+
+.purchase-info {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+.purchase-info .ant-typography {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.active-card-info {
+    text-align: center;
+    padding: 32px 0;
+}
+
+.card-details {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+}
+
+.card-number {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    font-family: 'Courier New', monospace;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-options {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .card-icon {
+        margin-right: 0;
+        margin-bottom: 8px;
+    }
+    
+    .card-number {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    
+    .card-meta {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+}
+
+/* Loading States */
+.collab-card-container .ant-spin {
+    margin: 40px auto;
+}
+
+/* Button Styles */
+.collab-card-container .ant-btn {
+    height: 44px;
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+.collab-card-container .ant-btn-primary {
+    background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+    border: none;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+}
+
+.collab-card-container .ant-btn-primary:hover {
+    background: linear-gradient(135deg, #40a9ff 0%, #1890ff 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4);
+}
+
+/* Alert Styles */
+.collab-card-container .ant-alert {
+    border-radius: 8px;
+    border: none;
+}
+
+/* Progress Bar */
+.collab-card-container .ant-progress-bg {
+    background: linear-gradient(90deg, #52c41a 0%, #73d13d 100%);
+}
+
+/* Tag Styles */
+.collab-card-container .ant-tag {
+    border-radius: 4px;
+    font-weight: 500;
+    padding: 2px 8px;
+} 

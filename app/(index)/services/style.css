@@ -1,0 +1,54 @@
+.ant-menu-horizontal {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+  }
+  
+  .ant-menu-item {
+    flex: 0 0 auto !important;
+  }
+  
+  /* Container for the entire component */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Wrapper for the menu */
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Styles for the menu */
+.menu {
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  width: 100%;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+}
+
+/* Banner component styling */
+.banner {
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Loading fallback styling */
+.suspense-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh; /* or another size based on your layout */
+}
+
+/* Styles for children content */
+.children-container {
+  width: 100%;
+}

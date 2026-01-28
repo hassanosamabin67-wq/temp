@@ -1,0 +1,168 @@
+/* General Styles */
+.mentorship-container {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    padding: 20px 15px;
+  }
+  
+  /* Hero Section */
+  .mentorship-hero {
+    background-image: url('../../../../../public/assets/img/mentor.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+  
+  .mentorship-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .mentorship-hero-title {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .mentorship-hero-subtitle {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+  
+  /* Program Tiers Section */
+  .mentorship-program-tiers {
+    margin-bottom: 40px;
+  }
+  
+  .mentorship-section-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .mentorship-tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .mentorship-tier-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mentorship-tier-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+  
+  .mentorship-tier-content p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .mentorship-highlight {
+    font-weight: bold;
+    color: #e74c3c;
+  }
+  
+  /* Pricing Summary Section */
+  .mentorship-pricing-summary {
+    margin-bottom: 40px;
+  }
+  
+  .mentorship-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .mentorship-pricing-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mentorship-pricing-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+  }
+  
+  .mentorship-pricing-detail {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  /* Call to Action Section */
+  .mentorship-cta {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .mentorship-cta-description {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .mentorship-cta-button {
+    background: #3498db;
+    color: #fff;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .mentorship-cta-button:hover {
+    background: #2980b9;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .mentorship-hero-title {
+      font-size: 2rem;
+    }
+  
+    .mentorship-hero-subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .mentorship-section-title {
+      font-size: 1.5rem;
+    }
+  
+    .mentorship-tier-title,
+    .mentorship-pricing-title {
+      font-size: 1.2rem;
+    }
+  
+    .mentorship-tier-content p,
+    .mentorship-pricing-detail {
+      font-size: 0.9rem;
+    }
+  
+    .mentorship-cta-button {
+      font-size: 0.9rem;
+    }
+  }

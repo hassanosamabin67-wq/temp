@@ -1,0 +1,115 @@
+.orderInfoContainer {
+    padding: 20px;
+}
+
+.orderInfoHeader {
+    padding: 20px 0px;
+}
+
+.orderInfoH1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.orderInfoDesc {
+    font-size: 16px;
+    font-weight: 500;
+    color: #484848;
+}
+
+.orderCard {
+    box-shadow: 2px 5px 10px 1px #e1e1e1;
+}
+
+.orderCardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    align-items: center;
+    gap: 1rem;
+}
+
+.orderCardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.orderCardInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.orderCardIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    padding: 14px;
+    font-size: 25px;
+    background-color: #127ce1;
+    color: #ffffff;
+}
+
+.completedIcon {
+    background-color: #ffffff;
+    color: #e0c002;
+    font-size: 40px;
+    padding: 5px;
+}
+
+.rejectedIcon {
+    background-color: #bd0303;
+}
+
+.pendingIcon {
+    background-color: #c8a903;
+}
+
+.orderCardTitle {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.orderCardValue {
+    font-size: 14px;
+    font-weight: 500;
+    color: #505050;
+}
+
+.viewDetailBtn {
+    width: fit-content;
+    align-self: flex-end;
+}
+
+.modalTitle {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.modalDiv {
+    max-height: 600px;
+    overflow: auto;
+    height: 450px;
+}
+
+.detailModal:global(.ant-modal .ant-modal-content) {
+    padding: 20px !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .orderInfoContainer {
+        padding: 20px 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .orderCardGrid {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .orderCard {
+        width: 100%;
+    }
+}

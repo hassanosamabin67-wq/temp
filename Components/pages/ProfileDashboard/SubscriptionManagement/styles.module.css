@@ -1,0 +1,12 @@
+.subscriptionStats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px;
+    margin: 15px 0;
+}
+
+@media screen and (max-width:768px) {
+    .subscriptionMain {
+        padding: 30px 0 0 0;
+    }
+}

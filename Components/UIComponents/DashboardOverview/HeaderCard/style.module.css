@@ -1,0 +1,28 @@
+.statCard {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statValue {
+    font-size: 40px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.statLabel {
+    font-size: 14px;
+    color: #6c757d;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.price {
+    color: #28a745;
+}

@@ -1,0 +1,94 @@
+.screenShareLayout {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 100%;
+    padding: 10px 30px;
+    gap: 10px;
+    box-sizing: border-box;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.mainStageContainer {
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bottomUsersContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    overflow-x: auto;
+    flex-shrink: 0;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.bottomUsersContainer::-webkit-scrollbar {
+    height: 4px;
+}
+
+.bottomUsersContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.bottomUsersContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.userCard {
+    flex-shrink: 0;
+    width: 200px;
+    height: 130px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.cardUserDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.speakingBorder {
+    box-shadow: 0 0 0 3px #4ade80, 0 0 15px rgba(74, 222, 128, 0.5);
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .userCard {
+        width: 250px;
+        height: 150px;
+    }
+
+    .screenShareLayout {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .mainStageContainer {
+        border-radius: 12px;
+    }
+}

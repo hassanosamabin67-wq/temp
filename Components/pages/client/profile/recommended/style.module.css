@@ -1,0 +1,85 @@
+.recommendContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+.recommendDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #d1d1d1;
+    background-color: #fff;
+    min-height: 110px;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+    transition: transform .5s;
+}
+
+.recommendDiv:hover {
+    transform: scale(1.02);
+}
+
+.visionaryDetail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recommendImg {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
+
+.recommendName {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.profileTitle {
+    color: #3f3f3f;
+    font-weight: 500;
+    font-size: 13px;
+    display: block;
+}
+
+.viewMoreTransactions {
+    border: 1px solid #cbcbcb;
+    padding: 8px 25px;
+    border-radius: 5px;
+}
+
+.viewMoreTransactions:hover {
+    background-color: #5656f7;
+    color: #fff;
+}
+
+.btnDiv {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skillsTagDiv {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.skillTag {
+    font-size: 10px;
+    font-weight: 500;
+    margin: 0;
+    border-radius: 10px;
+    color: #343434;
+}
+
+@media screen and (max-width:600px) {
+    .recommendContainer {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+}

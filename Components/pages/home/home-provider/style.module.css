@@ -1,0 +1,138 @@
+.features {
+    padding: 5rem 0;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.featuresBackground {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(60, 159, 251, 0.04), transparent 50%);
+}
+
+.featuresContainer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.featuresHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.featuresTitle {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+}
+
+.featuresTitleGradient {
+    background: linear-gradient(to right, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
+.featuresGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .featuresGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.featureCard {
+    background: linear-gradient(to bottom right, #60a5fa, #3b82f6);
+    border-radius: 1rem;
+    padding: 2rem;
+    color: white;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.featureCard:hover {
+    box-shadow: 0 25px 50px -12px rgba(60, 152, 251, 0.3);
+    transform: translateY(-12px) scale(1.05);
+}
+
+.featureCardOverlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0);
+    transition: all 0.5s ease;
+}
+
+.featureCard:hover .featureCardOverlay {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.featureCard.cyan {
+    background: linear-gradient(to bottom right, #60a5fa, #3b82f6);
+}
+
+.featureCard.cyan:hover {
+    box-shadow: 0 25px 50px -12px rgba(253, 186, 116, 0.3);
+}
+
+.featureCard.teal {
+    background: linear-gradient(to bottom right, #60a5fa, #3b82f6);
+}
+
+.featureCard.teal:hover {
+    box-shadow: 0 25px 50px -12px rgba(251, 191, 36, 0.3);
+}
+
+.featureCardContent {
+    position: relative;
+}
+
+.featureIcon {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.5s ease;
+}
+
+.featureCard:hover .featureIcon {
+    transform: scale(1.1) rotate(6deg);
+}
+
+.featureIcon svg {
+    height: 2rem;
+    width: 2rem;
+}
+
+.featureTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.featureDescription {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.featureCard.cyan .featureDescription {
+    color: rgba(236, 254, 255, 0.9);
+}
+
+.featureCard.teal .featureDescription {
+    color: rgba(204, 251, 241, 0.9);
+}

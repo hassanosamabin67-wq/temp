@@ -1,0 +1,66 @@
+.portfolioSlider {
+    padding: 8px !important;
+    border-radius: 10px !important;
+    max-width: 1000px !important;
+}
+
+.portfolioDetail {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 12px 0;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.detailSection h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.detailSection p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.thumbnailGrid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tagDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.guidText {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #888;
+}
+
+.formFooter {
+    margin-top: 24px;
+}
+
+.addForm {
+    margin-top: 20px;
+}
+
+/* .portfolioGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+} */
+
+@media screen and (max-width:1024px) {
+    .portfolioGrid {
+        display: block;
+    }
+}

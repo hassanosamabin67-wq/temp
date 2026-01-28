@@ -1,0 +1,51 @@
+.tabDiv {
+    border: 1px solid #dddddd;
+    padding: 6px 20px;
+    border-radius: 10px;
+}
+
+.tabLabel {
+    font-size: 17px;
+    font-weight: 500;
+    color: #545454 !important;
+}
+
+.pricingTab :global(.ant-tabs-tab:hover) {
+    color: #000000 !important;
+}
+
+.pricingTab :global(.ant-tabs-tab-active) {
+    color: #000000 !important;
+    outline: none !important;
+}
+
+.pricingTab :global(.ant-tabs-ink-bar) {
+    background: #000000 !important;
+}
+
+.containerDiv {
+    padding: 4px 0px;
+}
+
+.subHeading {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.listStyle {
+    padding: 0 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #454545;
+}
+
+/* .list {
+    width: 142px;
+} */
+
+.bookedBtn {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6d6d6d;
+}

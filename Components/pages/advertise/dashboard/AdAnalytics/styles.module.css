@@ -1,0 +1,51 @@
+.analyticsContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 24px;
+}
+
+.header h2 {
+    margin-bottom: 8px;
+}
+
+.chartCard {
+    margin-bottom: 24px;
+}
+
+.chartPlaceholder {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+.tipsList {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tipsList li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.tipsList li:last-child {
+    border-bottom: none;
+}
+
+.metricsExplanation p {
+    margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+    .header h2 {
+        font-size: 24px;
+    }
+
+    .chartPlaceholder {
+        padding: 40px 16px;
+    }
+}

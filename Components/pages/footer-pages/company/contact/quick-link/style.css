@@ -1,0 +1,34 @@
+.quick {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 10px;
+  width: 75%;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 10px 12px 14px rgba(255, 255, 255 0.9);
+  padding: 40px 0;
+}
+
+.using-quick-link ol {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: aliceblue;
+  gap: 50px;
+  padding: 30px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.steps p {
+  padding-left: 20px;
+}
+
+.using h3 {
+  padding: 12px 0;
+}

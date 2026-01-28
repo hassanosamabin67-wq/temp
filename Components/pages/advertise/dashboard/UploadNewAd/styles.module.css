@@ -1,0 +1,15 @@
+.uploadContainer {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.uploadCard,
+.paymentCard {
+    margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+    .uploadContainer {
+        max-width: 100%;
+    }
+}

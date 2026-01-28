@@ -1,0 +1,117 @@
+.videoControlMain {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.videoControlDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.videoControlIcons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #ffffff70;
+    border-radius: 50px;
+    padding: 10px 25px;
+}
+
+.meetingInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 1px 2px 0px #9c9c9c;
+}
+
+.menuBtn,
+.videoIcons,
+.menuIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.videoIcons {
+    font-size: 25px !important;
+    padding: 10px;
+    background-color: #fff;
+    color: #3A3A3A;
+}
+
+.activeMenuIcon {
+    background-color: orange !important;
+    color: white !important;
+}
+
+.activeVideoIcon {
+    color: #ffffff !important;
+    background-color: #a10606 !important;
+}
+
+.menuBtn {
+    padding: 10px;
+    font-size: 16px;
+    color: #545454;
+}
+
+.menuIcon {
+    font-size: 15px !important;
+    padding: 10px;
+    background-color: #dedede;
+    color: #616161;
+}
+
+.menuContainer {
+    min-width: 250px;
+}
+
+.meetingInfoMobile {
+    display: none;
+}
+
+@media screen and (max-width:768px) {
+    .menuContainer {
+        min-width: 200px;
+    }
+
+    .videoControlDiv {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width:760px) {
+    .videoControlMain {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .videoControlDiv {
+        display: flex;
+        justify-content: center;
+    }
+
+    .meetingInfoWeb {
+        display: none;
+    }
+
+    .meetingInfoMobile {
+        display: block;
+    }
+
+    .menuContainer {
+        min-width: auto;
+    }
+}

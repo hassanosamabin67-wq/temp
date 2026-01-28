@@ -1,0 +1,170 @@
+/* Main Heading */
+.a_class {
+    text-transform: uppercase;
+    margin-top: 80px;
+    font-family: 'Poppins', sans-serif;
+    /* Modern font */
+}
+
+.a_1 {
+    font-size: 36px;
+    /* Slightly larger font size */
+    text-align: center;
+    color: #030d42 !important;
+    /* Neutral dark color */
+}
+
+.a_2 {
+    color: #030d42 !important;
+    /* Modern, vibrant accent color */
+    font-size: 36px;
+    text-align: center;
+}
+
+.bg_1 {
+    background: linear-gradient(180deg, #0A3D91, #0F63D9) !important;
+    /* box-shadow: 0 0 20px rgba(0, 150, 255, 0.6) !important; */
+}
+
+.bg_2 {
+    background: linear-gradient(180deg, #1E0A91, #6A0FD9) !important;
+    /* box-shadow: 0 0 20px rgba(0, 150, 255, 0.6) !important; */
+}
+
+.bg_3 {
+    background: linear-gradient(180deg, #002D91, #0066D9) !important;
+    /* box-shadow: 0 0 20px rgba(0, 150, 255, 0.6) !important; */
+}
+
+/* Cards */
+.card-homeprovider {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    max-width: 360px;
+}
+
+.card-homeprovider:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Content inside cards */
+.card_a {
+    margin-top: 35px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    filter: invert(1);
+}
+
+.card_b {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    /* Neutral text */
+}
+
+.card_c {
+    margin-top: 15px;
+    color: #fff;
+    /* Slightly lighter text for description */
+    font-weight: 500;
+    line-height: 1.6;
+    /* Improved readability */
+}
+
+/* Card Container */
+.home-provider {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px 10px;
+    flex-wrap: wrap;
+    /* Make it responsive */
+}
+
+/* Flex Wrapper */
+.b_class {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-top: 50px;
+    margin: auto;
+    width: 75%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .card-homeprovider {
+        width: 45%;
+        /* Adjust card width for tablets */
+        height: auto;
+        /* Allow height to adjust dynamically */
+    }
+}
+
+@media (max-width: 768px) {
+    .card-homeprovider {
+        width: 100%;
+        /* Full width on small screens */
+        /* Add spacing between cards */
+        height: auto;
+        /* Allow height to adjust dynamically */
+    }
+
+    .a_1,
+    .a_2 {
+        font-size: 28px;
+        /* Reduce font size for headings */
+    }
+
+    .home-provider {
+        gap: 20px;
+        /* Reduce gap between cards */
+    }
+}
+
+@media (max-width: 480px) {
+    .a_class {
+        margin-top: 50px;
+        /* Adjust margin for smaller screens */
+    }
+
+    .a_1,
+    .a_2 {
+        font-size: 24px;
+        /* Further reduce font size for headings */
+    }
+
+    .card-homeprovider {
+        padding: 15px;
+        /* Add padding inside cards */
+    }
+
+    .card_a,
+    .card_b,
+    .card_c {
+        font-size: 16px;
+        /* Adjust font size for readability */
+    }
+
+    .home-provider {
+        flex-direction: column;
+        /* Stack cards vertically */
+        gap: 15px;
+        /* Reduce gap between cards */
+    }
+}

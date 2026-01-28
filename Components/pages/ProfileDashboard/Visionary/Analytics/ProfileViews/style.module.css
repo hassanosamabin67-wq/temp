@@ -1,0 +1,43 @@
+.chartContainer {
+    min-height: 310px;
+}
+
+.chartDiv {
+    margin-left: -1rem;
+    margin-right: -1.25rem;
+    height: 310px;
+}
+
+.statGrid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    text-align: center;
+    border-color: #e5e7eb;
+    border-style: solid;
+    border-width: 0;
+}
+
+.statBlock {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.25rem;
+}
+
+.dtText {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.ddText {
+    font-weight: 500;
+    color: #6b7280;
+}
+
+@media screen and (max-width:600px) {
+    .chartWrp {
+        padding: 2rem 0;
+    }
+}

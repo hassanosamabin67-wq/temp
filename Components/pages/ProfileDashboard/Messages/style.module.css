@@ -1,0 +1,31 @@
+.pageHeading {
+    color: #111928;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.messagesGrid {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.header {
+    padding: 20px;
+    border-bottom: 1px solid #d7d7d7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.unreadCountTag {
+    background-color: #6C63FF;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+}

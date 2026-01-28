@@ -1,0 +1,83 @@
+.orderMain {
+    min-height: 100vh;
+    padding: 20px 40px;
+    width: 100%;
+}
+
+.ordersMain {
+    position: relative;
+    min-height: 100vh;
+}
+
+.orderHeader {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.orderHeaderCard {
+    min-width: 260px;
+}
+
+.orderHeaderCardBody {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.iconDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    font-size: 18px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    color: white;
+}
+
+.dollarIcon {
+    background-color: #008f00;
+}
+
+.activeProjectIcon {
+    background-color: #ffab1a;
+}
+
+.pendingProjectIcon {
+    background-color: #4a40d1;
+}
+
+.totalOrdersIcon {
+    background-color: #00a1ff;
+}
+
+.cardInfoDiv {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.infoValue {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.infoDetail {
+    font-size: 14px;
+    font-weight: 600;
+    color: #7a7a7a;
+}
+
+@media screen and (max-width: 768px) {
+    .ordersMain {
+        padding-top: 30px;
+    }
+}

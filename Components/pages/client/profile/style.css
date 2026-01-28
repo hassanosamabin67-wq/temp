@@ -1,0 +1,104 @@
+.container {
+    padding: 30px;
+    background: #00000054;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 50%);
+    margin: 30px 0;
+}
+
+.heading {
+    display: block;
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.payment-div {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.ant-checkbox-inner {
+    border-radius: 15px !important;
+    width: 23px !important;
+    height: 23px !important;
+}
+
+.ant-checkbox-inner:after {
+    height: 12px !important;
+}
+
+.payment-div div {
+    display: flex;
+    align-items: center;
+}
+
+.ant-collapse-content-box {
+    padding: 16px 25px !important;
+    background-color: white !important;
+    border: 1px solid #ebebeb !important;
+    border-radius: 0 0 10px 10px !important;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 15px;
+    padding-right: 13px;
+}
+
+.recommend-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.recommend-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #d1d1d1;
+    width: 270px;
+    min-height: 110px;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+    transition: transform .5s;
+    cursor: pointer;
+}
+
+.recommend-div:hover {
+    transform: scale(1.1);
+}
+
+.visionary-detail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.recommend-img {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
+
+.recommend-name {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.view-more-transactions {
+    border: 1px solid #cbcbcb;
+    padding: 8px 25px;
+    border-radius: 5px;
+}
+
+.view-more-transactions:hover {
+    background-color: #5656f7;
+    color: #fff;
+}

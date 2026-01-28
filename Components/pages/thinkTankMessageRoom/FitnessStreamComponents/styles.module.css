@@ -1,0 +1,271 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
+.timerSection {
+    border-bottom: 1px solid #333;
+    margin-bottom: 4px;
+}
+
+.timerCard {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 5px;
+    box-shadow: 0 8px 32px rgba(124, 58, 237, 0.3);
+}
+
+.timerHeader {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.timerMode {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.timerDisplay {
+    color: white;
+    font-size: 36px;
+    font-weight: 800;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 8px;
+}
+
+.roundInfo {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.timerControls {
+    display: flex;
+    gap: 8px;
+}
+
+.timerButton {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.startButton {
+    background: #f59e0b;
+    color: #111827;
+}
+
+.startButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.resetButton {
+    background: #ef4444;
+    color: white;
+    padding: 12px;
+}
+
+.resetButton:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.timerModeSelector {
+    background: #374151;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.modeLabel {
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.modeButtons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.modeButton {
+    padding: 12px 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background: #4b5563;
+    color: #d1d5db;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.modeButton:hover {
+    background: #6b7280;
+}
+
+.activeMode {
+    background: #7c3aed;
+    color: white;
+    transform: scale(1.02);
+}
+
+.modeIcon {
+    font-size: 18px;
+}
+
+.modeText {
+    font-size: 11px;
+    text-transform: capitalize;
+}
+
+.settingsButton {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    background: #4b5563;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: background 0.2s ease;
+}
+
+.settingsButton:hover {
+    background: #6b7280;
+}
+
+.streamInfo {
+    background: #374151;
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 12px;
+}
+
+.streamDuration,
+.participantCount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.streamDuration:last-child,
+.participantCount:last-child {
+    margin-bottom: 0;
+}
+
+.durationLabel,
+.countLabel {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.durationValue,
+.countValue {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+}
+
+/* Modal Styles */
+.modalBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: #1a1a1a;
+    border-radius: 16px;
+    padding: 24px;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #333;
+}
+
+.modalTitle {
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.settingGroup {
+    margin-bottom: 16px;
+}
+
+.settingLabel {
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.settingInput {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #2a2a2a;
+    color: white;
+    font-size: 14px;
+}
+
+.settingInput:focus {
+    outline: none;
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+}
+
+.modalActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.cancelButton {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    background: #4b5563;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.cancelButton:hover {
+    background: #6b7280;
+}

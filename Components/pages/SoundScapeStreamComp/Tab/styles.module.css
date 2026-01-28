@@ -1,0 +1,376 @@
+.chatBox {
+    padding: 10px 20px;
+    border-radius: 6px;
+    background-color: var(--transparentContainer);
+    box-shadow: 1px 1px 6px 0px #1e1e1e;
+}
+
+.streamComments {
+    height: 121px;
+    max-height: 125px;
+    overflow: auto;
+    /* Hide scrollbar for WebKit-based browsers (Chrome, Safari) */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer and Edge */
+}
+
+/* For WebKit-based browsers */
+.streamComments::-webkit-scrollbar {
+    display: none;
+}
+
+.streamComment {
+    display: flex;
+    border-radius: 10px;
+    color: white;
+    gap: 10px;
+    padding: 10px 0px;
+}
+
+.userImage {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.userName {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.userMessage {
+    font-size: 12px;
+    line-height: 1rem;
+}
+
+.audioUploadsContainer {
+    height: 185px;
+    max-height: 185px;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-radius: 6px;
+    background-color: var(--transparentContainer);
+    box-shadow: 1px 1px 6px 0px #1e1e1e;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.audioUploadsHeader {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.audioUploadsHeaderDaw {
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.audioUploadsHeader h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.audioUploadsDiv {
+    flex: 1;
+}
+
+.audioUploadsDiv::-webkit-scrollbar {
+    display: none;
+}
+
+.audioUpload {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: #001428;
+    margin-bottom: 8px;
+    border: 1px solid #003a75;
+    transition: all 0.2s ease;
+}
+
+.audioUpload:hover {
+    background-color: #051f38;
+}
+
+.fileInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.fileTypeIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+}
+
+.fileDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.fileName {
+    font-size: 14px;
+    font-weight: 500;
+    color: #dfdfdf;
+    word-break: break-word;
+}
+
+.fileMeta {
+    font-size: 11px;
+    color: #6c757d;
+    font-weight: 400;
+}
+
+.fileDescription {
+    font-size: 12px;
+    color: #495057;
+    font-style: italic;
+    margin-top: 2px;
+}
+
+.fileActions {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.fileActions button {
+    color: white !important;
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    gap: 16px;
+    color: #6c757d;
+}
+
+.loadingContainer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    gap: 12px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.emptyState p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.emptyState span {
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.uploadForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.uploadField {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.uploadField label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.uploadButton {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+/* Legacy styles for backward compatibility */
+.downloadIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    color: #007bff;
+    transition: color 0.2s ease;
+}
+
+.downloadIcon:hover {
+    background-color: #e6f7ff;
+    color: #1890ff;
+}
+
+/* Donation Styles */
+.donationsContainer {
+    height: 185px;
+    max-height: 185px;
+    overflow: hidden;
+    background-color: var(--transparentContainer);
+    box-shadow: 1px 1px 6px 0px #1e1e1e;
+    color: white !important;
+    border-radius: 6px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.donationsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 16px;
+}
+
+.donationsHeader h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.donationStats {
+    display: flex;
+    gap: 16px;
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.statValue {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ff4d4f;
+    line-height: 1;
+}
+
+.statLabel {
+    font-size: 11px;
+    color: #ffffff;
+    margin-top: 2px;
+}
+
+.donationActions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.donateButton {
+    background: linear-gradient(135deg, #ff4d4f 0%, #ff7875 100%);
+    border: none;
+    border-radius: 8px;
+    height: 40px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(255, 77, 79, 0.3);
+    transition: all 0.3s ease;
+}
+
+.donateButton:hover {
+    background: linear-gradient(135deg, #ff7875 0%, #ff4d4f 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 77, 79, 0.4);
+}
+
+.recentDonations {
+    flex: 1;
+    overflow: hidden;
+}
+
+.recentDonations h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.donationsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 80px;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.donationsList::-webkit-scrollbar {
+    display: none;
+}
+
+.donationItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+}
+
+.donationInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.donationAmount {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ff4d4f;
+}
+
+.donationDate {
+    font-size: 11px;
+    color: #6c757d;
+}

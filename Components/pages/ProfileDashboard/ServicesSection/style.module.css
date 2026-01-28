@@ -1,0 +1,134 @@
+.serviceSectionProfilevisionary {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.serviceProfileElementsMainContLeft {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.serviceProfileElementsMainCont {
+    width: 100%;
+}
+
+.serviceTitle {
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.serviceList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    width: 100%;
+    justify-content: center;
+}
+
+.serviceCard {
+    background: #ffffff45;
+    border: 1px solid #b1b1b1;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 33%);
+    transition: transform 0.3s ease;
+    width: 328px;
+}
+
+.serviceCard:hover {
+    transform: translateY(-5px);
+}
+
+.serviceName {
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+    margin: 0 0 20px 0;
+    color: black;
+    word-wrap: break-word;
+}
+
+.serviceLink:hover {
+    text-decoration: underline;
+    color: gray;
+}
+
+.serviceDescription {
+    font-size: 14px;
+    word-wrap: break-word;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.serviceVideo {
+    margin-bottom: 10px;
+    overflow: hidden;
+    width: 326px;
+    border-radius: 10px;
+    margin: auto;
+    height: 200px;
+}
+
+.serviceReviews {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.serviceReviews ul {
+    padding-left: 20px;
+}
+
+.serviceTimestamp {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.serviceContent {
+    padding: 20px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.priceDiv {
+    margin: 0 !important;
+}
+
+.visibilityBtn {
+    font-size: 16px;
+    background-color: #ffffff69;
+    padding: 10px 10px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.visibilityBtn:hover {
+    background-color: #ffffffc4 !important;
+}
+
+.headerBtns {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 6px;
+}
+
+.privateTag {
+    background-color: #ff4d4f;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 1;
+}

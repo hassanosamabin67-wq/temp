@@ -1,0 +1,42 @@
+.galleryStats {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 0px #cbcbcb;
+    margin-top: 10px;
+}
+
+.galleryStatsTitle {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.galleryStatsContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.galleryStatsContentItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.galleryStatsContentItemTitle {
+    color: #5f5f5f;
+    font-size: 15px;
+}
+
+.galleryStatsContentItemValue {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.galleryStatsContentTip {
+    color: green;
+    font-weight: 500;
+    font-size: 15px;
+}

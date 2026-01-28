@@ -1,0 +1,202 @@
+/* Global Styles */
+.soundscape-container {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 60px 20px;
+}
+
+/* Guide Header */
+.guide-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.guide-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.guide-subtitle {
+  font-size: 1.25rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Guide Steps */
+.guide-steps {
+  list-style: none;
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.step-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.step-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #2575fc;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.step-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+.step-content {
+  padding-left: 55px;
+}
+
+.step-detail {
+  margin-bottom: 20px;
+}
+
+.step-subheading {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2575fc;
+  margin-bottom: 10px;
+}
+
+.step-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Get Started Section */
+.get-started-section {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.get-started-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.get-started-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.get-started-description {
+  font-size: 1.25rem;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-button {
+  background-color: #ff6f61;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #ff4a3d;
+  transform: translateY(-2px);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .guide-title {
+    font-size: 2rem;
+  }
+
+  .guide-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .step-item {
+    padding: 20px;
+  }
+
+  .step-title {
+    font-size: 1.5rem;
+  }
+
+  .step-content {
+    padding-left: 0;
+  }
+
+  .step-number {
+    width: 35px;
+    height: 35px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .guide-title {
+    font-size: 1.75rem;
+  }
+
+  .guide-subtitle {
+    font-size: 1rem;
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+  }
+
+  .step-subheading {
+    font-size: 1rem;
+  }
+
+  .step-description {
+    font-size: 0.9rem;
+  }
+}

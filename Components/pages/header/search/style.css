@@ -1,0 +1,19 @@
+.search-input {
+    width: 300px;
+  }
+  
+  .dropdown-overlay {
+    width: 300px;
+    background-color: #fff;
+  }
+  
+  .dropdown-list-item {
+    cursor: pointer;
+    padding: 8px 16px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .dropdown-list-item:last-child {
+    border-bottom: none;
+  }
+  

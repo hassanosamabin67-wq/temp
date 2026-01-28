@@ -1,0 +1,194 @@
+table_name,column_name,data_type
+Live,id,uuid
+Live,created_at,timestamp with time zone
+Live,status,text
+Live,host,uuid
+Live,think_tank_id,uuid
+Live,participants,jsonb
+Live,messages,jsonb
+Live,event_id,uuid
+categories,id,uuid
+categories,name,text
+categories,description,text
+channel_messages,id,uuid
+channel_messages,channel_id,uuid
+channel_messages,sender_id,uuid
+channel_messages,message,text
+channel_messages,created_at,timestamp with time zone
+channel_messages,reply_to,uuid
+channel_messages,reactions,jsonb
+channel_messages,file_url,text
+channel_messages,message_type,text
+channels,id,uuid
+channels,created_at,timestamp with time zone
+channels,name,text
+channels,think_tank_id,uuid
+conversations,id,uuid
+conversations,user1_id,uuid
+conversations,user2_id,uuid
+conversations,created_at,timestamp without time zone
+conversations,think_tank_id,uuid
+event_payments,id,uuid
+event_payments,event_id,uuid
+event_payments,participant_id,uuid
+event_payments,amount,numeric
+event_payments,status,text
+event_payments,stripe_payment_intent_id,text
+event_payments,stripe_transfer_id,text
+event_payments,created_at,timestamp with time zone
+inbox_conversation,id,uuid
+inbox_conversation,user1_id,uuid
+inbox_conversation,user2_id,uuid
+inbox_conversation,created_at,timestamp with time zone
+lobby_announcements,id,uuid
+lobby_announcements,think_tank_id,uuid
+lobby_announcements,announcement_message,text
+lobby_announcements,created_at,timestamp with time zone
+lobby_announcements,host_name,text
+messages,id,uuid
+messages,conversation_id,uuid
+messages,sender_id,uuid
+messages,receiver_id,uuid
+messages,message,text
+messages,created_at,timestamp with time zone
+messages,reply_to,uuid
+messages,reactions,jsonb
+messages,file_url,text
+messages,message_type,text
+messages,inbox_conversation_id,uuid
+messages,think_tank_id,uuid
+milestone_payment,id,uuid
+milestone_payment,created_at,timestamp with time zone
+milestone_payment,client_id,uuid
+milestone_payment,visionary_id,uuid
+milestone_payment,title,text
+milestone_payment,amount,numeric
+milestone_payment,status,text
+milestone_payment,due_date,timestamp with time zone
+milestone_payment,order_id,uuid
+milestone_payment,file_url,text
+order,id,uuid
+order,client_id,uuid
+order,visionary_id,uuid
+order,created_at,timestamp with time zone
+order,status,text
+order,price_type,text
+order,price,numeric
+order,start_datetime,timestamp without time zone
+order,end_datetime,timestamp without time zone
+order,license_agreement,boolean
+order,file_url,text
+order,description,text
+order,milestone,json
+order,title,text
+review,id,uuid
+review,rating,numeric
+review,message,text
+review,live_id,uuid
+review,participant_id,uuid
+review,created_at,timestamp with time zone
+service,id,uuid
+service,profileId,uuid
+service,name,text
+service,description,text
+service,reviews,ARRAY
+service,video,text
+service,created_at,timestamp with time zone
+service,updated_at,timestamp with time zone
+service,category,text
+service,subcategory,text
+service,priceType,text
+service,serviceDeliveryTime,text
+service,revisions,text
+service,tags,text
+service,addOnService,text
+service,faqs,jsonb
+service,file,text
+service,visibility,text
+service,availability,text
+service,terms,boolean
+service,price,text
+subcategories,id,uuid
+subcategories,category_id,uuid
+subcategories,name,text
+subcategories,description,text
+think_tank_events,id,uuid
+think_tank_events,think_tank_id,uuid
+think_tank_events,event_name,text
+think_tank_events,event_date,timestamp with time zone
+think_tank_events,created_at,timestamp with time zone
+think_tank_events,participants,jsonb
+think_tank_events,price,text
+think_tank_events,type,text
+think_tank_events,status,text
+think_tank_events,host,uuid
+think_tank_events,slots,numeric
+think_tank_participants,id,bigint
+think_tank_participants,created_at,timestamp with time zone
+think_tank_participants,think_tank_id,uuid
+think_tank_participants,participant_id,uuid
+think_tank_participants,status,text
+think_tank_participants,payment,text
+thinktank,id,uuid
+thinktank,title,text
+thinktank,start_datetime,timestamp with time zone
+thinktank,end_datetime,timestamp with time zone
+thinktank,description,text
+thinktank,category,text
+thinktank,accesstype,text
+thinktank,pricingtype,text
+thinktank,recurring,text
+thinktank,created_at,timestamp with time zone
+thinktank,updated_at,timestamp with time zone
+thinktank,host,text
+thinktank,participant_limit,numeric
+thinktank,price,numeric
+thinktank,room_type,text
+thinktank,subcategory,text
+thinktank,requested_boosting,numeric
+thinktank,paid_for_boost,boolean
+transactions,id,uuid
+transactions,stripe_transaction_id,text
+transactions,amount,numeric
+transactions,user_id,uuid
+transactions,created_at,timestamp with time zone
+transactions,client_id,uuid
+transactions,type,text
+users,userId,uuid
+users,email,text
+users,firstName,text
+users,lastName,text
+users,phoneNumber,text
+users,isAuthenticated,boolean
+users,isSetupCompleted,boolean
+users,profileId,uuid
+users,createdAt,timestamp with time zone
+users,updatedAt,timestamp with time zone
+users,roles,ARRAY
+users,subscription,text
+users,gender,text
+users,dob,date
+users,title,text
+users,overview,text
+users,category,text
+users,subcategory,text
+users,experienceLevel,text
+users,hourlyRate,numeric
+users,profileType,text
+users,country,text
+users,website,text
+users,companyName,text
+users,receiveEmails,boolean
+users,agreeTerms,boolean
+users,isVerified,boolean
+users,profileImage,text
+users,selfTaught,text
+users,mentorships,text
+users,certifications,text
+users,workshops,text
+users,experience,jsonb
+users,company,text
+users,video,text
+users,stripe_account_id,text
+users,stripe_customer_id,text
+users,userName,text

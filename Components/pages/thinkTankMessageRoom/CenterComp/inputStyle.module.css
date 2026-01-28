@@ -1,0 +1,18 @@
+.messageInput {
+    padding: 10px 15px !important;
+    background-color: var(--inputBg) !important;
+    color: var(--boldHeading);
+}
+
+.messageInput:focus {
+    background-color: var(--inputBg) !important;
+}
+
+.messageInput:hover {
+    background-color: var(--inputBg) !important;
+}
+
+.messageInput input::placeholder {
+    color: #999 !important;
+    opacity: 1;
+}

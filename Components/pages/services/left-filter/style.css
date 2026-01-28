@@ -1,0 +1,46 @@
+/* CategorySelector Styles */
+.category-card {
+    /* width: 80%; */
+    border: none !important;
+    /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); */
+    margin-right: 10px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+  
+  .main-category {
+    margin-bottom: 16px;
+  }
+  
+  .main-category label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .category-select {
+    width: 100%;
+  }
+  
+  .subcategory-container {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #f0f0f0;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  .subcategory-container label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .subcategory-checkbox {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .category-select
+    { width: 100%; margin-top: 10px !important; }
+  

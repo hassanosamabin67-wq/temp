@@ -1,0 +1,27 @@
+.benefit{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:  0 auto;
+    height: auto;
+    border-radius: 10px;
+    width: 59%;
+    margin-top: 20px;
+    background-color: rgb(154, 225, 255);
+    box-shadow: 10px 12px 14px rgba(255,255,255 0.9);
+    padding: 40px 0;
+}
+
+.using-benefit ol  {
+    list-style-type: none;
+    padding: 12px 20px;
+}
+
+.steps p{
+    padding-left: 20px;
+}
+
+.using h3{
+    padding: 12px 0;
+}

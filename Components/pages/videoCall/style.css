@@ -1,0 +1,207 @@
+.remote,
+.local {
+    box-shadow: 1px 2px 5px 0px #ffffffc9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.local {
+    width: 100%;
+    height: 100%;
+}
+
+.remote {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 40%;
+}
+
+.remote-users-div {
+    width: 30%;
+    height: 100%;
+    max-height: 100%;
+    overflow: auto;
+}
+
+.call-div {
+    width: 100%;
+    height: 100%;
+}
+
+.shared-screen-div {
+    height: 100%;
+    width: 100%;
+}
+
+/* Chat Box */
+
+.chat-box-container {
+    position: absolute;
+    bottom: 20%;
+    right: 7%;
+    padding: 15px;
+    border-radius: 10px;
+    width: 350px;
+    background-color: #e7e7e7;
+    z-index: 10;
+}
+
+.chat-icon-div {
+    position: absolute;
+    color: white;
+    background-color: #0069ff;
+    padding: 15px;
+    font-size: 30px;
+    bottom: 15%;
+    right: 5%;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    width: 60px;
+}
+
+.message-input-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.message-input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.message-send-btn {
+    padding: 8px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: none;
+}
+
+.messages-container {
+    padding: 5px;
+    margin-bottom: 10px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.message {
+    background-color: #7f7f7f;
+    color: white;
+    padding: 10px;
+    width: 80%;
+    border-radius: 10px 10px 10px 0px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+.owner-message {
+    align-self: flex-end;
+    border-radius: 10px 10px 0 10px;
+}
+
+.pinned-message {
+    border-left: 4px solid #fdcb6e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    word-wrap: break-word;
+}
+
+.pin-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.pin-icon {
+    margin: 0 10px;
+    font-size: 10px;
+}
+
+.pinned-msg {
+    cursor: pointer;
+    word-wrap: break-word;
+}
+
+.video-parent {
+    height: 100vh;
+    position: relative;
+    /* background-color: #1E1E1E; */
+}
+
+.bg-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    filter: blur(10px);
+    /* Adjust blur here */
+}
+
+.call-user-div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.float-box {
+    background-color: #333333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.call-fallback-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: white;
+    inset: 0;
+}
+
+.agora_video_player {
+    object-fit: contain !important;
+}
+
+.video-call-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 30px;
+    height: 80%;
+}
+
+.speaking-border {
+    box-shadow: 0 0 18px 3px rgba(0, 255, 170, 0.61);
+}
+
+@media screen and (max-width:768px) {
+    .chat-icon-div {
+        bottom: 18%;
+    }
+
+    .video-call-container {
+        padding: 10px;
+        height: 70% !important;
+    }
+}

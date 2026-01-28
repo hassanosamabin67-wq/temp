@@ -1,0 +1,45 @@
+.confirmContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 20px 0px 20px;
+}
+
+.confirmationHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 10px;
+}
+
+.confirmH1 {
+    display: block;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.confirmTxt {
+    font-size: 15px;
+    font-weight: 600;
+    color: #707070;
+    text-align: center;
+}
+
+.userEmail {
+    color: #008eff;
+    font-weight: bold;
+}
+
+.confirmationShortTxt {
+    color: gray;
+    font-size: 14px;
+    font-weight: 500;
+    border-top: 1px solid #dedede;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}

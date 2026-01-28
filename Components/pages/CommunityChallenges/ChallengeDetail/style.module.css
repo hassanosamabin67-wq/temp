@@ -1,0 +1,370 @@
+.container {
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 0 60px;
+    background-size: cover;
+    background-position: center;
+}
+
+.backButton {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    margin-bottom: 24px;
+}
+
+.backButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+.headerContent {
+    max-width: 800px;
+}
+
+.headerTags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.statusTag {
+    font-size: 14px;
+    padding: 4px 12px;
+}
+
+.categoryTag {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: transparent;
+    color: white;
+}
+
+.headerTitle {
+    color: white !important;
+    font-size: 36px !important;
+    margin-bottom: 12px !important;
+}
+
+.headerBrief {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 18px !important;
+    margin-bottom: 24px !important;
+}
+
+.headerMeta {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.metaItem span {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.headerActions {
+    margin-top: 24px;
+}
+
+.submitButton {
+    height: 48px;
+    padding: 0 32px;
+    font-size: 16px;
+}
+
+.submittedAlert {
+    max-width: 400px;
+}
+
+/* Winner Card */
+.winnerCard {
+    background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+    border: none;
+    margin-bottom: 24px;
+}
+
+.winnerCard :global(.ant-card-body) {
+    padding: 24px;
+}
+
+.winnerHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.winnerIcon {
+    font-size: 32px;
+    color: white;
+}
+
+.winnerTitle {
+    color: white !important;
+    margin: 0 !important;
+}
+
+.winnerContent {
+    display: flex;
+    gap: 24px;
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.winnerSubmission {
+    flex-shrink: 0;
+}
+
+.winnerImage {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.winnerInfo {
+    flex: 1;
+}
+
+.winnerAuthor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0;
+}
+
+/* Voting Card */
+.votingCard {
+    margin-bottom: 24px;
+}
+
+.finalistCard {
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.finalistCard:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.votedCard {
+    border: 2px solid #52c41a;
+}
+
+.finalistImageWrapper {
+    height: 200px;
+    overflow: hidden;
+}
+
+.finalistImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.finalistInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.finalistAuthor {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.voteSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Gallery Card */
+.galleryCard {
+    margin-bottom: 24px;
+}
+
+.submissionCard {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.submissionImageWrapper {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+.submissionImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.winnerBadge,
+.finalistBadge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+.winnerBadge {
+    background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+}
+
+.finalistBadge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Sidebar Cards */
+.detailsCard,
+.prizesCard,
+.rulesCard {
+    margin-bottom: 16px;
+    border-radius: 12px;
+}
+
+.detailItem {
+    margin-bottom: 8px;
+}
+
+.detailItem>span:first-child {
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Prizes */
+.prizeItem {
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.prizeItem:last-child {
+    border-bottom: none;
+}
+
+.prizePlace {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.goldIcon {
+    color: #faad14;
+    font-size: 18px;
+}
+
+.silverIcon {
+    color: #bfbfbf;
+    font-size: 18px;
+}
+
+.bronzeIcon {
+    color: #d48806;
+    font-size: 18px;
+}
+
+/* Rules */
+.ruleItem {
+    padding: 8px 0 !important;
+}
+
+.shareDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.shareBtn {
+    cursor: pointer;
+}
+
+.shareHeading {
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.scDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.scIcon {
+    background-color: #e9e9e9;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 25px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fbIcon {
+    color: #1877F2;
+}
+
+.mailIcon {
+    color: #b30000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        padding: 24px 0 40px;
+    }
+
+    .headerTitle {
+        font-size: 28px !important;
+    }
+
+    .headerMeta {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .winnerContent {
+        flex-direction: column;
+    }
+
+    .winnerImage {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+    }
+}

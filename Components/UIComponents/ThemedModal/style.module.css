@@ -1,0 +1,166 @@
+.themedModal {
+    font-family: var(--themed-modal-font, 'Inter', sans-serif);
+}
+
+.themedModal :global(.ant-modal-content) {
+    background: linear-gradient(180deg, var(--themed-modal-bg) 0%, #ffffff 100%);
+    border: 1px solid var(--themed-modal-border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.themedModal :global(.ant-modal-header) {
+    background: var(--themed-modal-header-bg);
+    border-bottom: none;
+    padding: 20px 24px;
+    margin: 0;
+    border-radius: 16px 16px 0 0;
+}
+
+.themedModal :global(.ant-modal-title) {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.themedModal :global(.ant-modal-close) {
+    color: #ffffff;
+    top: 16px;
+    right: 16px;
+}
+
+.themedModal :global(.ant-modal-close:hover) {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.themedModal :global(.ant-modal-body) {
+    padding: 24px;
+}
+
+.themedHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.themedTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: var(--themed-modal-font, 'Inter', sans-serif);
+}
+
+.themedContent {
+    font-family: var(--themed-modal-font, 'Inter', sans-serif);
+}
+
+/* Themed buttons inside modal */
+.themedContent :global(.ant-btn-primary) {
+    background: var(--themed-modal-gradient);
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.themedContent :global(.ant-btn-primary:hover) {
+    background: var(--themed-modal-gradient-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Themed form labels */
+.themedContent :global(.ant-form-item-label > label) {
+    color: var(--themed-modal-text);
+    font-weight: 500;
+}
+
+/* Themed input focus states */
+.themedContent :global(.ant-input:focus),
+.themedContent :global(.ant-input-focused),
+.themedContent :global(.ant-input:hover) {
+    border-color: var(--themed-modal-primary);
+    box-shadow: 0 0 0 2px rgba(var(--themed-modal-primary), 0.1);
+}
+
+.themedContent :global(.ant-select:not(.ant-select-disabled):hover .ant-select-selector) {
+    border-color: var(--themed-modal-primary);
+}
+
+.themedContent :global(.ant-select-focused .ant-select-selector) {
+    border-color: var(--themed-modal-primary) !important;
+    box-shadow: 0 0 0 2px rgba(var(--themed-modal-primary), 0.1) !important;
+}
+
+/* Themed radio buttons */
+.themedContent :global(.ant-radio-wrapper:hover .ant-radio-inner) {
+    border-color: var(--themed-modal-primary);
+}
+
+.themedContent :global(.ant-radio-checked .ant-radio-inner) {
+    border-color: var(--themed-modal-primary);
+    background-color: var(--themed-modal-primary);
+}
+
+/* Themed date picker */
+.themedContent :global(.ant-picker:hover),
+.themedContent :global(.ant-picker-focused) {
+    border-color: var(--themed-modal-primary);
+}
+
+/* Icon styling in header */
+.themedHeader :global(svg) {
+    width: 24px;
+    height: 24px;
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* Modal footer styling */
+.themedModal :global(.ant-modal-footer) {
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 16px 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .themedModal :global(.ant-modal-header) {
+        padding: 16px 20px;
+    }
+
+    .themedModal :global(.ant-modal-body) {
+        padding: 20px;
+    }
+
+    .themedTitle {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .themedModal :global(.ant-modal-header) {
+        padding: 14px 16px;
+    }
+
+    .themedModal :global(.ant-modal-body) {
+        padding: 16px;
+    }
+
+    .themedTitle {
+        font-size: 16px;
+    }
+
+    .iconWrapper {
+        width: 32px;
+        height: 32px;
+    }
+}

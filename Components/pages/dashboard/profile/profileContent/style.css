@@ -1,0 +1,133 @@
+.main-cont-secondsec-profile {
+  /* display: flex;
+  justify-content: space-between; */
+  /* width: 100%; */
+  margin: 30px 0px;
+  /* display: grid; */
+  /* grid-template-columns: 50% 50%; */
+  /* gap: 20px; */
+  /* height: 500px; */
+}
+
+.cardOneProfilePage {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+.cardTwoProfilePage {
+  display: flex;
+  /* flex-direction: column; */
+  width: 100%;
+  height: 300px;
+
+}
+
+.cardThreeProfilePage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 300px;
+
+}
+
+.cardFourProfilePage {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+}
+
+.JoinThinkTankProfilePagebtnSec {
+
+  width: 25%;
+  align-items: center;
+  gap: 20px;
+}
+
+.btnProfilePageThinkTank {
+  width: 100% !important;
+  height: 95px !important;
+}
+
+.btnProfilePageThinkTank {
+  align-items: center;
+  background-image: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.3) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 19px 24px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  /* Smooth transition */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glowing hover effect */
+.btnProfilePageThinkTank:hover {
+  transform: scale(1.05);
+  /* Slightly increase size */
+  box-shadow: 0 0 20px rgba(151, 65, 252, 0.6), 0 0 40px rgba(91, 66, 243, 0.5);
+}
+
+/* Subtle pulsating glow */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(151, 65, 252, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(151, 65, 252, 0.8);
+  }
+
+  100% {
+    box-shadow: 0 0 10px rgba(151, 65, 252, 0.5);
+  }
+}
+
+/* Activate glow animation on hover */
+.btnProfilePageThinkTank:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* Responsive Font Size */
+@media (min-width: 768px) {
+  .btnProfilePageThinkTank {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+.portfolioSkillsSecProfilePage {
+  display: flex;
+  flex-direction: column;
+  /* width: 25%; */
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.SkillProfilePageSec {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  background: white;
+  padding: 0px 10px;
+  justify-content: center;
+}

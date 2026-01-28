@@ -1,0 +1,40 @@
+.tabLabel {
+    font-weight: 500;
+    font-size: 14px;
+    padding: 4px 20px;
+}
+
+.tabContent {
+    min-height: 300px;
+    max-height: 300px;
+    overflow: auto;
+    padding: 0px 10px;
+}
+
+.modalTitle {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.tabHeading {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.overviewDetails {
+    padding: 20px 10px;
+}
+
+.overviewItem {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 10px 0;
+}
+
+.statusBadge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}

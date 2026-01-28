@@ -1,0 +1,410 @@
+.leftContent {
+    display: grid;
+    grid-template-rows: 1fr;
+    overflow: auto;
+    height: 100%;
+    gap: 30px;
+    padding: 30px 0 30px 0;
+    background-color: var(--transparentContainer);
+    border-radius: 0 0 0 8px;
+    /* Custom scrollbar - hidden by default */
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* Webkit scrollbar styles for leftContent */
+.leftContent::-webkit-scrollbar {
+    width: 6px;
+}
+
+.leftContent::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.leftContent::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+/* Show scrollbar on hover */
+.leftContent:hover {
+    scrollbar-color: rgba(100, 100, 100, 0.6) transparent;
+}
+
+.leftContent:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.6);
+}
+
+.titleHeading {
+    font-size: 25px;
+    font-weight: 500;
+    height: 100%;
+    background-color: var(--transparentContainer);
+    border-radius: 8px 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-overflow: ellipsis;
+}
+
+.titleLink {
+    color: var(--boldHeading);
+}
+
+.leftContentLoading {
+    display: block !important;
+    height: 100%;
+    padding: 20px;
+    background-color: var(--transparentContainer);
+    border-radius: 10px;
+}
+
+.subHeading {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--boldHeading);
+    margin-bottom: 15px;
+    display: block;
+    letter-spacing: 1px;
+    padding: 0 25px;
+}
+
+.channelUl {
+    padding: 0 25px;
+}
+
+.participantsDisplay {
+    max-height: 190px;
+    height: 190px;
+    overflow-y: auto;
+    padding: 0 10px;
+}
+
+.participants {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    padding: 6px 0 6px 12px;
+    color: var(--boldHeading);
+}
+
+.participants:hover {
+    background-color: var(--semiTransparentHover);
+    cursor: pointer;
+}
+
+.activeChannel {
+    font-weight: 500;
+    background-color: var(--semiTransparentBg);
+    color: var(--boldHeading);
+    box-shadow: var(--transparentBoxShadow);
+}
+
+.channels {
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: var(--boldHeading);
+    list-style: none;
+}
+
+.channels a {
+    color: var(--boldHeading);
+    width: 100%;
+}
+
+.channels:hover {
+    background-color: var(--semiTransparentHover);
+    cursor: pointer;
+}
+
+.addTopicBtn {
+    border: none;
+    font-size: 15px;
+    color: gray;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.addTopicDiv {
+    padding: 0 30px;
+}
+
+.plusIcon {
+    font-size: 18px;
+}
+
+.userImage {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+
+.participantPermissionDiv {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.participantBlockBtn {
+    background-color: #ff4d4f !important;
+    color: white !important;
+    font-weight: 500 !important;
+}
+
+.participantAcceptBtn {
+    background-color: #00b185 !important;
+    color: white !important;
+    font-weight: 500 !important;
+}
+
+.disabledParticipant {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.notEnteredText {
+    color: white;
+    font-size: 0.8rem;
+    display: block;
+    background-color: red;
+    font-weight: 500;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+/* Tablet Breakpoint */
+@media (max-width: 1024px) {
+    .leftContainer {
+        align-items: normal;
+    }
+
+    .titleHeading {
+        font-size: 22px;
+        padding: 12px;
+    }
+
+    .leftContent {
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .subHeading {
+        font-size: 12px;
+        padding: 0 15px;
+    }
+
+    .channelUl {
+        padding: 0 15px;
+    }
+
+    .addTopicDiv {
+        padding: 0 20px;
+    }
+
+    .participantsDisplay {
+        padding: 0 8px;
+    }
+
+    .participants {
+        font-size: 13px;
+        padding: 5px 0 5px 8px;
+    }
+
+    .userImage {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Small Tablet */
+@media (max-width: 900px) {
+    .titleHeading {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .leftContent {
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    .subHeading {
+        font-size: 11px;
+        padding: 0 12px;
+        margin-bottom: 10px;
+    }
+
+    .channelUl {
+        padding: 0 12px;
+    }
+
+    .channels {
+        font-size: 13px;
+        padding: 6px 8px;
+        margin-bottom: 6px;
+    }
+
+    .participantsDisplay {
+        max-height: 150px;
+        height: 150px;
+        padding: 0 6px;
+    }
+
+    .participants {
+        font-size: 12px;
+        padding: 4px 0 4px 6px;
+        margin-bottom: 6px;
+    }
+
+    .addTopicBtn {
+        font-size: 13px;
+    }
+
+    .addTopicDiv {
+        padding: 0 15px;
+    }
+
+    .participantPermissionDiv {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .participantAcceptBtn,
+    .participantBlockBtn {
+        font-size: 11px !important;
+        padding: 2px 6px !important;
+    }
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 768px) {
+    .leftContainer {
+        grid-template-rows: auto 1fr;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    .titleHeading {
+        font-size: 24px;
+        padding: 20px;
+        border-radius: 0;
+        text-align: center;
+    }
+
+    .leftContent {
+        gap: 25px;
+        padding: 20px 0;
+        border-radius: 0;
+        height: calc(100% - 80px);
+        overflow-y: auto;
+    }
+
+    .subHeading {
+        font-size: 14px;
+        padding: 0 20px;
+        margin-bottom: 15px;
+    }
+
+    .channelUl {
+        padding: 0 20px;
+    }
+
+    .channels {
+        font-size: 16px;
+        padding: 12px 15px;
+        margin-bottom: 8px;
+    }
+
+    .participantsDisplay {
+        max-height: none;
+        height: auto;
+        padding: 0 15px;
+        flex: 1;
+    }
+
+    .participants {
+        font-size: 15px;
+        padding: 12px 15px;
+        margin-bottom: 8px;
+    }
+
+    .addTopicBtn {
+        font-size: 16px;
+    }
+
+    .addTopicDiv {
+        padding: 0 25px;
+    }
+
+    .userImage {
+        width: 35px;
+        height: 35px;
+    }
+
+    .participantPermissionDiv {
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .participantAcceptBtn,
+    .participantBlockBtn {
+        font-size: 13px !important;
+        padding: 4px 12px !important;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .titleHeading {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .leftContent {
+        padding: 15px 0;
+    }
+
+    .subHeading {
+        font-size: 13px;
+        padding: 0 15px;
+    }
+
+    .channelUl {
+        padding: 0 15px;
+    }
+
+    .channels {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .participantsDisplay {
+        padding: 0 12px;
+    }
+
+    .participants {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+
+    .addTopicDiv {
+        padding: 0 20px;
+    }
+
+    .userImage {
+        width: 32px;
+        height: 32px;
+    }
+}

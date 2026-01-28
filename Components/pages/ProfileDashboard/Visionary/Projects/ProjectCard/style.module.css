@@ -1,0 +1,124 @@
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.projectCard {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.projectCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.projectHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.projectTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.projectClient {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.statusBadge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.statusPending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.statusActive {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.statusReview {
+    background: #d4edda;
+    color: #155724;
+}
+
+.statusCompleted {
+    background: #cbffb9;
+    color: #14960b;
+}
+
+.cardSubHeading {
+    font-size: 15px;
+    font-weight: 500;
+    color: #545454;
+}
+
+.details {
+    margin: 1rem 0;
+}
+
+.detailItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.detailItem:last-child {
+    border-bottom: none;
+}
+
+.detailKey {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.detailValue {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #666;
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+}
+
+.projectActions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .projectsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+}

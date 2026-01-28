@@ -1,0 +1,13 @@
+.layoutMain {
+    min-height: 100vh;
+    padding: 20px 40px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+@media screen and (max-width:1024px) {
+    .layoutMain {
+        padding: 15px;
+    }
+}

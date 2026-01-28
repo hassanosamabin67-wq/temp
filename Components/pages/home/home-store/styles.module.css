@@ -1,0 +1,263 @@
+.categories {
+    padding: 5rem 0;
+    background: linear-gradient(to bottom right, #f9fafb, white);
+    position: relative;
+    overflow: hidden;
+}
+
+.categoriesBackground {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(251, 146, 60, 0.03), transparent 70%);
+}
+
+.categoriesContainer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.categoriesHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.categoriesTitle {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    .categoriesTitle {
+        font-size: 3rem;
+    }
+}
+
+.categoriesTitleGradient {
+    background: linear-gradient(to right, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 3s ease infinite;
+}
+
+.categoriesGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 640px) {
+    .categoriesGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .categoriesGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.categoryCard {
+    background-color: white;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.categoryCrd:hover {
+    box-shadow: 0 25px 50px -12px rgba(60, 120, 251, 0.15);
+    transform: translateY(-12px) scale(1.05);
+}
+
+.categoryCardOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, rgba(255, 247, 237, 0), rgba(255, 237, 213, 0));
+    transition: all 0.5s ease;
+}
+
+.categoryCard:hover .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(237, 242, 255, 0.5), rgba(213, 225, 255, 0.3));
+}
+
+.categoryCard.yellow:hover {
+    box-shadow: 0 25px 50px -12px rgba(234, 179, 8, 0.1);
+}
+
+.categoryCard.yellow .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(254, 243, 199, 0), rgba(254, 215, 170, 0));
+}
+
+.categoryCard.yellow:hover .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(254, 243, 199, 0.5), rgba(254, 215, 170, 0.3));
+}
+
+.categoryCard.gray:hover {
+    box-shadow: 0 25px 50px -12px rgba(251, 146, 60, 0.15);
+}
+
+.categoryCard.gray .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(255, 247, 237, 0), rgba(243, 244, 246, 0));
+}
+
+.categoryCard.gray:hover .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(255, 247, 237, 0.5), rgba(243, 244, 246, 0.3));
+}
+
+.categoryCard.pink:hover {
+    box-shadow: 0 25px 50px -12px rgba(236, 72, 153, 0.1);
+}
+
+.categoryCard.pink .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(252, 231, 243, 0), rgba(243, 232, 255, 0));
+}
+
+.categoryCard.pink:hover .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(252, 231, 243, 0.5), rgba(243, 232, 255, 0.3));
+}
+
+.categoryCard.orange:hover {
+    box-shadow: 0 25px 50px -12px rgba(249, 115, 22, 0.1);
+}
+
+.categoryCard.orange .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(254, 215, 170, 0), rgba(254, 205, 211, 0));
+}
+
+.categoryCard.orange:hover .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(254, 215, 170, 0.5), rgba(254, 205, 211, 0.3));
+}
+
+.categoryCard.cyan:hover {
+    box-shadow: 0 25px 50px -12px rgba(251, 146, 60, 0.15);
+}
+
+.categoryCard.cyan .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(255, 247, 237, 0), rgba(255, 237, 213, 0));
+}
+
+.categoryCard.cyan:hover .categoryCardOverlay {
+    background: linear-gradient(to bottom right, rgba(255, 247, 237, 0.5), rgba(255, 237, 213, 0.3));
+}
+
+.categoryCardContent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.categoryIcon {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 9999px;
+    background: linear-gradient(to bottom right, #74affd, #3c85fb, #1652f9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+.categoryCard:hover .categoryIcon {
+    transform: scale(1.1);
+    box-shadow: 0 10px 15px -3px rgba(251, 146, 60, 0.3);
+}
+
+.categoryIcon svg {
+    height: 4rem;
+    width: 4rem;
+    color: white;
+    transition: transform 0.5s ease;
+}
+
+.categoryCard:hover .categoryIcon svg {
+    transform: scale(1.1);
+}
+
+.categoryIcon.yellow {
+    background: linear-gradient(to bottom right, #fcd34d, #fbbf24, #3ca2fb);
+}
+
+.categoryCard.yellow:hover .categoryIcon {
+    box-shadow: 0 10px 15px -3px rgba(252, 211, 77, 0.3);
+}
+
+.categoryIcon.gray {
+    background: linear-gradient(to bottom right, #6b7280, #4b5563, #374151);
+}
+
+.categoryCard.gray:hover .categoryIcon {
+    box-shadow: 0 10px 15px -3px rgba(107, 114, 128, 0.5);
+}
+
+.categoryIcon.pink {
+    background: linear-gradient(to bottom right, #ec4899, #a855f7, #9333ea);
+}
+
+.categoryCard.pink:hover .categoryIcon {
+    box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.5);
+}
+
+.categoryIcon.orange {
+    background: linear-gradient(to bottom right, #aaccfe, #3b82f6, #1656f9);
+}
+
+.categoryCard.orange:hover .categoryIcon {
+    box-shadow: 0 10px 15px -3px rgba(254, 215, 170, 0.3);
+}
+
+.categoryIcon.cyan {
+    background: linear-gradient(to bottom right, #aaccfe, #3b82f6, #1656f9);
+}
+
+.categoryCard.cyan:hover .categoryIcon {
+    box-shadow: 0 10px 15px -3px rgba(60, 162, 251, 0.3);
+}
+
+.categoryIcon.animation-delay-200 {
+    animation-delay: 0.2s;
+}
+
+.categoryIcon.animation-delay-400 {
+    animation-delay: 0.4s;
+}
+
+.categoryIcon.animation-delay-600 {
+    animation-delay: 0.6s;
+}
+
+.categoryIcon.animation-delay-800 {
+    animation-delay: 0.8s;
+}
+
+.category-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}

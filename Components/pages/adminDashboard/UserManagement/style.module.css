@@ -1,0 +1,11 @@
+.filterDiv {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.filterColumn {
+    width: 100%;
+}

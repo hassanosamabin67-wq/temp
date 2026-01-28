@@ -1,0 +1,120 @@
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filterDiv {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.container {
+    padding: 20px;
+}
+
+.statsRow {
+    margin-bottom: 24px;
+}
+
+.statCard {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.filterSection {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.searchInput {
+    width: 300px;
+}
+
+.statusSelect {
+    width: 200px;
+}
+
+.submissionCard {
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+.submissionCard:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.submissionImage {
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.finalistBadge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.winnerBadge {
+    background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.prizeRow {
+    background: #fafafa;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.ruleInput {
+    margin-bottom: 8px;
+}
+
+.voteCount {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #1890ff;
+    font-weight: 500;
+}
+
+.modalContent {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+}
+
+.challengeTitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.challengeMeta {
+    font-size: 12px;
+    color: #666;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}

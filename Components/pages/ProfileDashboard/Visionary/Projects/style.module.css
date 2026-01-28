@@ -1,0 +1,17 @@
+.pageHeader {
+    padding: 24px 24px 0 24px;
+}
+
+.pageHeading {
+    font-weight: 700;
+    font-size: 26px;
+    margin-bottom: 15px;
+    display: block;
+    color: #111928;
+}
+
+.tabLabel {
+    font-weight: 500;
+    font-size: 14px;
+    padding: 4px 20px;
+}

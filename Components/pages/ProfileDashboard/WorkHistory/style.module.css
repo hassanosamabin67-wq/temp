@@ -1,0 +1,31 @@
+.workHistoryCard {
+    border: 1px solid #e3e3e3;
+    padding: 30px;
+    border-radius: 8px;
+    margin: 15px 0px;
+}
+
+.workHistoryTitle {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.workHistoryInfoDiv {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 6px 0 12px 0;
+}
+
+@media screen and (max-width:768px) {
+    .workHistoryCard {
+        padding: 18px;
+    }
+
+    .workHistoryInfoDiv {
+        align-items: normal;
+        gap: 2px;
+        margin: 10px 0;
+        flex-direction: column;
+    }
+}

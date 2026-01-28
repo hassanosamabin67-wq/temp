@@ -1,0 +1,84 @@
+.profileEditMain {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.pageTitle {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.pageDesc {
+    font-size: 14px;
+    font-weight: 500;
+    color: #595959;
+}
+
+.formDiv {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 1px #e1e1e1;
+}
+
+.formHeader {
+    padding: 20px;
+    border-bottom: 1px solid #e6ebf1;
+}
+
+.formHeading {
+    font-size: 17px;
+}
+
+.formContainer {
+    padding: 20px;
+}
+
+.formGrid {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.formItem {
+    width: 100%;
+}
+
+.formItem:global(.ant-form-item:not(.ant-form-item-horizontal) .ant-form-item-label >label) {
+    font-weight: 500 !important;
+    color: #454545 !important;
+}
+
+.formItem.formItem:global(.ant-form-item .ant-form-item-label >label.ant-form-item-required::before) {
+    display: none !important;
+}
+
+.formInput {
+    padding: 8px 15px;
+    font-size: 16px;
+}
+
+.formSelect:global(.ant-select-outlined:not(.ant-select-customize-input) .ant-select-selector) {
+    padding: 18px 15px !important;
+    font-size: 16px !important;
+}
+
+.formFooter {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.formActionBtn {
+    background-color: #5750f1;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 18px 24px;
+}
+
+@media screen and (max-width:600px) {
+    .profileEditMain {
+        padding: 20px 10px;
+    }
+}

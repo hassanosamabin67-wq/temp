@@ -1,0 +1,18 @@
+.myAdsContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 24px;
+}
+
+.header h2 {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    .header h2 {
+        font-size: 24px;
+    }
+}
