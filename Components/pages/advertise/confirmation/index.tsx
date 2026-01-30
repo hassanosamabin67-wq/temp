@@ -3,7 +3,7 @@ import React from 'react';
 import { Typography, Button, Card, Result, Divider, List } from 'antd';
 import { CheckCircleFilled, ClockCircleOutlined, MailOutlined } from '@ant-design/icons';
 import Link from 'next/link';
-import styles from '../../advertise/styles.module.css';
+import styles from '../advertise.module.css';
 
 const { Title, Text, Paragraph } = Typography;
 
