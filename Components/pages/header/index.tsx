@@ -85,6 +85,9 @@ const Header = () => {
 
           {/* Middle Section: Desktop Navigation */}
           <nav className={styles.navbarMenu}>
+            <div className={`${styles.menuItem} ${styles.headerLink}`} onClick={() => router.push("/")}>
+              Home
+            </div>
             <div className={`${styles.menuItem} ${styles.headerLink}`} onClick={() => router.push("/services")}>
               Services
             </div>
