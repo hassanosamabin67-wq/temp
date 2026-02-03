@@ -684,8 +684,8 @@ const OfferMessage: React.FC<offerProps> = ({ offerPrice, startDate, endDate, us
             </Modal>
 
             <div className={`offer-message ${isOwnMessage ? "owner-message" : ""}`}>
-                <div className={`${isOwnMessage ? "owner-offer" : ""}`} style={{ display: "flex", gap: 10 }}>
-                    <Image className='message-sender-image' src={userImg} alt='user-img' width={300} height={300} />
+                <div className={`${isOwnMessage ? "owner-offer" : ""}`} style={{ display: "flex", gap: 10, flex: 1 }}>
+                    <Image className='message-sender-image' src={userImg} alt='user-img' width={45} height={45} />
                     <div className='offer-container'>
                         <div className='offer-sender'>
                             <span className='message-sender-name'>{isOwnMessage ? "You" : clientDetail?.firstName + clientDetail?.lastName}</span>

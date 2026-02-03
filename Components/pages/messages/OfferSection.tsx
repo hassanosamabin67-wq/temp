@@ -33,7 +33,7 @@ const OfferSection = ({ openOfferSection, setOpenOfferSection, userDetail, recei
     };
 
     return (
-        <>
+        <div>
             <CollabRoomModal
                 visible={visible}
                 onCancel={() => setVisible(false)}
@@ -44,17 +44,38 @@ const OfferSection = ({ openOfferSection, setOpenOfferSection, userDetail, recei
                 nextStep={nextStep}
             />
             <Drawer
-                title={<Title level={2} style={{ fontWeight: "bold", marginBottom: "0px" }}>Offers</Title>}
+                title={<Title level={2} style={{ fontWeight: "bold", marginBottom: "0px", color: 'white' }}>Offers</Title>}
                 closable={{ 'aria-label': 'Close Button' }}
                 onClose={() => setOpenOfferSection(false)}
                 open={openOfferSection}
                 size='large'
+                className='offer-drawer'
+                styles={{
+                    content: {
+                        backgroundImage: "url('https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=1600')",
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                    },
+                    body: {
+                        background: 'rgba(26, 31, 54, 0.7)', // Blue-ish dark overlay
+                        backdropFilter: 'blur(15px)',
+                        padding: '24px',
+                    },
+                    header: {
+                        background: 'rgba(26, 31, 54, 0.8)',
+                        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                        backdropFilter: 'blur(15px)',
+                    },
+                    mask: {
+                        backdropFilter: 'blur(4px)',
+                    }
+                }}
             >
                 <div className='msg-container-right'>
                     <div className='order-container'>
                         <div className='order-container-header'>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <h1>All Offers</h1>
+                                <h1 style={{ color: 'white' }}>All Offers</h1>
                                 <ActionButton
                                     size="large"
                                     onClick={handleCreateCollabRoom}
@@ -114,7 +135,7 @@ const OfferSection = ({ openOfferSection, setOpenOfferSection, userDetail, recei
                     </div>
                 </div>
             </Drawer>
-        </>
+        </div>
     );
 };
 

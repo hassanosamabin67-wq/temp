@@ -14,12 +14,12 @@ import MessageInput from './MessageInput'
 import MessageRender from './MessageRender'
 import { MdOutlineEmojiEmotions } from 'react-icons/md'
 import { BsArrow90DegRight, BsReply } from 'react-icons/bs'
-import { MenuOutlined } from '@ant-design/icons'
+import { MenuOutlined, PhoneOutlined, VideoCameraOutlined, InfoCircleOutlined, MoreOutlined } from '@ant-design/icons'
 import OfferSection from './OfferSection'
 import { createMessageNotification } from '@/lib/notificationService'
 import Link from 'next/link'
-import CollabRoomGridRow from '@/Components/UIComponents/CollabRoomGridRow'
 import ActionButton from '@/Components/UIComponents/ActionBtn'
+import OfferMessage from './OfferMessage'
 
 dayjs.extend(relativeTime)
 dayjs.extend(calendar)
@@ -78,12 +78,12 @@ const MessageBox = ({ conversationId, userDetail, isMobile, onOpenDrawer }: any)
         };
     }, [conversationId, receiverId]);
 
-    useEffect(() => {
-        if (messages && messages.length > prevMessageCountRef.current) {
-            scrollToBottom();
-            prevMessageCountRef.current = messages.length;
-        }
-    }, [messages]);
+    // useEffect(() => {
+    //     if (messages && messages.length > prevMessageCountRef.current) {
+    //         scrollToBottom();
+    //         prevMessageCountRef.current = messages.length;
+    //     }
+    // }, [messages]);
 
     const allOffers = React.useMemo(
         () =>
@@ -267,13 +267,11 @@ const MessageBox = ({ conversationId, userDetail, isMobile, onOpenDrawer }: any)
     };
 
     const scrollToBottom = () => {
-        if (messagesEndRef?.current) {
-            const scroll = messagesEndRef.current.scrollHeight - messagesEndRef.current.clientHeight;
-            messagesEndRef.current.scrollTo({
-                top: scroll,
-                behavior: 'smooth',
-            });
-        }
+        // if (messagesEndRef?.current) {
+        //     // Using logic from previous file but ensuring it works with new layout
+        //     // Maybe standard scrollTo works better.
+        //     messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        // }
     };
 
     const toggleReaction = async (message: any, reactionType: string) => {
@@ -350,15 +348,7 @@ const MessageBox = ({ conversationId, userDetail, isMobile, onOpenDrawer }: any)
         const container = document.getElementById("message-container");
 
         if (element && container) {
-            const elementOffsetTop = element.offsetTop;
-            const containerOffsetTop = container.offsetTop;
-
-            const scrollPosition = elementOffsetTop - containerOffsetTop;
-
-            container.scrollTo({
-                top: scrollPosition,
-                behavior: "smooth",
-            });
+            element.scrollIntoView({ behavior: "smooth" });
         }
     };
 
@@ -385,137 +375,168 @@ const MessageBox = ({ conversationId, userDetail, isMobile, onOpenDrawer }: any)
 
     if (loadingMessages) {
         return (
-            <div className="message-box-container">
-                <div style={{ padding: 40 }}>
-                    <Skeleton active />
-                </div>
+            <div className="chat-area empty">
+                <Skeleton active />
             </div>
         )
     }
 
     return (
-        <CollabRoomGridRow className='message-box-bg'>
-            <div className='message-box-header'>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <>
+            <div className="chat-header">
+                <div style={{ display: 'flex', alignItems: 'center' }}>
                     {isMobile && (
                         <button
-                            className="mobile-menu-button-header"
+                            className="back-button"
                             onClick={onOpenDrawer}
-                            aria-label="Open conversations"
+                            style={{ marginRight: '10px' }}
                         >
-                            <MenuOutlined style={{ fontSize: '20px' }} />
+                            <MenuOutlined size={20} />
                         </button>
                     )}
-                    <span className='header-title'>{userDetail?.[receiverId!]?.firstName || "UserName"}</span>
+                    <div className="chat-avatar-wrapper">
+                        <img
+                            src={userDetail?.[receiverId!]?.profileImage || userImg.src}
+                            alt="User"
+                            className="chat-avatar"
+                        />
+                        {userDetail?.[receiverId!]?.is_online && <div className="online-indicator" />}
+                    </div>
+                    <div className="chat-user-details">
+                        <h2 className="chat-user-name">{userDetail?.[receiverId!]?.firstName || "UserName"} {userDetail?.[receiverId!]?.lastName}</h2>
+                        <span className="chat-user-status">
+                            {userDetail?.[receiverId!]?.is_online ? 'Active now' : `Last seen: ${dayjs(userDetail?.[receiverId!]?.last_seen).fromNow()}`}
+                        </span>
+                    </div>
                 </div>
-                <ActionButton className='offers-btn' onClick={() => setOpenOfferSection(true)}>Offers</ActionButton>
+                <div className="chat-actions">
+                    <button className="chat-action-btn">
+                        <PhoneOutlined />
+                    </button>
+                    <button className="chat-action-btn">
+                        <VideoCameraOutlined />
+                    </button>
+                    <button className="chat-action-btn">
+                        <InfoCircleOutlined />
+                    </button>
+                    <button className="chat-action-btn offer-btn" onClick={() => setOpenOfferSection(true)}>
+                        Offers
+                    </button>
+                </div>
             </div>
 
-            <div className='message-box'>
-                <div ref={messagesEndRef} id='message-container' className='message-ref'>
-                    {messages && messages.filter((item: any) => item.type === 'message').map((item: any) => {
+            <div className="messages-container" id="message-container">
+                <div className="messages-list">
+                    {messages && messages.map((item: any) => {
+                        // Handle Offer items (keeping logical flow)
+                        if (item.type === 'offer' || item.type === 'service_offer') {
+                            // Render offers inside the chat list ? 
+                            // Original code filtered `filtered(x => x.type === 'message')` for the main list,
+                            // and separately rendered `hireOffer` map (commented out in original).
+                            // But `getMessages` fetches offers and puts them in `messages`.
+                            // In original code: `{messages && messages.filter((item: any) => item.type === 'message').map...}`
+                            // It seems offers were NOT shown in the message list in the original code, only in the OfferSection via `allOffers`.
+                            // So I should keep filtering only 'message' type here.
+                            return null;
+                        }
+
                         const message = item;
                         const isOwnMessage = message.sender_id === profile.profileId;
                         const messageSender = userDetail[message.sender_id] || {};
                         const repliedMessage = messages.find((msg: any) => msg.id === message.reply_to);
-                        const profileImage = messageSender?.profileImage || userImg;
+                        const profileImage = messageSender?.profileImage || userImg.src;
 
                         return (
-                            <div id={`message_${message.id}`} key={message.id} style={{ position: "relative" }} className={`${isOwnMessage ? "owner-message" : "ac-message"} ${message.reply_to ? "replied-message" : ""}`}>
-                                {message.reply_to && (
-                                    <div className='reply-div' onClick={() => goToFilterData(message.reply_to)}>
-                                        {!isOwnMessage && (
-                                            <>
-                                                <BsArrow90DegRight className='reply-icon' />
-                                                {/* <div>
-                                                    <Image className='reply-user-image' src={userImg} alt="user-image" width={200} height={200} />
-                                                </div> */}
-                                            </>
-                                        )}
-                                        <div className='reply-message-div'>
-                                            <p>@{userDetail[repliedMessage?.sender_id]?.firstName || 'User'}</p>
-                                            {repliedMessage?.message_type === 'text' && (
-                                                <p>{repliedMessage.message?.slice(0, 100) + '...'}</p>
-                                            )}
-                                            {repliedMessage?.message_type === 'audio' && (
-                                                <p><i>🎤 Voice message</i></p>
-                                            )}
-                                            {repliedMessage?.message_type === 'file' && (
-                                                <p><i>📎 File attachment</i></p>
-                                            )}
-                                            {repliedMessage?.message_type === 'video' && (
-                                                <p><i>📹 Video message</i></p>
-                                            )}
-                                            {repliedMessage?.message_type === 'gif' && (
-                                                <p><i>GIF image</i></p>
-                                            )}
-                                        </div>
-                                    </div>
-                                )}
-                                <div className={`message ${isOwnMessage ? "owner-message" : ""}`}>
-                                    <Image className='message-sender-image' src={profileImage} alt='user-img' width={300} height={300} />
-                                    <div className={`message-details ${isOwnMessage ? "message-owner-details" : ""}`}>
-                                        <div className={`${isOwnMessage ? "owner-message-details" : "message-sender-details"}`}>
-                                            {profile.profileType === 'client' && !isOwnMessage ? (
-                                                <Link href={`/profile?visionary=${item.sender_id}`} className='message-sender-name'>{isOwnMessage ? "You" : messageSender.firstName + " " + messageSender.lastName}</Link>
-                                            ) : (
-                                                <span className="message-sender-name-vs">{isOwnMessage ? "You" : messageSender.firstName + " " + messageSender.lastName}</span>
-                                            )}
-                                            {message.message_type !== 'file' && (<span className='message-time'>{dayjs(message.created_at).calendar(null, {
-                                                sameDay: '[Today] h:mm A',
-                                                lastDay: '[Yesterday] h:mm A',
-                                                lastWeek: 'dddd h:mm A',
-                                                sameElse: 'DD/MM/YYYY h:mm A'
-                                            })}</span>)}
-                                        </div>
-                                        {/* <span>{message.message}</span> */}
-                                        <MessageRender message={message.message} message_type={message.message_type} file_url={message.file_url} isOwnMessage={isOwnMessage} createdAt={message.created_at} />
-                                    </div>
-                                </div>
-                                {(() => {
-                                    const allReactions = message.reactions || [];
-                                    const emojis = ["👍", "😂", "❤️", "😠"];
-
-                                    const activeReactions = emojis.map((type) => {
-                                        const count = allReactions.filter((r: any) => r.reaction === type).length;
-                                        const isUserReaction = allReactions.some((r: any) => r.user_id === profile.profileId && r.reaction === type);
-                                        return count > 0 ? { type, count, isUserReaction } : null;
-                                    }).filter(Boolean);
-
-                                    if (activeReactions.length === 0) return null;
-
-                                    return (
-                                        <div className={`reaction-display ${isOwnMessage ? "owner-reactions" : "reacted"}`}>
-                                            {activeReactions.map((reaction) => (
-                                                <Popover key={reaction!.type} content={reactionDetail(message)}>
-                                                    <span className={`reaction-item ${reaction!.isUserReaction ? 'highlighted-reaction' : ''}`} onClick={() => toggleReaction(message, reaction!.type)}>
-                                                        {reaction!.type}
-                                                    </span>
-                                                </Popover>
-                                            ))}
-                                        </div>
-                                    );
-                                })()}
+                            <div
+                                key={message.id}
+                                id={`message_${message.id}`}
+                                className={`message ${isOwnMessage ? 'own-message' : 'other-message'}`}
+                            >
                                 {!isOwnMessage && (
-                                    <div className={`reaction-div ${message.reply_to ? "replied-reactions" : ""}`}>
+                                    <img
+                                        src={profileImage}
+                                        alt={messageSender.firstName}
+                                        className="message-avatar"
+                                    />
+                                )}
+                                <div className="message-content">
+                                    {message.reply_to && (
+                                        <div className='reply-div' onClick={() => goToFilterData(message.reply_to)} style={{ marginBottom: 5, borderRadius: 8 }}>
+                                            <div className='reply-message-div'>
+                                                <p style={{ fontWeight: 600 }}>@{userDetail[repliedMessage?.sender_id]?.firstName || 'User'}</p>
+                                                <p>{repliedMessage?.message?.slice(0, 30)}...</p>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className="message-bubble">
+                                        <MessageRender
+                                            message={message.message}
+                                            message_type={message.message_type}
+                                            file_url={message.file_url}
+                                            isOwnMessage={isOwnMessage}
+                                            createdAt={message.created_at}
+                                        />
+                                    </div>
+                                    <span className="message-time">
+                                        {dayjs(message.created_at).format('h:mm A')}
+                                    </span>
+
+                                    {/* Reactions */}
+                                    {(() => {
+                                        const allReactions = message.reactions || [];
+                                        const emojis = ["👍", "😂", "❤️", "😠"];
+                                        const activeReactions = emojis.map((type) => {
+                                            const count = allReactions.filter((r: any) => r.reaction === type).length;
+                                            const isUserReaction = allReactions.some((r: any) => r.user_id === profile.profileId && r.reaction === type);
+                                            return count > 0 ? { type, count, isUserReaction } : null;
+                                        }).filter(Boolean);
+
+                                        if (activeReactions.length === 0) return null;
+                                        return (
+                                            <div className="reaction-display" style={{ position: 'relative', marginTop: -10, alignSelf: isOwnMessage ? 'flex-end' : 'flex-start' }}>
+                                                {activeReactions.map((reaction: any) => (
+                                                    <Popover key={reaction.type} content={reactionDetail(message)}>
+                                                        <span style={{ marginRight: 3, cursor: 'pointer' }} onClick={() => toggleReaction(message, reaction.type)}>
+                                                            {reaction.type} {reaction.count}
+                                                        </span>
+                                                    </Popover>
+                                                ))}
+                                            </div>
+                                        )
+                                    })()}
+                                </div>
+
+                                {/* Hover Actions (Reply/React) */}
+                                {!isOwnMessage && (
+                                    <div className="message-actions" style={{ display: 'flex', flexDirection: 'column', gap: 5, marginLeft: 5, opacity: 0.5 }}>
                                         <Popover content={reactionContent(message)}>
-                                            <div className='reaction-btn'><MdOutlineEmojiEmotions /></div>
+                                            <MdOutlineEmojiEmotions style={{ cursor: 'pointer' }} />
                                         </Popover>
-                                        <span className='reply-btn' onClick={() => setReplyTo(message)}><BsReply style={{ fontSize: 16 }} /> Reply</span>
+                                        <BsReply style={{ cursor: 'pointer' }} onClick={() => setReplyTo(message)} />
                                     </div>
                                 )}
                             </div>
                         )
                     })}
-                    {/* {hireOffer && hireOffer.map((offer: any) => (
-                        <OfferMessage key={offer.id} userDetail={userDetail} startDate={offer.start_datetime} endDate={offer.end_datetime} offerPrice={offer.price} offerStatus={offer.status} offerSendTime={offer.created_at} clientId={offer.client_id} receiverId={receiverId!} />
-                    ))} */}
+                    <div ref={messagesEndRef} />
                 </div>
             </div>
 
-            <div className='message-input'>
-                {/* <Input className='input-box' inputMode='text' placeholder='Write a message' value={newMessage} onChange={(e) => setNewMessage(e.target.value)} onPressEnter={() => sendMessage(profile.profileId, conversationId)} /> */}
-                <MessageInput replyTo={replyTo} users={userDetail} setReplyTo={setReplyTo} setAttachedFile={setAttachedFile} setAudioBlob={setAudioBlob} newMessage={newMessage} setNewMessage={setNewMessage} sendMessage={sendMessage} attachedFile={attachedFile} profileId={profile.profileId} conversationId={conversationId} />
+            <div className="message-input-container">
+                <MessageInput
+                    replyTo={replyTo}
+                    users={userDetail}
+                    setReplyTo={setReplyTo}
+                    setAttachedFile={setAttachedFile}
+                    setAudioBlob={setAudioBlob}
+                    newMessage={newMessage}
+                    setNewMessage={setNewMessage}
+                    sendMessage={sendMessage}
+                    attachedFile={attachedFile}
+                    profileId={profile.profileId}
+                    conversationId={conversationId}
+                />
             </div>
 
             <OfferSection
@@ -526,7 +547,7 @@ const MessageBox = ({ conversationId, userDetail, isMobile, onOpenDrawer }: any)
                 receiverId={receiverId}
                 conversationId={conversationId}
             />
-        </CollabRoomGridRow>
+        </>
     )
 }
 

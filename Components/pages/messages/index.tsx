@@ -355,23 +355,47 @@ const InboxMessages = ({ roomId, fromDashboard }: any) => {
     }
 
     return (
-        <div className='inbox-main'>
-            <div className='inbox-div'>
-                <div className="inbox-container">
-                    {!isMobile && (
-                        <Conversations
-                            openConversation={fromDashboard ? handleOpenConversationFromDashboard : handleOpenConversation}
-                            allConversation={allConversation}
+        <div className="messaging-page">
+            <div className="floating-orb orb-1"></div>
+            <div className="floating-orb orb-2"></div>
+            <div className="floating-orb orb-3"></div>
+            <div className="messaging-container">
+                <div className={`conversations-sidebar ${isMobile && (fromDashboard ? conversationIdFromDashboard : conversationId) ? 'hidden' : ''}`}>
+                    <div className="sidebar-header">
+                        <h2 className="sidebar-title">Conversations</h2>
+                        <button className="new-conversation-btn">
+                            <span>+</span>
+                        </button>
+                    </div>
+
+                    <Conversations
+                        openConversation={fromDashboard ? handleOpenConversationFromDashboard : handleOpenConversation}
+                        allConversation={allConversation}
+                        userDetail={userDetail}
+                        activeConversationId={fromDashboard ? conversationIdFromDashboard : conversationId}
+                    />
+                </div>
+
+                <div className={`chat-area ${!(fromDashboard ? conversationIdFromDashboard : conversationId) ? 'empty' : ''} ${isMobile && !(fromDashboard ? conversationIdFromDashboard : conversationId) ? 'hidden' : ''}`}>
+                    {!(fromDashboard ? conversationIdFromDashboard : conversationId) ? (
+                        <div className="empty-state">
+                            <div className="empty-state-icon">
+                                <span style={{ fontSize: '48px' }}>P</span>
+                            </div>
+                            <h2 className="empty-state-title">Select a conversation</h2>
+                            <p className="empty-state-text">
+                                Choose a conversation from the sidebar to start messaging
+                            </p>
+                        </div>
+                    ) : (
+                        <MessageBox
+                            conversationId={fromDashboard ? conversationIdFromDashboard : conversationId}
                             userDetail={userDetail}
+                            fromDashboard={true}
+                            isMobile={isMobile}
+                            onOpenDrawer={() => setDrawerVisible(true)}
                         />
                     )}
-                    <MessageBox
-                        conversationId={fromDashboard ? conversationIdFromDashboard : conversationId}
-                        userDetail={userDetail}
-                        fromDashboard={true}
-                        isMobile={isMobile}
-                        onOpenDrawer={() => setDrawerVisible(true)}
-                    />
                 </div>
             </div>
 
@@ -387,6 +411,7 @@ const InboxMessages = ({ roomId, fromDashboard }: any) => {
                     openConversation={fromDashboard ? handleOpenConversationFromDashboard : handleOpenConversation}
                     allConversation={allConversation}
                     userDetail={userDetail}
+                    activeConversationId={fromDashboard ? conversationIdFromDashboard : conversationId}
                 />
             </Drawer>
         </div>

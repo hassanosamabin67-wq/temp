@@ -4,29 +4,26 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Picker from '@emoji-mart/react'
 import { ImAttachment } from "react-icons/im";
 import { AiFillAudio } from "react-icons/ai";
-import { Dropdown, Input, MenuProps } from 'antd'
-import { MdOutlineEmojiEmotions } from "react-icons/md";
-import { IoDocument } from "react-icons/io5";
+import { Dropdown, MenuProps } from 'antd'
+import { MdOutlineEmojiEmotions, MdDelete } from "react-icons/md";
+import { IoDocument, IoSend } from "react-icons/io5";
 import { RiVideoUploadFill } from "react-icons/ri";
 import data from '@emoji-mart/data'
 import { FaStop, FaPause, FaPlay } from "react-icons/fa6";
 import WaveSurfer from 'wavesurfer.js'
 import RecordPlugin from 'wavesurfer.js/dist/plugins/record.esm.js'
-import { MdDelete } from "react-icons/md";
-import { IoSend } from "react-icons/io5";
+import { PaperClipOutlined, SmileOutlined, SendOutlined, AudioOutlined } from '@ant-design/icons'; // Using Ant icons for consistency with other files or Lucide matches
 
 const MessageInput = ({ replyTo, users, setReplyTo, setAttachedFile, setAudioBlob, newMessage, setNewMessage, sendMessage, attachedFile, conversationId, profileId }: any) => {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
     const [recording, setRecording] = useState(false);
-    const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(null);
     const waveformRef = useRef<HTMLDivElement>(null)
     const wavesurferRef = useRef<WaveSurfer | null>(null)
     const recordRef = useRef<any>(null)
     const [isPaused, setIsPaused] = useState(false)
     const [recordTime, setRecordTime] = useState("00:00");
     const [isAudioStop, setIsAudioStop] = useState(false);
-    const containerRef = useRef(null)
 
     useEffect(() => {
         if (!waveformRef.current) return
@@ -35,9 +32,10 @@ const MessageInput = ({ replyTo, users, setReplyTo, setAttachedFile, setAudioBlo
             container: waveformRef.current,
             waveColor: 'rgb(150,150,150)',
             progressColor: '#158eff',
-            height: 60,
+            height: 40, // Reduced height for smoother fit
             barHeight: 1,
-            cursorWidth: 0
+            cursorWidth: 0,
+            normalize: true,
         })
 
         const record = ws.registerPlugin(
@@ -63,9 +61,13 @@ const MessageInput = ({ replyTo, users, setReplyTo, setAttachedFile, setAudioBlo
         recordRef.current = record
 
         return () => {
-            ws.destroy()
+            try {
+                ws.destroy()
+            } catch (e) {
+                console.error("Error destroying wavesurfer", e)
+            }
         }
-    }, []);
+    }, [recording]); // Re-init if recording state toggles visibility? user snippet allows dynamic visibility. Ideally init once.
 
     const startRecording = async () => {
         if (!recordRef.current) return
@@ -94,7 +96,7 @@ const MessageInput = ({ replyTo, users, setReplyTo, setAttachedFile, setAudioBlo
     }
 
     const deleteRecording = () => {
-        recordRef.current.stopRecording()
+        recordRef.current?.stopRecording()
         setRecording(false)
         setRecordTime("00:00")
         setAudioBlob(null);
@@ -105,18 +107,17 @@ const MessageInput = ({ replyTo, users, setReplyTo, setAttachedFile, setAudioBlo
     const items: MenuProps['items'] = [
         {
             key: '1',
-            label: <span onClick={() => fileInputRef.current?.click()}><IoDocument style={{ marginRight: 5 }} />File</span>,
+            label: <span onClick={() => { fileInputRef.current?.click(); }} style={{ display: 'flex', alignItems: 'center' }}><IoDocument style={{ marginRight: 5 }} />File</span>,
         },
         {
             key: '2',
-            label: <span onClick={() => fileInputRef.current?.click()}><RiVideoUploadFill style={{ marginRight: 5 }} />Video (mp4)</span>,
+            label: <span onClick={() => { fileInputRef.current?.click(); }} style={{ display: 'flex', alignItems: 'center' }}><RiVideoUploadFill style={{ marginRight: 5 }} />Video (mp4)</span>,
         },
     ];
 
     const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
-
         setAttachedFile(file);
     };
 
@@ -124,79 +125,101 @@ const MessageInput = ({ replyTo, users, setReplyTo, setAttachedFile, setAudioBlo
         setNewMessage((prev: any) => prev + emoji.native);
     };
 
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendMessage(profileId, conversationId, setIsAudioStop, setRecording);
+        }
+    };
+
     return (
-        <div className='message-input-div'>
+        <div className='message-input-div' style={{ width: '100%' }}>
+            {/* Context Previews (Reply, Recording, File) - Positioned absolutely above input usually */}
+
             {replyTo && (
                 <div className="reply-preview">
-                    <span>Replying to: @{users[replyTo.sender_id]?.firstName} -
+                    <span>Replying to: <b>@{users[replyTo.sender_id]?.firstName}</b> -
                         {
                             replyTo.message_type === 'text' && replyTo.message
-                                ? replyTo.message.slice(0, 50) + "..."
-                                : replyTo.message_type === 'audio'
-                                    ? "🎤 Voice message"
-                                    : replyTo.message_type === 'file'
-                                        ? "📎 File attachment"
-                                        : replyTo.message_type === 'video'
-                                            ? "📹 Video message"
-                                            : replyTo.message_type === 'gif'
-                                                ? "GIF image"
-                                                : "Original message"
+                                ? " " + (replyTo.message.slice(0, 30) + "...")
+                                : " Attachment"
                         }
                     </span>
-                    <span onClick={() => setReplyTo(null)} style={{ cursor: 'pointer' }}>×</span>
+                    <span onClick={() => setReplyTo(null)} style={{ cursor: 'pointer', marginLeft: 10 }}>×</span>
                 </div>
             )}
-            <div className='recording-preview' style={{ display: recording ? 'flex' : 'none', justifyContent: "space-between", alignItems: "center", gap: 40 }}>
-                <div style={{ display: 'flex', gap: 20, justifyContent: "space-between", alignItems: "center", width: "100%" }}>
-                    <span style={{ color: "red", fontSize: 20 }} onClick={deleteRecording}><MdDelete /></span>
-                    <div ref={waveformRef} style={{ width: 400, height: 60 }} />
-                    {isAudioStop ? (
-                        <div style={{ display: "flex", justifyContent: "flex-end", width: "30%", }}>
-                            <span style={{ color: "#fff", cursor: "pointer", padding: 12, fontSize: 20, display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "100%", backgroundColor: "blue" }} onClick={() => sendMessage(profileId, conversationId, setIsAudioStop, setRecording)}><IoSend /></span>
-                        </div>
-                    ) : (
-                        <>
-                            <div>
-                                <span onClick={pauseRecording} className='audio-resume-btn'>{isPaused ? <FaPlay /> : <FaPause />}</span>
-                            </div>
-                            <p style={{ margin: '5px 0', fontSize: 14 }}>{recordTime}</p>
-                        </>
-                    )}
-                </div>
-                {!isAudioStop && (
-                    <div className='start-pause-btn'>
-                        <span onClick={stopRecording} className='audio-stop-btn'><FaStop /></span>
-                    </div>
-                )}
-            </div>
-            {showEmojiPicker && (
-                <div style={{ position: 'absolute', bottom: '60px', zIndex: 10 }}>
-                    <Picker data={data} onEmojiSelect={addEmoji} />
-                </div>
-            )}
+
             {attachedFile && (
                 <div className='file-preview'>
-                    <span className="file-icon"><IoDocument /></span>
-                    <p>{attachedFile.name}</p>
-                    <span onClick={() => setAttachedFile(null)} style={{ cursor: 'pointer', position: "absolute", right: 15, top: 0, fontSize: 25 }}>×</span>
+                    <span className="file-icon" style={{ fontSize: 20 }}><IoDocument /></span>
+                    <p style={{ margin: 0, fontSize: 14 }}>{attachedFile.name}</p>
+                    <span onClick={() => setAttachedFile(null)} style={{ cursor: 'pointer', marginLeft: 'auto' }}>×</span>
                 </div>
             )}
-            <Input className='input-box' inputMode='text' placeholder='Write a message' prefix={
-                <>
-                    <MdOutlineEmojiEmotions onClick={() => setShowEmojiPicker(!showEmojiPicker)} className='emoji-icon' />
+
+            {showEmojiPicker && (
+                <div style={{ position: 'absolute', bottom: '80px', right: '20px', zIndex: 100 }}>
+                    <Picker data={data} onEmojiSelect={addEmoji} theme="light" />
+                </div>
+            )}
+
+            {recording ? (
+                <div className='recording-preview' style={{ borderRadius: 24, padding: '10px 20px', display: 'flex', alignItems: 'center', gap: 10, width: '100%', marginBottom: 0 }}>
+                    <span style={{ color: "#ff4d4f", fontSize: 20, cursor: 'pointer' }} onClick={deleteRecording}><MdDelete /></span>
+                    <div ref={waveformRef} style={{ flex: 1 }} />
+                    <span style={{ fontSize: 14, minWidth: 45 }}>{recordTime}</span>
+
+                    {isAudioStop ? (
+                        <button
+                            className="send-btn"
+                            onClick={() => sendMessage(profileId, conversationId, setIsAudioStop, setRecording)}
+                        >
+                            <SendOutlined />
+                        </button>
+                    ) : (
+                        <div style={{ display: 'flex', gap: 10 }}>
+                            <span onClick={pauseRecording} className='audio-resume-btn' style={{ width: 35, height: 35, fontSize: 14, padding: 0 }}>{isPaused ? <FaPlay /> : <FaPause />}</span>
+                            <span onClick={stopRecording} className='audio-stop-btn' style={{ width: 35, height: 35, fontSize: 14, padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><FaStop /></span>
+                        </div>
+                    )}
+                </div>
+            ) : (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', width: '100%' }}>
                     <Dropdown menu={{ items }} trigger={['click']} placement="topRight">
-                        <span style={{ cursor: 'pointer', display: "flex", justifyContent: "center", alignItems: "center" }}>
-                            <ImAttachment />
-                        </span>
+                        <button className="input-action-btn">
+                            <PaperClipOutlined style={{ fontSize: 20 }} />
+                        </button>
                     </Dropdown>
-                </>
-            }
-                suffix={
-                    <>
-                        {!recording && <span onClick={startRecording} style={{ cursor: "pointer" }}><AiFillAudio /></span>}
-                        {newMessage.trim() && <span style={{ color: "#fff", cursor: "pointer", padding: 7, display: "flex", justifyContent: "center", alignItems: "center", borderRadius: "100%", backgroundColor: "blue" }} onClick={() => sendMessage(profileId, conversationId, setIsAudioStop, setRecording)}><IoSend /></span>}
-                    </>
-                } value={newMessage} onChange={(e) => setNewMessage(e.target.value)} onPressEnter={() => sendMessage(profileId, conversationId, setIsAudioStop, setRecording)} />
+
+                    <div className="message-input-wrapper">
+                        <input
+                            type="text"
+                            placeholder="Write a message..."
+                            className="message-input"
+                            value={newMessage}
+                            onChange={(e) => setNewMessage(e.target.value)}
+                            onKeyPress={handleKeyPress}
+                        />
+                        <button className="input-action-btn emoji-btn" onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
+                            <SmileOutlined style={{ fontSize: 20 }} />
+                        </button>
+                    </div>
+
+                    {newMessage.trim() || attachedFile ? (
+                        <button
+                            className="send-btn"
+                            onClick={() => sendMessage(profileId, conversationId, setIsAudioStop, setRecording)}
+                        >
+                            <SendOutlined style={{ fontSize: 18, marginLeft: -2 }} />
+                        </button>
+                    ) : (
+                        <button className="input-action-btn" onClick={startRecording}>
+                            <AudioOutlined style={{ fontSize: 20 }} />
+                        </button>
+                    )}
+                </div>
+            )}
+
             <input type="file" ref={fileInputRef} style={{ display: "none" }} onChange={handleFileUpload} />
         </div>
     )
