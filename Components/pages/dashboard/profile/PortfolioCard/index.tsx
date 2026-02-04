@@ -36,8 +36,8 @@ const PortfolioCard: FC<portfolioProps> = ({ portfolio, loadingState, onClick })
     }
 
     return (
-        <div 
-            className={styles.portfolioCard} 
+        <div
+            className={styles.portfolioCard}
             onClick={onClick}
             style={{ cursor: onClick ? 'pointer' : 'default' }}
         >

@@ -19,6 +19,8 @@ import { MdQueryStats } from "react-icons/md";
 import { RiCloseLargeFill } from "react-icons/ri";
 import ProfileStats from './ProfileStats'
 import dayjs from 'dayjs'
+import { MapPin, Calendar, Star, MessageCircle, Mail, Phone, Briefcase, Award, BookOpen, Edit2, Camera, ExternalLink } from 'lucide-react';
+import './profile.css';
 import useFetchProfileData from '@/hooks/profileDashboard/fetchProfileData'
 import { setAuthData } from '@/store/slices/auth-slice'
 import SupabaseuploadImage from '@/utils/supabase-image-upload'
@@ -42,6 +44,7 @@ const ProfileDashboard = () => {
     const [open, setOpen] = useState(false);
     const [profileUploadLoading, setProfileUploadLoading] = useState(false);
     const [profileCoverLoading, setProfileCoverLoading] = useState(false);
+    const [activeTab, setActiveTab] = useState('about');
 
     const dispatch = useDispatch();
     const { profile, stats, testimonials, workHistory, services = { services: [], totalServices: 0 }, collabsCompleted = 0, loading } = useFetchProfileData();
@@ -54,6 +57,10 @@ const ProfileDashboard = () => {
     const visionary = searchParams.get('visionary');
     const [onlineStatus, setOnlineStatus] = useState<boolean>(false)
     const currentProfile = useAppSelector((state) => state.auth);
+
+    const showOnline = profile?.last_seen
+        ? Date.now() - new Date(profile.last_seen).getTime() < 30_000
+        : onlineStatus;
 
     const [showHireModal, setShowHireModal] = useState(false);
     const [visionaryName, setVisionaryName] = useState('');
@@ -419,7 +426,7 @@ const ProfileDashboard = () => {
         {
             title: "Second",
             content: (
-                <div style={{ maxHeight: 400, overflowY: 'auto', padding: '20px 35px', backgroundColor: '#f1f1f1', borderRadius: 15, display: "flex", flexDirection: "column", gap: 25 }}>
+                <div className="agreement-container" style={{ display: "flex", flexDirection: "column", gap: 25 }}>
 
                     <div>
                         <span className="block-span agreement-header-heading">Work-for-Hire Agreement</span>
@@ -440,35 +447,35 @@ const ProfileDashboard = () => {
                     <div>
                         <ol>
                             <li className="agreement-point">
-                                <span className="block-span agreement-point-heading">Scope of Work:</span>
+                                <span className="agreement-point-heading">Scope of Work:</span>
                                 <span>The Service Provider agrees to perform the following services: <strong>"{hireTitle}"</strong>. All services will be performed according to the timeline and specifications agreed to through the Kaboom Collab platform.</span>
                             </li>
                             <li className="agreement-point">
-                                <span className="block-span agreement-point-heading">Compensation:</span>
+                                <span className="agreement-point-heading">Compensation:</span>
                                 <span>The Client agrees to pay the Service Provider a total of <strong> ${price.priceType === 'milestone' ? milestoneTotalAmount : price.value || 'amount'}</strong> for the completion of the work. Payment will be processed through the Kaboom Collab platform according to its standard terms.</span>
                             </li>
                             <li className="agreement-point">
-                                <span className="block-span agreement-point-heading">Work-for-Hire and Ownership:</span>
+                                <span className="agreement-point-heading">Work-for-Hire and Ownership:</span>
                                 <span>The Parties agree that all work delivered under this Agreement shall be considered a 'work-for-hire.' All rights, title, and interest in the completed work shall be the sole property of the Client upon full payment.</span>
                             </li>
                             <li className="agreement-point">
-                                <span className="block-span agreement-point-heading">Confidentiality:</span>
+                                <span className="agreement-point-heading">Confidentiality:</span>
                                 <span>The Service Provider agrees not to disclose or use any confidential or proprietary information obtained during the course of this project.</span>
                             </li>
                             <li className="agreement-point">
-                                <span className="block-span agreement-point-heading">Independent Contractor:</span>
+                                <span className="agreement-point-heading">Independent Contractor:</span>
                                 <span>The Service Provider is an independent contractor and not an employee of the Client. Nothing in this Agreement shall be construed as creating an employer-employee relationship.</span>
                             </li>
                             <li className="agreement-point">
-                                <span className="block-span agreement-point-heading">Revisions:</span>
+                                <span className="agreement-point-heading">Revisions:</span>
                                 <span>The Service Provider agrees to provide [#] revisions, if requested by the Client, as part of the original agreement.</span>
                             </li>
                             <li className="agreement-point">
-                                <span className="block-span agreement-point-heading">Termination:</span>
+                                <span className="agreement-point-heading">Termination:</span>
                                 <span>Either party may terminate this Agreement with written notice. The Service Provider shall be compensated for completed work up to the termination date.</span>
                             </li>
                             <li className="agreement-point">
-                                <span className="block-span agreement-point-heading">Governing Law:</span>
+                                <span className="agreement-point-heading">Governing Law:</span>
                                 <span>This Agreement shall be governed by the laws of [Your State]. Any disputes shall be resolved in the courts located in that jurisdiction.</span>
                             </li>
                         </ol>
@@ -537,170 +544,293 @@ const ProfileDashboard = () => {
     }
 
     return (
-        <MaxWidthWrapper withPadding={false} className={styles.profileCardMain}>
-            <Modal
-                title={
-                    <Title level={2}>
-                        <div style={{ padding: "5px 30px", display: "flex", alignItems: "center", gap: 10 }}><span style={{ backgroundColor: "#2878b5", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "100%", padding: 10 }}><FaFileSignature /></span> <span>Kaboom Collab – Work-for-Hire Agreement</span></div>
-                    </Title>
-                }
-                open={showHireModal}
-                onCancel={() => setShowHireModal(false)}
-                centered
-                width={900}
-                footer={null}
-            >
-                {currentStep < 2 ? (
-                    <Form
-                        form={form}
-                        layout="vertical"
-                        name="agreement_form"
-                        style={{ marginTop: 20, padding: 20 }}
-                    >
-                        {steps[currentStep].content}
-                    </Form>
-                ) : (
-                    <div style={{ marginTop: 20, padding: 20 }}>
-                        {steps[currentStep].content}
+        <div className="profile-page">
+            <div className="floating-orb orb-1"></div>
+            <div className="floating-orb orb-2"></div>
+            <div className="floating-orb orb-3"></div>
+
+            <MaxWidthWrapper withPadding={false} className="profile-container">
+                <Modal
+                    title={
+                        <Title level={2}>
+                            <div style={{ display: "flex", alignItems: "center", gap: 15 }}>
+                                <span style={{ background: "linear-gradient(135deg, #3b82f6, #2563eb)", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: "12px", padding: 10, boxShadow: "0 4px 12px rgba(59, 130, 246, 0.4)" }}>
+                                    <FaFileSignature size={24} />
+                                </span>
+                                <span style={{ color: 'white' }}>Kaboom Collab – Work-for-Hire Agreement</span>
+                            </div>
+                        </Title>
+                    }
+                    open={showHireModal}
+                    onCancel={() => setShowHireModal(false)}
+                    centered
+                    width={900}
+                    footer={null}
+                    className="custom-modal"
+                >
+                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                        {currentStep < 2 ? (
+                            <Form
+                                form={form}
+                                layout="vertical"
+                                name="agreement_form"
+                                style={{ padding: '1rem 0' }}
+                            >
+                                {steps[currentStep].content}
+                            </Form>
+                        ) : (
+                            <div style={{ padding: '1rem 0' }}>
+                                {steps[currentStep].content}
+                            </div>
+                        )}
+
+                        <div className="modal-footer">
+                            {currentStep > 0 && (
+                                <button className="action-btn secondary" onClick={() => prev()}>Back</button>
+                            )}
+
+                            {currentStep < steps.length - 1 && (
+                                <button className="action-btn primary" onClick={() => next()} disabled={currentStep === 1 && !checked}>Next</button>
+                            )}
+                        </div>
                     </div>
-                )}
+                </Modal>
 
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
-                    {currentStep > 0 && (
-                        <Button style={{ margin: "0 10px 0 0" }} onClick={() => prev()}>Back</Button>
-                    )}
+                <Drawer
+                    placement="right"
+                    onClose={onClose}
+                    styles={{ header: { border: "none" } }}
+                    open={open}
+                    getContainer={false}
+                    closeIcon={<RiCloseLargeFill />}
+                    mask={false}
+                >
+                    <ProfileStats
+                        completion={stats?.completionPercentage!}
+                        Views={stats?.totalStats.views!}
+                        Impressions={stats?.totalStats.impressions!}
+                        Clicks={stats?.totalStats.clicks!}
+                    />
+                </Drawer>
 
-                    {currentStep < steps.length - 1 && (
-                        // <Button type="primary" onClick={() => next()} disabled={!price.value || currentStep === 1 && !checked}>Next</Button>
-                        <Button type="primary" onClick={() => next()} disabled={currentStep === 1 && !checked}>Next</Button>
-                    )}
-                </div>
-            </Modal>
-
-            <Drawer
-                placement="right"
-                onClose={onClose}
-                styles={{ header: { border: "none" } }}
-                open={open}
-                getContainer={false}
-                closeIcon={<RiCloseLargeFill />}
-                mask={false}
-            >
-                <ProfileStats
-                    completion={stats?.completionPercentage!}
-                    Views={stats?.totalStats.views!}
-                    Impressions={stats?.totalStats.impressions!}
-                    Clicks={stats?.totalStats.clicks!}
-                />
-            </Drawer>
-            <div className={styles.profileCard}>
-                <div className={styles.profileCardHeader}>
-                    <div className={styles.profileCoverImageDiv}>
-                        <Image className={styles.profileCoverImage} src={profile?.profileCoverImage || coverImg} alt='cover-image' width={600} height={600} />
-                        {profile?.isOwnProfile && (<Button loading={profileCoverLoading} variant='solid' color='purple' icon={<FiCamera />} className={styles.profileCoverEditBtn} onClick={() => coverInputRef.current?.click()}>Edit</Button>)}
+                <div className="profile-header">
+                    <div className="profile-cover">
+                        <Image
+                            src={profile?.profileCoverImage || coverImg}
+                            alt="Cover"
+                            className="cover-image"
+                            width={1200}
+                            height={280}
+                            style={{ objectFit: 'cover' }}
+                        />
+                        {profile?.isOwnProfile && (
+                            <button className="edit-cover-btn" onClick={() => coverInputRef.current?.click()}>
+                                {profileCoverLoading ? <Skeleton.Button active size="small" shape="circle" /> : <Camera size={20} />}
+                            </button>
+                        )}
                         <input type="file" ref={coverInputRef} style={{ display: "none" }} onChange={handleAddCoverImage} />
                     </div>
-                    <div className={styles.profileHeaderContent}>
-                        <div className={styles.profileUserImgContainer}>
-                            {/* <Image src={profile?.profileImage || userImg} alt='userImg' width={100} height={100} className={styles.userImg} /> */}
-                            {profile?.isOwnProfile && (<Button loading={profileUploadLoading} className={styles.editBtn} onClick={() => profileInputRef.current?.click()} icon={<FiCamera />} />)}
-                            <input type="file" ref={profileInputRef} style={{ display: "none" }} onChange={handleAddProfileImage} />
-                            {/* {(visionary || onlineStatus) && (
-                                <span className={styles.icon}><GoDotFill className={`${(profile?.is_online || onlineStatus) ? styles.onlineDot : styles.offlineDot}`} /></span>
-                                )} */}
-                            <UserAvatar size={100} className={styles.userImg} src={profile?.profileImage} lastSeen={profile?.last_seen} fallbackSrc={userImg} onlineDotStyle={{ top: "75%", right: "10%", width: 15, height: 15 }} />
-                        </div>
-                        <div className={styles.profileInfoDiv}>
-                            <span className={styles.profileName}>{profile?.firstName} {profile?.lastName}</span>
-                            <span className={styles.profileUserName}>{profile?.userName}</span>
-                            <p className={styles.profileTagLine}>{profile?.title}</p>
-                            <div className={styles.profileDetails}>
-                                <div className={styles.profileDetail}>
-                                    <span className={styles.icon}><IoLocation /></span>
-                                    <span className={styles.profileDetailValue}>{profile?.country}</span>
+
+                    <div className="profile-main-info">
+                        <div className="profile-avatar-section">
+                            <div className="profile-avatar-wrapper">
+                                <UserAvatar
+                                    size={160}
+                                    className="profile-avatar"
+                                    src={profile?.profileImage}
+                                    lastSeen={profile?.last_seen}
+                                    fallbackSrc={userImg}
+                                    onlineDotStyle={{ display: 'none' }}
+                                />
+                                {profile?.isOwnProfile && (
+                                    <button className="edit-avatar-btn" onClick={() => profileInputRef.current?.click()}>
+                                        {profileUploadLoading ? <Skeleton.Button active size="small" shape="circle" /> : <Camera size={16} />}
+                                    </button>
+                                )}
+                                <input type="file" ref={profileInputRef} style={{ display: "none" }} onChange={handleAddProfileImage} />
+                                {showOnline && <div className="online-status"></div>}
+                            </div>
+
+                            <div className="profile-header-info">
+                                <div className="profile-name-section">
+                                    <h1 className="profile-name">{profile?.firstName} {profile?.lastName}</h1>
+                                    {profile?.isOwnProfile && (
+                                        <button className="edit-profile-btn">
+                                            <Edit2 size={18} />
+                                        </button>
+                                    )}
                                 </div>
-                                <div className={styles.profileDetail}>
-                                    <span className={styles.icon}><BiSolidCalendar /></span>
-                                    <span className={styles.profileDetailValue}>Member since {dayjs(profile?.createdAt).format("MMMM YYYY")}</span>
+                                <p className="profile-username">@{profile?.userName}</p>
+                                <p className="profile-title">{profile?.title}</p>
+
+                                <div className="profile-meta">
+                                    <div className="meta-item">
+                                        <MapPin size={16} />
+                                        <span>{profile?.country}</span>
+                                    </div>
+                                    <div className="meta-item">
+                                        <Calendar size={16} />
+                                        <span>Member since {dayjs(profile?.createdAt).format("MMMM YYYY")}</span>
+                                    </div>
+                                    {!profile?.isClient && (
+                                        <div className="meta-item rating">
+                                            <Star size={16} fill="currentColor" />
+                                            <span>4.5/5</span>
+                                        </div>
+                                    )}
                                 </div>
-                                {!profile?.isClient && (<div className={styles.profileDetail}>
-                                    <Rate className={styles.profileRate} defaultValue={4.5} disabled allowHalf />
-                                    <span className={styles.profileRateValue}>4.5/5</span>
-                                </div>)}
                             </div>
                         </div>
+
                         {!profile?.isClient && (
-                            <div className={styles.profileStatsInfo}>
-                                <span className={styles.profileStatsValue}>Average Response Time: {responseTime}</span>
-                                <span className={styles.profileStatsValue}>Collabs Completed: {collabsCompleted}</span>
-                                <span className={styles.profileStatsValue}>Services Offeres: {services?.totalServices || 0}</span>
-                            </div>)}
-                    </div>
-                    {(profile?.isOwnProfile && !profile?.isClient) && (<div className={styles.profileInsightsDiv}>
-                        <ActionButton icon={<MdQueryStats />} onClick={showDrawer} className={styles.viewInsightsBtn}>View Insights</ActionButton>
-                    </div>)}
-                    {(visionary && currentProfile.profileType === "client") && (
-                        <div className={styles.profileInsightsDiv}>
-                            <Button className={styles.viewInsightsBtn} onClick={handleOpenHireModal}>Let's Collab</Button>
+                            <div className="profile-stats">
+                                <div className="stat-card">
+                                    <div className="stat-icon">
+                                        <MessageCircle size={24} />
+                                    </div>
+                                    <div className="stat-info">
+                                        <p className="stat-label">Response Time</p>
+                                        <p className="stat-value">{responseTime}</p>
+                                    </div>
+                                </div>
+                                <div className="stat-card">
+                                    <div className="stat-icon">
+                                        <Briefcase size={24} />
+                                    </div>
+                                    <div className="stat-info">
+                                        <p className="stat-label">Collabs Completed</p>
+                                        <p className="stat-value">{collabsCompleted}</p>
+                                    </div>
+                                </div>
+                                <div className="stat-card">
+                                    <div className="stat-icon">
+                                        <Award size={24} />
+                                    </div>
+                                    <div className="stat-info">
+                                        <p className="stat-label">Services Offered</p>
+                                        <p className="stat-value">{services?.totalServices || 0}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="profile-actions">
+                            {(visionary && currentProfile.profileType === "client") && (
+                                <button className="action-btn primary" onClick={handleOpenHireModal}>
+                                    <MessageCircle size={20} />
+                                    Let's Collab
+                                </button>
+                            )}
+                            {profile?.isOwnProfile && !profile?.isClient && (
+                                <button className="action-btn primary" onClick={showDrawer}>
+                                    <MdQueryStats size={20} />
+                                    View Insights
+                                </button>
+                            )}
+                            {!profile?.isOwnProfile && (
+                                <>
+                                    <button className="action-btn secondary">
+                                        <Mail size={20} />
+                                        Send Message
+                                    </button>
+                                    <button className="action-btn secondary">
+                                        <Phone size={20} />
+                                    </button>
+                                </>
+                            )}
                         </div>
-                    )}
+                    </div>
                 </div>
 
-                {profile?.isClient ? (
-                    <>
-                        <div className={styles.sectionContainer}>
-                            <span className={styles.sectionHeading}>Profile Description</span>
-                            <p className={styles.aboutProfile}>{profile?.overview}</p>
-                        </div>
-                    </>
-                ) : (
-                    <>
-                        <div className={`${styles.sectionContainer} ${styles.profileInfoSecond}`}>
-                            <div className={styles.profileAboutSection}>
-                                <span className={styles.sectionHeading}>About Me</span>
-                                <p className={styles.aboutProfile}>{profile?.overview}</p>
-                            </div>
-                            {profile?.skills && (<div className={styles.profileSkillSection}>
-                                <span className={styles.sectionHeading}>Skills and Expertise</span>
-                                <div className={styles.profileSkillDiv}>
-                                    {profile?.skills.map((skill, index) => (
-                                        <span key={index} className={styles.profileSkillTag}>{skill}</span>
-                                    ))}
-                                </div>
-                            </div>)}
-                        </div>
-                        <div className={styles.sectionContainer}>
-                            <span className={styles.sectionHeading}>Portfolio</span>
-                            <PortfolioSample userId={profile?.profileId} />
-                        </div>
-                        <div className={styles.sectionContainer}>
-                            <span className={styles.sectionHeading}>Services</span>
-                            <ServiceSection services={services.services} isOwnProfile={profile?.isOwnProfile!} />
-                        </div>
-                        {(testimonials && testimonials?.length > 0) && (<div className={styles.sectionContainer}>
-                            <span className={styles.sectionHeading}>Testimonial</span>
-                            <ReviewSection testimonialData={testimonials} />
-                        </div>)}
-                        {(workHistory && workHistory?.length > 0) && (<div className={styles.sectionContainer}>
-                            <span className={styles.sectionHeading}>Work History</span>
-                            <WorkHistory workHistoryData={workHistory} />
-                        </div>)}
-                        <div className={styles.sectionContainer}>
-                            <span className={styles.sectionHeading}>Certificates</span>
-                            <Certification profile={profile!} />
-                        </div>
-                        <div className={styles.sectionContainer}>
-                            <div className={styles.sectionContainerWithIcon} >
-                                <span className={styles.sectionHeadingIcon}><PiBagFill /></span>
-                                <span>Work Experience</span>
-                            </div>
-                            <WorkExperience profile={profile!} />
-                        </div>
-                    </>
-                )}
+                <div className="profile-content">
+                    <div className="profile-tabs">
+                        <button
+                            className={`tab-btn ${activeTab === 'about' ? 'active' : ''}`}
+                            onClick={() => setActiveTab('about')}
+                        >
+                            About Me
+                        </button>
+                        {!profile?.isClient && (
+                            <>
+                                <button
+                                    className={`tab-btn ${activeTab === 'portfolio' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('portfolio')}
+                                >
+                                    Portfolio
+                                </button>
+                                <button
+                                    className={`tab-btn ${activeTab === 'services' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('services')}
+                                >
+                                    Services
+                                </button>
+                                <button
+                                    className={`tab-btn ${activeTab === 'certificates' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('certificates')}
+                                >
+                                    Certificates
+                                </button>
+                                <button
+                                    className={`tab-btn ${activeTab === 'experience' ? 'active' : ''}`}
+                                    onClick={() => setActiveTab('experience')}
+                                >
+                                    Experience
+                                </button>
+                            </>
+                        )}
+                    </div>
 
-            </div>
-        </MaxWidthWrapper>
+                    <div className="tab-content">
+                        {activeTab === 'about' && (
+                            <div className="about-section glass-card">
+                                <h2 className="section-title">About Me</h2>
+                                <p className="about-text">{profile?.overview}</p>
+                                {profile?.skills && (
+                                    <div style={{ marginTop: '2rem' }}>
+                                        <h3 style={{ color: 'white', marginBottom: '1rem' }}>Skills and Expertise</h3>
+                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                                            {profile.skills.map((skill, index) => (
+                                                <span key={index} style={{
+                                                    padding: '0.5rem 1rem',
+                                                    background: 'rgba(255, 255, 255, 0.1)',
+                                                    borderRadius: '8px',
+                                                    color: 'white',
+                                                    fontSize: '0.875rem'
+                                                }}>{skill}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
+                        {activeTab === 'portfolio' && (
+                            <div className="portfolio-section">
+                                <PortfolioSample userId={profile?.profileId} />
+                            </div>
+                        )}
+
+                        {activeTab === 'services' && (
+                            <div className="services-section">
+                                <ServiceSection services={services.services} isOwnProfile={profile?.isOwnProfile!} />
+                            </div>
+                        )}
+
+                        {activeTab === 'certificates' && (
+                            <div className="certificates-section">
+                                <Certification profile={profile!} />
+                            </div>
+                        )}
+
+                        {activeTab === 'experience' && (
+                            <div className="experience-section">
+                                <WorkExperience profile={profile!} />
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </MaxWidthWrapper>
+        </div>
     )
 }
 

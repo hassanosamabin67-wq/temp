@@ -335,7 +335,17 @@ const PortfolioSample: FC<porfolioSampleProps> = ({ userId }) => {
                         ))}
                     </Swiper>
                 ) : (
-                    <Empty description="No Portfolio Uploaded" />
+                    <>
+                        <Empty style={{
+                            height: '300px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            flexDirection: 'column',
+                            opacity: 0.5,
+                        }}
+                            description="No Portfolio Uploaded" />
+                    </>
                 )}
                 <Modal
                     title={

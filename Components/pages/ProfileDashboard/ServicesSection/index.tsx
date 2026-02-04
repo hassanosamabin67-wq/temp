@@ -178,7 +178,16 @@ const ServiceSection: FC<{ services: any[]; isOwnProfile: boolean }> = ({ servic
                         })}
                     </div>
                 ) : (
-                    <Empty description="No services found." />
+                    <Empty
+                        style={{
+                            height: '260px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            flexDirection: 'column',
+                            opacity: 0.5,
+                        }}
+                        description="No services found." />
                 )}
                 {
                     totalCards > 3 && (

@@ -77,7 +77,16 @@ const WorkExperience: FC<{ profile: ProfileWithOwnership }> = ({ profile }) => {
                             </div>
                         </div>
                     ))) : (
-                        <Empty description='No Work Experience Added' />
+                        <Empty
+                            style={{
+                                height: '300px',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                flexDirection: 'column',
+                                opacity: 0.5,
+                            }}
+                            description='No Work Experience Added' />
                     )}
                 </div>
             </div>

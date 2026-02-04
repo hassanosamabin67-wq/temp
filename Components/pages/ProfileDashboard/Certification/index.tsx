@@ -1,3 +1,4 @@
+
 import React, { FC, useState } from 'react'
 import styles from './style.module.css'
 import { FaStar } from "react-icons/fa";
@@ -84,7 +85,16 @@ const Certification: FC<{ profile: ProfileWithOwnership }> = ({ profile }) => {
                             </div>
                         </div>
                     ))) : (
-                        <Empty description='No Certificate' />
+                        <Empty
+                            style={{
+                                height: '300px',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                flexDirection: 'column',
+                                opacity: 0.5,
+                            }}
+                            description='No Certificate' />
                     )}
                 </div>
             </div>
