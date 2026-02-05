@@ -3,18 +3,23 @@ import React, { useEffect, useState } from 'react'
 import styles from './style.module.css'
 import { supabase } from '@/config/supabase';
 import { useAppSelector } from '@/store'
-import { Empty, Tag } from 'antd';
+import { Empty } from 'antd';
 import RecommendedVisionaries from '../../client/profile/recommended';
 import dayjs from 'dayjs';
 import { useNotifications } from '@/hooks/useNotifications';
-import { FaClock, FaUser } from "react-icons/fa6";
-import { MdOutlinePayment } from "react-icons/md";
-import { IoNotifications } from "react-icons/io5";
-import { FaStar } from 'react-icons/fa';
 import { useRouter } from 'next/navigation';
-import DisplayContainer from '@/Components/UIComponents/DashboardOverview/DisplayContainer';
-import HeaderCard from '@/Components/UIComponents/DashboardOverview/HeaderCard';
 import MaxWidthWrapper from '@/Components/UIComponents/MaxWidthWrapper';
+import {
+    Briefcase,
+    Bell,
+    CreditCard,
+    Users,
+    TrendingUp,
+    Clock,
+    DollarSign,
+    Folder,
+    AlertCircle,
+} from 'lucide-react';
 
 type RecentOrder = {
     id: string;
@@ -278,136 +283,184 @@ const Overview = () => {
         }
     }, [profileRedux?.profileId])
 
+    const stats = [
+        {
+            label: 'Active Projects',
+            value: `${cardStats.activeProjects}`,
+            icon: Folder,
+            color: '#3b82f6',
+        },
+        {
+            label: 'Upcoming Sessions',
+            value: `${cardStats.upcomingSessions}`,
+            icon: Clock,
+            color: '#8b5cf6',
+        },
+        {
+            label: 'Total Spend',
+            value: `$${cardStats.totalSpend.toLocaleString()}`,
+            icon: DollarSign,
+            color: '#10b981',
+            highlight: true,
+        },
+    ];
+
     return (
         <MaxWidthWrapper withPadding={false} className={styles.dashboard}>
-            <span className={styles.pageHeading}>Overview</span>
+            <div className={styles.floatingOrb + " " + styles.orb1}></div>
+            <div className={styles.floatingOrb + " " + styles.orb2}></div>
+            <div className={styles.floatingOrb + " " + styles.orb3}></div>
 
-            {/* <!-- Quick Stats --> */}
+            <div className={styles.dashboardHeader}>
+                <span className={styles.pageHeading}>Overview</span>
+            </div>
+
             <div className={styles.statsGrid}>
-                <HeaderCard cardLabel='Active Projects' cardValue={`${cardStats.activeProjects}`} />
-                <HeaderCard cardLabel='Upcoming Sessions' cardValue={`${cardStats.upcomingSessions}`} />
-                <HeaderCard cardLabel='Total Spend' cardValue={`$${cardStats.totalSpend.toLocaleString()}`} isPrice={true} />
+                {stats.map((stat, index) => (
+                    <div
+                        key={index}
+                        className={`${styles.statCard} ${stat.highlight ? styles.statCardHighlight : ''}`}
+                        style={{ '--stat-color': stat.color } as React.CSSProperties}
+                    >
+                        <div className={styles.statIcon}>
+                            <stat.icon size={24} />
+                        </div>
+                        <div className={styles.statInfo}>
+                            <div className={styles.statValue}>{stat.value}</div>
+                            <div className={styles.statLabel}>{stat.label}</div>
+                        </div>
+                    </div>
+                ))}
             </div>
 
-            {/* <!-- Main Dashboard Grid --> */}
             <div className={styles.dashboardGrid}>
-                {/* <!-- Main Content --> */}
-                <div className={styles.mainContent}>
-                    {/* <!-- Projects Snapshot --> */}
-                    <DisplayContainer
-                        Icon={<FaClock />}
-                        title="Recent Projects"
-                        items={
-                            recentOrders.map((order: any) => (
-                                <div key={order.id} className={styles.projectItem}>
-                                    <div className={styles.projectInfo}>
-                                        <div className={styles.projectName}>{order.title}</div>
-                                        <div className={styles.projectMeta}>{order.dateLabel}</div>
-                                    </div>
-                                    <Tag
-                                        className={styles.projectStatus}
-                                        color={
-                                            order.status === 'ACTIVE' ? 'green' :
-                                                order.status === 'PENDING' ? 'gold' :
-                                                    'geekblue'
-                                        }
-                                    >
-                                        {order.status}
-                                    </Tag>
-                                </div>
-                            ))
-                        }
-                        emptyDescription='No Recent Projects'
-                        loadingState={projectLoading}
-                    />
-
-                    {/* <!-- Payments --> */}
-                    <DisplayContainer
-                        Icon={<MdOutlinePayment />}
-                        title="Recent Payments"
-                        items={
-                            recentPayment.map(payment => (
-                                <div key={payment.id} className={styles.paymentItem}>
-                                    <div className={styles.paymentInfo}>
-                                        <div className={styles.paymentDescription}>{payment.purchaseName}</div>
-                                        <div className={styles.paymentDate}>
-                                            {dayjs(payment.transactionDate).format("MMM DD, YYYY")}
-                                        </div>
-                                    </div>
-                                    <div className={styles.paymentAmount}>
-                                        ${payment.amount.toLocaleString()}
-                                    </div>
-                                </div>
-                            ))
-                        }
-                        emptyDescription="No recent payments"
-                        loadingState={paymentLoading}
-                    />
-                </div>
-
-                {/* <!-- Sidebar Content --> */}
-                <div className={styles.sidebarContent}>
-                    {/* <!-- Notifications --> */}
-                    <div className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <h2 className={styles.cardTitle}>
-                                <IoNotifications />
-                                Notifications
-                            </h2>
-                        </div>
-                        <div className={styles.scrollContainer}>
-                            {notifications && notifications.length > 0 ? notifications.map((notification) => (
-                                <div key={notification.id} className={`${styles.notificationItem} ${!notification.is_read ? styles.notificationUnread : ""}`}>
-                                    <div className={styles.notificationText}>{notification.title}</div>
-                                    <div className={styles.notificationTime}>{dayjs(notification.created_at).format('MMM DD, YYYY')}</div>
-                                </div>
-                            )) : (
-                                <div className={styles.emptyState}>
-                                    <Empty description='No notifications' />
-                                </div>
-                            )}
+                <div className={styles.dashboardSection}>
+                    <div className={styles.sectionHeader}>
+                        <div className={styles.sectionTitle}>
+                            <Briefcase size={20} />
+                            <h2>Recent Projects</h2>
                         </div>
                     </div>
+                    <div className={styles.list}>
+                        {projectLoading ? (
+                            <div className={styles.emptyState}>
+                                <p>Loading projects...</p>
+                            </div>
+                        ) : recentOrders.length > 0 ? recentOrders.map((order: any) => (
+                            <div key={order.id} className={styles.item}>
+                                <div className={styles.info}>
+                                    <div className={styles.name}>{order.title}</div>
+                                    <div className={styles.date}>{order.dateLabel}</div>
+                                </div>
+                                <span className={`${styles.statusBadge} ${order.status === 'ACTIVE' ? styles.statusActive : styles.statusPending}`}>
+                                    {order.status}
+                                </span>
+                            </div>
+                        )) : (
+                            <div className={styles.emptyState}>
+                                <div className={styles.emptyIcon}>
+                                    <AlertCircle size={32} />
+                                </div>
+                                <p>No Recent Projects</p>
+                            </div>
+                        )}
+                    </div>
+                </div>
 
-                    {/* <!-- Upcoming Rooms --> */}
-                    <div className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <h2 className={styles.cardTitle}>
-                                <FaStar />
-                                Upcoming Rooms
-                            </h2>
+                <div className={`${styles.dashboardSection} ${styles.notificationSection}`}>
+                    <div className={styles.sectionHeader}>
+                        <div className={styles.sectionTitle}>
+                            <Bell size={20} />
+                            <h2>Notifications</h2>
                         </div>
-                        <div className={styles.scrollContainer}>
-                            {upcomingRoom.length > 0 ? upcomingRoom.map((room) => (
-                                <div key={room.id} className={styles.roomItem}>
-                                    {/* <div className={styles.roomTime}>
-                                    {room.roomDate}
-                                    </div> */}
-                                    <div className={styles.roomInfo}>
-                                        <div className={styles.roomTitle}>{room.roomTitle}</div>
-                                        <div className={styles.roomParticipants}>
-                                            {room.roomDescription}
-                                        </div>
-                                    </div>
-                                    <button className={styles.joinBtn} onClick={() => router.push(`/think-tank/room/${room.id}`)}>Join</button>
+                    </div>
+                    <div className={`${styles.list} ${styles.scrollableList}`}>
+                        {notifications && notifications.length > 0 ? notifications.map((notification) => (
+                            <div key={notification.id} className={styles.notificationItem}>
+                                <div className={styles.notificationIndicator}></div>
+                                <div className={styles.info}>
+                                    <p className={styles.description}>{notification.title}</p>
+                                    <span className={styles.date}>{dayjs(notification.created_at).format('MMM DD, YYYY')}</span>
                                 </div>
-                            )) : (
-                                <div className={styles.emptyState}>
-                                    <Empty description='No upcoming rooms' />
+                            </div>
+                        )) : (
+                            <div className={styles.emptyState}>
+                                <div className={styles.emptyIcon}>
+                                    <AlertCircle size={32} />
                                 </div>
-                            )}
-                        </div>
+                                <p>No notifications</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
 
-            {/* <!-- Recommended Visionaries (from your original design) --> */}
-            <div className={styles.card}>
-                <div className={styles.cardHeader}>
-                    <h2 className={styles.cardTitle}>
-                        <FaUser />
-                        Recommended Visionaries
-                    </h2>
+            <div className={styles.dashboardGrid}>
+                <div className={styles.dashboardSection}>
+                    <div className={styles.sectionHeader}>
+                        <div className={styles.sectionTitle}>
+                            <CreditCard size={20} />
+                            <h2>Recent Payments</h2>
+                        </div>
+                    </div>
+                    <div className={styles.list}>
+                        {paymentLoading ? (
+                            <div className={styles.emptyState}>
+                                <p>Loading payments...</p>
+                            </div>
+                        ) : recentPayment.length > 0 ? recentPayment.map(payment => (
+                            <div key={payment.id} className={styles.item}>
+                                <div className={styles.info}>
+                                    <div className={styles.description}>{payment.purchaseName}</div>
+                                    <div className={styles.date}>{dayjs(payment.transactionDate).format("MMM DD, YYYY")}</div>
+                                </div>
+                                <div className={styles.amount}>${payment.amount.toLocaleString()}</div>
+                            </div>
+                        )) : (
+                            <div className={styles.emptyState}>
+                                <div className={styles.emptyIcon}>
+                                    <AlertCircle size={32} />
+                                </div>
+                                <p>No recent payments</p>
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                <div className={styles.dashboardSection}>
+                    <div className={styles.sectionHeader}>
+                        <div className={styles.sectionTitle}>
+                            <Users size={20} />
+                            <h2>Upcoming Rooms</h2>
+                        </div>
+                    </div>
+                    <div className={styles.list}>
+                        {upcomingRoom.length > 0 ? upcomingRoom.map((room) => (
+                            <div key={room.id} className={styles.item}>
+                                <div className={styles.info}>
+                                    <div className={styles.name}>{room.roomTitle}</div>
+                                    <div className={styles.date}>{room.roomDescription}</div>
+                                </div>
+                                <button className={styles.joinBtn} onClick={() => router.push(`/think-tank/room/${room.id}`)}>Join</button>
+                            </div>
+                        )) : (
+                            <div className={styles.emptyState}>
+                                <div className={styles.emptyIcon}>
+                                    <AlertCircle size={32} />
+                                </div>
+                                <p>No upcoming rooms</p>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+
+            <div className={`${styles.dashboardSection} ${styles.fullWidth}`}>
+                <div className={styles.sectionHeader}>
+                    <div className={styles.sectionTitle}>
+                        <TrendingUp size={20} />
+                        <h2>Recommended Visionaries</h2>
+                    </div>
                 </div>
                 <RecommendedVisionaries />
             </div>

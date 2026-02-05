@@ -1,85 +1,148 @@
 .recommendContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
 }
 
 .recommendDiv {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: cardFloat 3s ease-in-out infinite;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    border: 1px solid #d1d1d1;
-    background-color: #fff;
-    min-height: 110px;
-    padding: 20px;
-    border-radius: 10px;
-    box-sizing: border-box;
-    overflow-wrap: anywhere;
-    transition: transform .5s;
+    align-items: center;
+}
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .recommendDiv:hover {
-    transform: scale(1.02);
-}
-
-.visionaryDetail {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 16px 40px rgba(59, 130, 246, 0.4);
+    border-color: rgba(59, 130, 246, 0.5);
 }
 
 .recommendImg {
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(37, 99, 235, 0.4));
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    transition: all 0.3s ease;
+    object-fit: cover;
+}
+
+.recommendDiv:hover .recommendImg {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .recommendName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
     display: block;
-    font-size: 18px;
-    font-weight: 500;
 }
 
 .profileTitle {
-    color: #3f3f3f;
-    font-weight: 500;
-    font-size: 13px;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
     display: block;
-}
-
-.viewMoreTransactions {
-    border: 1px solid #cbcbcb;
-    padding: 8px 25px;
-    border-radius: 5px;
-}
-
-.viewMoreTransactions:hover {
-    background-color: #5656f7;
-    color: #fff;
 }
 
 .btnDiv {
     display: flex;
+    gap: 0.5rem;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    width: 100%;
 }
 
-.skillsTagDiv {
+.viewProfileBtn {
+    flex: 1;
+    padding: 0.625rem 1rem;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    letter-spacing: 0.01em;
     display: flex;
     align-items: center;
-    gap: 5px;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
-.skillTag {
-    font-size: 10px;
-    font-weight: 500;
-    margin: 0;
-    border-radius: 10px;
-    color: #343434;
+.viewProfileBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
 }
 
-@media screen and (max-width:600px) {
+.iconBtn {
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    color: white;
+    padding: 0;
+}
+
+.iconBtn:hover {
+    background: rgba(59, 130, 246, 0.3);
+    transform: scale(1.1);
+}
+
+.iconBtn :global(.anticon) {
+    font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
     .recommendContainer {
-        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .recommendContainer {
+        grid-template-columns: 1fr;
     }
 }

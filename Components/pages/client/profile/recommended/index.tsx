@@ -101,37 +101,31 @@ const RecommendedVisionaries = () => {
                 const fullName = `${visionary?.firstName || ''} ${visionary?.lastName || ''}`.trim();
                 const maxLength = 20;
                 const truncatedFullName = fullName.length > maxLength ? fullName.slice(0, maxLength) + '...' : fullName;
-                const truncatedTitle = visionary?.title?.length > 30 ? visionary?.title.slice(0, 30) + '...' : fullName;
-                const displayedSkills = visionary.skills ? visionary.skills.slice(0, 4) : [];
-                const moreSkillsCount = (visionary.skills?.length || 0) - 4;
+                const displayedTitle = visionary?.title || "@user";
+                const truncatedTitle = displayedTitle.length > 30 ? displayedTitle.slice(0, 30) + '...' : displayedTitle;
                 const isFavorite = favoriteVisionaries.includes(visionary.userId);
 
                 return (
                     <div key={visionary.profileId} className={styles.recommendDiv}>
-                        <div className={styles.visionaryDetail}>
-                            <Image className={styles.recommendImg} src={visionary.profileImage || userImg} alt='user-image' width={100} height={100} />
-                            <div>
-                                <span className={styles.recommendName}>{truncatedFullName}</span>
-                                {/* <span>{visionary.userName || "@user"}</span> */}
-                                <span className={styles.profileTitle}>{truncatedTitle || "@user"}</span>
-                            </div>
-                        </div>
-                        <div className={styles.skillsTagDiv}>
-                            {displayedSkills.map((skill: string, index: number) => (
-                                <Tag key={index} className={styles.skillTag}>{skill}</Tag>
-                            ))}
-
-                            {moreSkillsCount > 0 && (
-                                <Tag className={styles.skillTag}>+{moreSkillsCount} more</Tag>
-                            )}
+                        <Image className={styles.recommendImg} src={visionary.profileImage || userImg} alt='user-image' width={100} height={100} />
+                        <div className={styles.visionaryInfo}>
+                            <span className={styles.recommendName}>{truncatedFullName}</span>
+                            <span className={styles.profileTitle}>{truncatedTitle}</span>
                         </div>
                         <div className={styles.btnDiv}>
-                            <Button variant='outlined' color='blue' onClick={() => router.push(`/${BASE_URL}?visionary=${visionary.profileId}`)} icon={<FaUser />}>View Profile</Button>
+                            <button className={styles.viewProfileBtn} onClick={() => router.push(`/${BASE_URL}?visionary=${visionary.profileId}`)}>
+                                {/* <FaUser size={16} /> */}
+                                <span>View Profile</span>
+                            </button>
                             <Tooltip title="Message">
-                                <Button icon={<BiMessageDetail />} variant='outlined' color='green' onClick={() => handleMessageVisionary(profile.profileId!, visionary?.userId)} loading={loadingMessageId === visionary?.userId} />
+                                <button className={styles.iconBtn} onClick={() => handleMessageVisionary(profile.profileId!, visionary?.userId)} disabled={loadingMessageId === visionary?.userId}>
+                                    <BiMessageDetail />
+                                </button>
                             </Tooltip>
                             <Tooltip title={isFavorite ? "Remove from my network" : "Add to my network"}>
-                                <Button icon={isFavorite ? <HeartFilled /> : <HeartOutlined />} variant='outlined' color='pink' onClick={() => toggleFavorite(visionary)} loading={addVisionaryLoading === visionary?.userId} />
+                                <button className={styles.iconBtn} onClick={() => toggleFavorite(visionary)} disabled={addVisionaryLoading === visionary?.userId}>
+                                    {isFavorite ? <HeartFilled style={{ color: '#ff4d4f' }} /> : <HeartOutlined />}
+                                </button>
                             </Tooltip>
                         </div>
                     </div>
