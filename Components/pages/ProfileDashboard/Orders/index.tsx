@@ -1,13 +1,26 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import styles from './style.module.css'
-import { Card, Skeleton } from 'antd'
-import { LuClock } from "react-icons/lu";
-import { FiDollarSign, FiAlertCircle } from "react-icons/fi";
-import { PiToolbox } from "react-icons/pi";
-import OrderInfo from './OrderInfo';
+
+import { useRouter } from 'next/navigation';
+import { ArrowLeft, Package, Clock, CheckCircle, XCircle, Filter, Search, TrendingUp, Calendar, User, DollarSign } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import './styles.css';
 import { supabase } from '@/config/supabase';
 import { useAppSelector } from '@/store';
+import { Skeleton, Modal } from 'antd';
+import OrderDetail from './OrderInfo/OrderDetail';
+
+interface Order {
+    id: string;
+    projectName: string;
+    visionaryName: string;
+    status: 'active' | 'completed' | 'pending' | 'rejected';
+    amount: number;
+    startDate: string;
+    deadline: string;
+    progress: number;
+    category: string;
+    originalStatus: string;
+}
 
 interface OrderDataInterface {
     orderId: string;
@@ -23,13 +36,6 @@ interface OrderDataInterface {
     milestone?: any[];
 }
 
-type OrderStatusType = {
-    active: OrderDataInterface[];
-    completed: OrderDataInterface[];
-    pending: OrderDataInterface[];
-    rejected: OrderDataInterface[];
-};
-
 interface OrderStats {
     totalAmount: number;
     activeProjects: number;
@@ -37,29 +43,30 @@ interface OrderStats {
     completedOrders: number;
 }
 
-const Orders = () => {
-    const [ordersByStatus, setOrdersByStatus] = useState<OrderStatusType>({
-        active: [],
-        completed: [],
-        pending: [],
-        rejected: []
-    });
-    const [loadingData, setLoadingData] = useState(false)
+const OrdersPage = () => {
+    const router = useRouter();
+    const [loadingData, setLoadingData] = useState(false);
+    const [orders, setOrders] = useState<Order[]>([]);
     const [orderStats, setOrderStats] = useState<OrderStats>({
         totalAmount: 0,
         activeProjects: 0,
         pendingProjects: 0,
         completedOrders: 0
     });
+    const [activeFilter, setActiveFilter] = useState<string>('all');
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+    const [showDetailModal, setShowDetailModal] = useState(false);
+
     const profile = useAppSelector((state) => state.auth);
 
-    const getStatusIcon = (status: string) => {
+    const mapStatus = (status: string): 'active' | 'completed' | 'pending' | 'rejected' => {
         switch (status) {
-            case 'pending': return <FiDollarSign />;
-            case 'accepted': return <FiAlertCircle />;
-            case 'approved': return <LuClock />;
-            case 'rejected': return <PiToolbox />;
-            default: return <LuClock />;
+            case 'Accepted': return 'active';
+            case 'Approved': return 'completed';
+            case 'Pending': return 'pending';
+            case 'Rejected': return 'rejected';
+            default: return 'active';
         }
     };
 
@@ -134,57 +141,47 @@ const Orders = () => {
                 return acc;
             }, {} as Record<string, string>) || {};
 
-            const processedOrders: OrderDataInterface[] = [
+            const processedOrders: Order[] = [
                 ...(serviceOrderData?.map(order => ({
-                    orderId: order.id,
-                    orderName: order.service_name,
-                    orderDescription: order.package_name,
-                    startData: order.created_at,
-                    deadline: order.deadline,
-                    ...(profileType === 'client'
-                        ? { visionaryName: otherPartyMap[order[otherPartyColumn]] }
-                        : { clientName: otherPartyMap[order[otherPartyColumn]] }
-                    ),
+                    id: order.id,
+                    projectName: order.service_name,
+                    visionaryName: otherPartyMap[order[otherPartyColumn]] || 'Unknown',
+                    status: mapStatus(order.status),
                     amount: order.amount,
-                    status: order.status,
-                    rating: order.review
+                    startDate: order.created_at,
+                    deadline: order.deadline,
+                    progress: order.status === 'Approved' ? 100 : (order.status === 'Accepted' ? 50 : 0),
+                    category: 'Service',
+                    originalStatus: order.status
                 })) || []),
                 ...(orderData?.map(order => {
                     const lastMilestone = (order?.milestone && Array.isArray(order.milestone)) && order.milestone[order.milestone.length - 1];
+                    const status = mapStatus(order.status);
                     return {
-                        orderId: order.id,
-                        orderName: order.title,
-                        orderDescription: order.description,
-                        startData: order.start_datetime || order.created_at,
-                        deadline: lastMilestone ? lastMilestone.dueDate : order.end_datetime,
-                        ...(profileType === 'client'
-                            ? { visionaryName: otherPartyMap[order[otherPartyColumn]] }
-                            : { clientName: otherPartyMap[order[otherPartyColumn]] }
-                        ),
+                        id: order.id,
+                        projectName: order.title,
+                        visionaryName: otherPartyMap[order[otherPartyColumn]] || 'Unknown',
+                        status: status,
                         amount: order.price,
-                        status: order.status,
-                        rating: order.review
+                        startDate: order.start_datetime || order.created_at,
+                        deadline: lastMilestone ? lastMilestone.dueDate : order.end_datetime,
+                        progress: status === 'completed' ? 100 : (status === 'active' ? 50 : 0),
+                        category: 'Project',
+                        originalStatus: order.status
                     }
                 }) || [])
             ];
 
-            const groupedOrders: OrderStatusType = {
-                active: processedOrders.filter(order => order.status === 'Accepted'),
-                completed: processedOrders.filter(order => order.status === 'Approved'),
-                pending: processedOrders.filter(order => order.status === 'Pending'),
-                rejected: processedOrders.filter(order => order.status === 'Rejected')
-            };
-
             const stats: OrderStats = {
                 totalAmount: processedOrders
-                    .filter(order => order.status === 'Approved')
+                    .filter(order => order.status === 'completed')
                     .reduce((sum, order) => sum + order.amount, 0),
-                activeProjects: groupedOrders.active.length,
-                pendingProjects: groupedOrders.pending.length,
-                completedOrders: groupedOrders.completed.length
+                activeProjects: processedOrders.filter(order => order.status === 'active').length,
+                pendingProjects: processedOrders.filter(order => order.status === 'pending').length,
+                completedOrders: processedOrders.filter(order => order.status === 'completed').length
             };
 
-            setOrdersByStatus(groupedOrders);
+            setOrders(processedOrders);
             setOrderStats(stats);
 
         } catch (error) {
@@ -194,78 +191,260 @@ const Orders = () => {
         }
     };
 
-    const getAmountLabel = () => {
-        return profile?.profileType === 'client' ? 'Total Spent' : 'Total Earnings';
+    useEffect(() => {
+        if (profile.profileId) {
+            getOrderDetails(profile.profileId, profile.profileType!);
+        }
+    }, [profile]);
+
+    const stats = [
+        { label: profile?.profileType === 'client' ? 'Total Spent' : 'Total Earnings', value: `$${orderStats.totalAmount.toLocaleString()}`, icon: DollarSign, color: 'green' },
+        { label: 'Active Projects', value: orderStats.activeProjects.toString(), icon: Package, color: 'blue' },
+        { label: 'Pending', value: orderStats.pendingProjects.toString(), icon: Clock, color: 'orange' },
+        { label: 'Completed', value: orderStats.completedOrders.toString(), icon: CheckCircle, color: 'cyan' }
+    ];
+
+    const filteredOrders = orders.filter(order => {
+        const matchesFilter = activeFilter === 'all' || order.status === activeFilter;
+        const matchesSearch = order.projectName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            order.visionaryName.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesFilter && matchesSearch;
+    });
+
+    const getStatusConfig = (status: string) => {
+        switch (status) {
+            case 'active':
+                return { label: 'In Progress', color: 'blue', icon: TrendingUp };
+            case 'completed':
+                return { label: 'Completed', color: 'green', icon: CheckCircle };
+            case 'pending':
+                return { label: 'Pending', color: 'orange', icon: Clock };
+            case 'rejected':
+                return { label: 'Rejected', color: 'red', icon: XCircle };
+            default:
+                return { label: status, color: 'gray', icon: Package };
+        }
     };
 
-    useEffect(() => {
-        getOrderDetails(profile.profileId!, profile.profileType!)
-    }, [profile])
+    const handleViewDetails = (order: Order) => {
+        setSelectedOrder(order);
+        setShowDetailModal(true);
+    };
 
     if (loadingData) {
         return (
-            <div className={styles.orderHeader}>
-                <Skeleton active />
+            <div className="orders-page">
+                <div className="orders-container">
+                    <Skeleton active />
+                    <Skeleton active />
+                    <Skeleton active />
+                </div>
             </div>
-        )
+        );
     }
 
     return (
-        <div className={styles.ordersMain}>
-            <div className={styles.orderHeader}>
-                <Card className={styles.orderHeaderCard}>
-                    <div className={styles.orderHeaderCardBody}>
-                        <div className={styles.iconDiv}>
-                            <span className={`${styles.icon} ${styles.dollarIcon}`}><FiDollarSign /></span>
-                        </div>
-                        <div className={styles.cardInfoDiv}>
-                            <span className={styles.infoValue}>${orderStats?.totalAmount}</span>
-                            <span className={styles.infoDetail}>{getAmountLabel()}</span>
-                        </div>
-                    </div>
-                </Card>
-                <Card className={styles.orderHeaderCard}>
-                    <div className={styles.orderHeaderCardBody}>
-                        <div className={styles.iconDiv}>
-                            <span className={`${styles.icon} ${styles.activeProjectIcon}`}><FiAlertCircle /></span>
-                        </div>
-                        <div className={styles.cardInfoDiv}>
-                            <span className={styles.infoValue}>{orderStats?.activeProjects}</span>
-                            <span className={styles.infoDetail}>Active Projects</span>
-                        </div>
-                    </div>
-                </Card>
-                <Card className={styles.orderHeaderCard}>
-                    <div className={styles.orderHeaderCardBody}>
-                        <div className={styles.iconDiv}>
-                            <span className={`${styles.icon} ${styles.pendingProjectIcon}`}><LuClock /></span>
-                        </div>
-                        <div className={styles.cardInfoDiv}>
-                            <span className={styles.infoValue}>{orderStats?.pendingProjects}</span>
-                            <span className={styles.infoDetail}>Pending Projects</span>
-                        </div>
-                    </div>
-                </Card>
-                <Card className={styles.orderHeaderCard}>
-                    <div className={styles.orderHeaderCardBody}>
-                        <div className={styles.iconDiv}>
-                            <span className={`${styles.icon} ${styles.totalOrdersIcon}`}><PiToolbox /></span>
-                        </div>
-                        <div className={styles.cardInfoDiv}>
-                            <span className={styles.infoValue}>{orderStats?.completedOrders}</span>
-                            <span className={styles.infoDetail}>
-                                {profile.profileType === 'client'
-                                    ? 'Total Projects Completed'
-                                    : 'Total Orders Completed'
-                                }
-                            </span>
-                        </div>
-                    </div>
-                </Card>
-            </div>
-            <OrderInfo ordersByStatus={ordersByStatus} userProfile={profile} />
-        </div>
-    )
-}
+        <div className="orders-page">
+            <div className="floating-orb orb-1"></div>
+            <div className="floating-orb orb-2"></div>
+            <div className="floating-orb orb-3"></div>
 
-export default Orders
+            <div className="orders-container">
+                <button
+                    onClick={() => router.push(`/dashboard/${profile.profileType?.toLowerCase()}`)}
+                    className="back-button"
+                >
+                    <ArrowLeft size={20} />
+                    <span>Back to Dashboard</span>
+                </button>
+
+                <div className="orders-header">
+                    <div className="header-content">
+                        <h1 className="orders-title">Order Management</h1>
+                        <p className="orders-subtitle">Track and manage all your project collaborations</p>
+                    </div>
+                </div>
+
+                <div className="stats-overview">
+                    {stats.map((stat, index) => {
+                        const Icon = stat.icon;
+                        return (
+                            <div key={index} className={`stat-card stat-${stat.color}`}>
+                                <div className="stat-icon-wrapper">
+                                    <Icon size={24} />
+                                </div>
+                                <div className="stat-info">
+                                    <div className="stat-value">{stat.value}</div>
+                                    <div className="stat-label">{stat.label}</div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                <div className="orders-controls">
+                    <div className="search-bar">
+                        <Search size={20} />
+                        <input
+                            type="text"
+                            placeholder="Search orders..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="filter-tabs">
+                        <button
+                            className={`filter-tab ${activeFilter === 'all' ? 'active' : ''}`}
+                            onClick={() => setActiveFilter('all')}
+                        >
+                            <Filter size={16} />
+                            All Orders
+                        </button>
+                        <button
+                            className={`filter-tab ${activeFilter === 'active' ? 'active' : ''}`}
+                            onClick={() => setActiveFilter('active')}
+                        >
+                            Active
+                        </button>
+                        <button
+                            className={`filter-tab ${activeFilter === 'pending' ? 'active' : ''}`}
+                            onClick={() => setActiveFilter('pending')}
+                        >
+                            Pending
+                        </button>
+                        <button
+                            className={`filter-tab ${activeFilter === 'completed' ? 'active' : ''}`}
+                            onClick={() => setActiveFilter('completed')}
+                        >
+                            Completed
+                        </button>
+                    </div>
+                </div>
+
+                <div className="orders-grid">
+                    {filteredOrders.map((order) => {
+                        const statusConfig = getStatusConfig(order.status);
+                        const StatusIcon = statusConfig.icon;
+
+                        return (
+                            <div key={order.id} className="order-card">
+                                <div className="order-card-header">
+                                    <div className="order-info-card">
+                                        <h3 className="order-title">{order.projectName}</h3>
+                                        <div className="order-meta">
+                                            <User size={14} />
+                                            <span>{order.visionaryName}</span>
+                                        </div>
+                                    </div>
+                                    <div className={`order-status status-${statusConfig.color}`}>
+                                        <StatusIcon size={16} />
+                                        <span>{statusConfig.label}</span>
+                                    </div>
+                                </div>
+
+                                <div className="order-details">
+                                    <div className="detail-row">
+                                        <div className="detail-item">
+                                            <Calendar size={16} />
+                                            <span>Start: {new Date(order.startDate).toLocaleDateString()}</span>
+                                        </div>
+                                        <div className="detail-item">
+                                            <Clock size={16} />
+                                            <span>Due: {new Date(order.deadline).toLocaleDateString()}</span>
+                                        </div>
+                                    </div>
+
+                                    <div className="detail-row">
+                                        <div className="detail-item">
+                                            <DollarSign size={16} />
+                                            <span className="amount">${order.amount.toLocaleString()}</span>
+                                        </div>
+                                        <div className="category-badge">{order.category}</div>
+                                    </div>
+                                </div>
+
+                                {order.status === 'active' && (
+                                    <div className="progress-section">
+                                        <div className="progress-header">
+                                            <span className="progress-label">Progress</span>
+                                            <span className="progress-value">{order.progress}%</span>
+                                        </div>
+                                        <div className="progress-bar">
+                                            <div
+                                                className="progress-fill"
+                                                style={{ width: `${order.progress}%` }}
+                                            ></div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                <div className="order-actions">
+                                    <button className="action-btn primary" onClick={() => handleViewDetails(order)}>View Details</button>
+                                    <button className="action-btn secondary">Message</button>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {filteredOrders.length === 0 && (
+                    <div className="empty-state">
+                        <Package size={64} className="empty-icon" />
+                        <h3>No orders found</h3>
+                        <p>Try adjusting your search or filter criteria</p>
+                    </div>
+                )}
+            </div>
+
+            <Modal
+                title={<span style={{ color: '#fff', fontSize: '1.5rem', fontWeight: '600' }}>Order Details</span>}
+                open={showDetailModal}
+                onCancel={() => setShowDetailModal(false)}
+                footer={null}
+                width={1000}
+                centered
+                styles={{
+                    mask: { backdropFilter: 'blur(10px)' },
+                    content: {
+                        background: 'rgba(15, 23, 42, 0.95)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        borderRadius: '24px',
+                        padding: '2rem'
+                    },
+                    header: {
+                        background: 'transparent',
+                        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                        marginBottom: '1.5rem',
+                        paddingBottom: '1rem'
+                    }
+                }}
+            >
+                {selectedOrder && (
+                    <OrderDetail
+                        orderName={selectedOrder.projectName}
+                        orderDescription={""}
+                        orderStartDate={selectedOrder.startDate}
+                        orderEndDate={selectedOrder.deadline}
+                        orderPrice={selectedOrder.amount}
+                        orderStatus={selectedOrder.status === 'completed' ? 'Completed' : (selectedOrder.status === 'active' ? 'Accepted' : (selectedOrder.status === 'pending' ? 'Pending' : 'Rejected'))}
+                        orderStatusColor={selectedOrder.status === 'completed' ? 'green' : (selectedOrder.status === 'active' ? 'geekblue' : (selectedOrder.status === 'pending' ? 'gold' : 'red'))}
+                        orderId={selectedOrder.id}
+                        clientName={profile.profileType === 'client' ? undefined : selectedOrder.visionaryName}
+                        visionaryName={profile.profileType === 'client' ? selectedOrder.visionaryName : undefined}
+                        userProfile={{
+                            profileType: profile.profileType === 'client' ? 'client' : 'Visionary',
+                            firstName: profile.firstName || '',
+                            lastName: profile.lastName || '',
+                            userId: profile.profileId || ''
+                        }}
+                        isCompleted={selectedOrder.status === 'completed'}
+                        completedDate={selectedOrder.status === 'completed' ? selectedOrder.deadline : undefined}
+                    />
+                )}
+            </Modal>
+        </div>
+    );
+};
+
+export default OrdersPage;
