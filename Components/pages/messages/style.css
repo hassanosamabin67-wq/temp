@@ -1,8 +1,6 @@
-
-
 /* Message Page & Container */
 .messaging-page {
-  min-height: calc(100vh - 64px);
+  min-height: 100vh;
   position: relative;
   padding: 2rem;
   overflow: hidden;
@@ -526,7 +524,7 @@
   padding: 1.5rem;
   background: transparent;
   position: relative;
-  height: 62%;
+  height: 55%;
   min-height: 0;
 }
 
@@ -857,7 +855,9 @@
 .offer-message {
   display: flex;
   padding: 20px;
-  width: 100%; max-width: 700px; flex-wrap: wrap;
+  width: 100%;
+  max-width: 700px;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 15px;
 }
@@ -916,7 +916,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1; min-width: 250px;
+  flex: 1;
+  min-width: 250px;
 }
 
 .offer-sender {
@@ -1323,9 +1324,10 @@ body.hide-scrollbar::-webkit-scrollbar {
 .offer-drawer .ant-drawer-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
+
 .offer-drawer .offer-sender span:last-child,
 .offer-drawer .serviceOfferContainer span:last-child {
-    color: #555 !important;
+  color: #555 !important;
 }
 
 .message-sender-image {
@@ -1342,10 +1344,12 @@ body.hide-scrollbar::-webkit-scrollbar {
     align-items: flex-start !important;
     padding: 15px !important;
   }
+
   .offer-container {
     width: 100% !important;
     min-width: 100% !important;
   }
+
   .offer-box {
     width: 100% !important;
   }

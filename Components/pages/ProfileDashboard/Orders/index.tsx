@@ -20,6 +20,7 @@ interface Order {
     progress: number;
     category: string;
     originalStatus: string;
+    otherPartyId: string;
 }
 
 interface OrderDataInterface {
@@ -152,7 +153,8 @@ const OrdersPage = () => {
                     deadline: order.deadline,
                     progress: order.status === 'Approved' ? 100 : (order.status === 'Accepted' ? 50 : 0),
                     category: 'Service',
-                    originalStatus: order.status
+                    originalStatus: order.status,
+                    otherPartyId: order[otherPartyColumn]
                 })) || []),
                 ...(orderData?.map(order => {
                     const lastMilestone = (order?.milestone && Array.isArray(order.milestone)) && order.milestone[order.milestone.length - 1];
@@ -167,7 +169,8 @@ const OrdersPage = () => {
                         deadline: lastMilestone ? lastMilestone.dueDate : order.end_datetime,
                         progress: status === 'completed' ? 100 : (status === 'active' ? 50 : 0),
                         category: 'Project',
-                        originalStatus: order.status
+                        originalStatus: order.status,
+                        otherPartyId: order[otherPartyColumn]
                     }
                 }) || [])
             ];
@@ -229,6 +232,46 @@ const OrdersPage = () => {
     const handleViewDetails = (order: Order) => {
         setSelectedOrder(order);
         setShowDetailModal(true);
+    };
+
+    const handleMessage = async (order: Order) => {
+        const participantId = order.otherPartyId;
+        const profileId = profile.profileId;
+
+        if (!participantId || !profileId) return;
+
+        try {
+            const { data: existingConversation, error: fetchError } = await supabase
+                .from('inbox_conversation')
+                .select('id')
+                .or(`and(user1_id.eq.${profileId},user2_id.eq.${participantId}),and(user1_id.eq.${participantId},user2_id.eq.${profileId})`)
+                .maybeSingle();
+
+            let convId;
+            if (existingConversation) {
+                convId = existingConversation.id;
+            } else {
+                const { data: newConversation, error: insertError } = await supabase
+                    .from('inbox_conversation')
+                    .insert({
+                        user1_id: profileId,
+                        user2_id: participantId,
+                    })
+                    .select()
+                    .single();
+
+                if (insertError) throw insertError;
+                convId = newConversation.id;
+            }
+
+            if (profile.profileType === 'client') {
+                router.push(`/dashboard/client/messages?cnv=${convId}&ch=${participantId}`);
+            } else {
+                router.push(`/messages/room/${convId}?ch=${participantId}`);
+            }
+        } catch (error) {
+            console.error("Error creating/finding conversation:", error);
+        }
     };
 
     if (loadingData) {
@@ -381,7 +424,7 @@ const OrdersPage = () => {
 
                                 <div className="order-actions">
                                     <button className="action-btn primary" onClick={() => handleViewDetails(order)}>View Details</button>
-                                    <button className="action-btn secondary">Message</button>
+                                    <button className="action-btn secondary" onClick={() => handleMessage(order)}>Message</button>
                                 </div>
                             </div>
                         );
@@ -448,3 +491,6 @@ const OrdersPage = () => {
 };
 
 export default OrdersPage;
+
+
+
